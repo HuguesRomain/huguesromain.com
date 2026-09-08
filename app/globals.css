@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #040705;
-  --bg-panel: #0a130f;
+  --bg: #0b0a09;
+  --bg-panel: #141210;
   --surface: rgba(255, 255, 255, 0.035);
   --surface-border: rgba(255, 255, 255, 0.09);
-  --grid-line: rgba(120, 200, 170, 0.07);
-  --text: #edf2ef;
-  --text-muted: rgba(237, 242, 239, 0.55);
-  --accent: #3be8b0;
-  --ascii-dim: #123a2c;
+  --grid-line: rgba(255, 120, 60, 0.08);
+  --text: #f4f1ee;
+  --text-muted: rgba(244, 241, 238, 0.55);
+  --accent: #ff5a2b;
+  --ascii-dim: #5e2110;
 }
 
 @theme inline {
