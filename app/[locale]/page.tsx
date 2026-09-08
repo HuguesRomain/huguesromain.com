@@ -1,13 +1,11 @@
 import { notFound } from "next/navigation";
-import { AiCard } from "@/components/bento/ai-card";
-import { BlogCard } from "@/components/bento/blog-card";
-import { ClientsCard } from "@/components/bento/clients-card";
-import { ContactCard } from "@/components/bento/contact-card";
-import { ContributionsCard } from "@/components/bento/contributions-card";
-import { IntroCard } from "@/components/bento/intro-card";
-import { ProjectCard } from "@/components/bento/project-card";
-import { StackCard } from "@/components/bento/stack-card";
-import { StatusCard } from "@/components/bento/status-card";
+import { AiSection } from "@/components/home/ai-section";
+import { BlogList } from "@/components/home/blog-list";
+import { Contact } from "@/components/home/contact";
+import { Contributions } from "@/components/home/contributions";
+import { Intro } from "@/components/home/intro";
+import { Projects } from "@/components/home/projects";
+import { Stack } from "@/components/home/stack";
 import { getProfile, isLocale } from "@/content/get-profile";
 
 export default async function Home({ params }: PageProps<"/[locale]">) {
@@ -16,24 +14,16 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
   const profile = getProfile(locale);
 
   return (
-    <div className="mx-auto w-full max-w-[1120px] px-4 pb-36 pt-10 sm:px-6 sm:pt-14">
-      <div className="grid grid-cols-6 gap-4">
-        <IntroCard profile={profile} />
-        <StatusCard profile={profile} />
-        <AiCard profile={profile} />
-        <div id="projects" className="col-span-6 grid grid-cols-6 gap-4">
-          {profile.projects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
-        <ContributionsCard locale={locale} />
-        <ClientsCard locale={locale} />
-        <StackCard profile={profile} />
-        <BlogCard locale={locale} />
-        <ContactCard profile={profile} />
-      </div>
-      <footer className="pt-10">
-        <p className="text-center text-[12px] text-text-muted">
+    <div className="mx-auto flex w-full max-w-[680px] flex-col gap-16 px-6 pb-40 pt-16 sm:gap-20 sm:pt-24">
+      <Intro profile={profile} />
+      <AiSection profile={profile} />
+      <Projects profile={profile} />
+      <Contributions locale={locale} />
+      <BlogList locale={locale} />
+      <Stack profile={profile} />
+      <Contact profile={profile} />
+      <footer>
+        <p className="text-[12px] text-text-muted">
           © {new Date().getFullYear()} Hugues Romain
         </p>
       </footer>
