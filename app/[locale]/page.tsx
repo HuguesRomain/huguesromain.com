@@ -16,9 +16,9 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
     <div className="mx-auto flex w-full max-w-[760px] flex-col gap-14 px-5 pb-40 pt-16 sm:gap-16 sm:px-6 sm:pt-24">
       <Intro profile={profile} />
       <Projects profile={profile} />
+      <Stack profile={profile} />
       <Contributions locale={locale} />
       <BlogList locale={locale} />
-      <Stack profile={profile} />
       <Contact profile={profile} />
       <footer>
         <p className="text-[12px] text-text-muted">
