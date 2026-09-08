@@ -5,14 +5,14 @@ import { useState } from "react";
 import type { Profile } from "@/content/types";
 import { ChatPanel } from "@/components/chat/chat-panel";
 import { useChat } from "@/components/chat/use-chat";
-import { fakeTransport } from "@/lib/chat-transport";
+import { apiTransport } from "@/lib/chat-transport";
 import { PromptBar } from "./prompt-bar";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 export function HeroFlow({ profile }: { profile: Profile }) {
   const [open, setOpen] = useState(false);
-  const chat = useChat(fakeTransport, profile.locale);
+  const chat = useChat(apiTransport, profile.locale);
   const reducedMotion = useReducedMotion();
 
   function handleSend(text: string) {

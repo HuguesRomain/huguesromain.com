@@ -49,6 +49,35 @@ function sleep(ms: number, signal: AbortSignal): Promise<void> {
   });
 }
 
+export const apiTransport: ChatTransport = async function* (
+  messages,
+  locale,
+  signal,
+) {
+  const response = await fetch("/api/chat", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      locale,
+      messages: messages.map(({ role, content }) => ({ role, content })),
+    }),
+    signal,
+  });
+  if (response.status === 429) throw new RateLimitError();
+  if (!response.ok || !response.body) throw new Error("network");
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  try {
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      yield decoder.decode(value, { stream: true });
+    }
+  } finally {
+    reader.releaseLock();
+  }
+};
+
 export const fakeTransport: ChatTransport = async function* (
   messages,
   locale,
