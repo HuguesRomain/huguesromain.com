@@ -137,7 +137,8 @@ export const profileEn: Profile = {
     portraitHint: "HOVER TO RESOLVE",
   },
   contact: {
-    intro: "A mission, a question, an architecture to challenge? Let's talk.",
+    intro:
+      "An architecture to challenge, an agent to ship, a product to build end to end — write me, I answer fast.",
     email: "huguesromainpro@gmail.com",
     github: "https://github.com/huguesromain",
     linkedin: TODO_LINKEDIN_URL,
@@ -167,6 +168,7 @@ export const profileEn: Profile = {
       "Rate limit reached: 20 messages per hour. Come back later, or email me directly.",
     errorEmpty: "Empty response received. Ask again.",
     closeHint: "ESC TO CLOSE",
+    close: "Close the conversation",
     inputAriaLabel: "Ask the AI version of Hugues a question",
     sendAriaLabel: "Send the question",
     panelAriaLabel: "Conversation with the AI version of Hugues",

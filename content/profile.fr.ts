@@ -141,7 +141,7 @@ export const profileFr: Profile = {
   },
   contact: {
     intro:
-      "Une mission, une question, un doute sur une archi ? Parlons-en directement.",
+      "Un doute sur une archi, un agent à mettre en prod, un produit à construire de bout en bout — écrivez-moi, je réponds vite.",
     email: "huguesromainpro@gmail.com",
     github: "https://github.com/huguesromain",
     linkedin: TODO_LINKEDIN_URL,
@@ -172,6 +172,7 @@ export const profileFr: Profile = {
       "Limite atteinte : 20 messages par heure. Revenez un peu plus tard, ou écrivez-moi directement par email.",
     errorEmpty: "Réponse vide reçue. Relancez la question.",
     closeHint: "ESC POUR FERMER",
+    close: "Fermer la conversation",
     inputAriaLabel: "Posez votre question à la version IA de Hugues",
     sendAriaLabel: "Envoyer la question",
     panelAriaLabel: "Conversation avec la version IA de Hugues",

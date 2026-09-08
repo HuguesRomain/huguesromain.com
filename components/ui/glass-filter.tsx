@@ -1,4 +1,5 @@
-const DEFAULT_SCALE = 55;
+const DEFAULT_SCALE = 110;
+const EDGE_SCALE_RATIO = 1.5;
 
 export function GlassFilter({ scale = DEFAULT_SCALE }: { scale?: number }) {
   return (
@@ -14,20 +15,50 @@ export function GlassFilter({ scale = DEFAULT_SCALE }: { scale?: number }) {
         >
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.001 0.005"
-            numOctaves="1"
+            baseFrequency="0.002 0.007"
+            numOctaves="2"
             seed="17"
             result="noise"
           />
           <feComponentTransfer in="noise" result="adjusted">
-            <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+            <feFuncR type="gamma" amplitude="1" exponent="6" offset="0.5" />
+            <feFuncG type="gamma" amplitude="1" exponent="6" offset="0.5" />
           </feComponentTransfer>
-          <feGaussianBlur in="adjusted" stdDeviation="3" result="soft" />
+          <feGaussianBlur in="adjusted" stdDeviation="4" result="soft" />
           <feDisplacementMap
             id="glass-distortion-map"
             in="SourceGraphic"
             in2="soft"
             scale={scale}
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+        <filter
+          id="glass-distortion-edge"
+          x="-30%"
+          y="-30%"
+          width="160%"
+          height="160%"
+          colorInterpolationFilters="sRGB"
+        >
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.003 0.009"
+            numOctaves="2"
+            seed="17"
+            result="noise"
+          />
+          <feComponentTransfer in="noise" result="adjusted">
+            <feFuncR type="gamma" amplitude="1" exponent="6" offset="0.5" />
+            <feFuncG type="gamma" amplitude="1" exponent="6" offset="0.5" />
+          </feComponentTransfer>
+          <feGaussianBlur in="adjusted" stdDeviation="3.5" result="soft" />
+          <feDisplacementMap
+            id="glass-distortion-edge-map"
+            in="SourceGraphic"
+            in2="soft"
+            scale={Math.round(scale * EDGE_SCALE_RATIO)}
             xChannelSelector="R"
             yChannelSelector="G"
           />

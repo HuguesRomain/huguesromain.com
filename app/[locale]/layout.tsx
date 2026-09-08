@@ -3,7 +3,6 @@ import { Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
 import { GlassFilter } from "@/components/ui/glass-filter";
-import { GridLines } from "@/components/ui/grid-lines";
 import { SiteNav } from "@/components/site-nav";
 import { getProfile, isLocale, LOCALES } from "@/content/get-profile";
 import { SITE_URL } from "@/lib/site";
@@ -73,11 +72,19 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
+      suppressHydrationWarning
       className={`${instrumentSerif.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'try{if(localStorage.getItem("preferred-theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}',
+          }}
+        />
+      </head>
       <body className="flex min-h-full flex-col bg-bg font-mono text-text">
         <GlassFilter />
-        <GridLines />
         <SiteNav locale={locale} />
         <main className="relative z-10 flex-1">{children}</main>
       </body>

@@ -55,8 +55,8 @@ export function LiquidGlass({
 
   const backdropLayer: CSSProperties = distorted
     ? {
-        backdropFilter: "blur(3px)",
-        WebkitBackdropFilter: "blur(3px)",
+        backdropFilter: "blur(2px)",
+        WebkitBackdropFilter: "blur(2px)",
         filter: "url(#glass-distortion)",
         isolation: "isolate",
       }
@@ -64,6 +64,20 @@ export function LiquidGlass({
         backdropFilter: "blur(20px) saturate(130%)",
         WebkitBackdropFilter: "blur(20px) saturate(130%)",
       };
+
+  const edgeLayer: CSSProperties = {
+    backdropFilter: "blur(1px)",
+    WebkitBackdropFilter: "blur(1px)",
+    filter: "url(#glass-distortion-edge)",
+    isolation: "isolate",
+    padding: "12px",
+    maskImage: "linear-gradient(#000 0 0), linear-gradient(#000 0 0)",
+    maskClip: "content-box, border-box",
+    maskComposite: "exclude",
+    WebkitMaskImage: "linear-gradient(#000 0 0), linear-gradient(#000 0 0)",
+    WebkitMaskClip: "content-box, border-box",
+    WebkitMaskComposite: "xor",
+  };
 
   return (
     <Comp
@@ -76,6 +90,13 @@ export function LiquidGlass({
         className="absolute inset-0 z-0 overflow-hidden rounded-[inherit]"
         style={backdropLayer}
       />
+      {distorted ? (
+        <span
+          aria-hidden
+          className="absolute inset-0 z-[5] overflow-hidden rounded-[inherit]"
+          style={edgeLayer}
+        />
+      ) : null}
       <span
         aria-hidden
         className="absolute inset-0 z-10 rounded-[inherit]"

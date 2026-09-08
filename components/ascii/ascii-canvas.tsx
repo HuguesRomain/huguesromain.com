@@ -20,6 +20,11 @@ const WAVE_MAX_DELTA = 0.28; // effet max sur la luminance
 const WAVE_AMPLITUDE = 0.6 * WAVE_MAX_DELTA;
 const WAVE_PERIOD_S = 6;
 const WAVE_DIAGONAL_STEP = 0.55; // déphasage par cellule (diagonale)
+const HALO_RADIUS_CELLS = 9;
+const HALO_BOOST = 0.6;
+const HALO_LERP = 0.16;
+const HALO_RISE_S = 0.18;
+const HALO_FADE_S = 0.5;
 // Quantification luminance → (glyphe, couleur) pour dessiner par lots
 const LEVELS = 24;
 // Plafond de devicePixelRatio
@@ -47,6 +52,12 @@ function getPalette(): Palette {
     bg: parseHex(styles.getPropertyValue("--bg") || "#f6f2ec"),
   };
   return paletteCache;
+}
+
+if (typeof window !== "undefined") {
+  window.addEventListener("themechange", () => {
+    paletteCache = null;
+  });
 }
 
 function levelColor(t: number): string {
@@ -213,10 +224,63 @@ export function AsciiCanvas({
 
     const dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
     const animate = animated && canAnimateAscii();
+    const haloEnabled =
+      window.matchMedia("(pointer: fine)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    let boost = new Float32Array(0);
+    let haloStrength = 0;
+    let haloX = 0;
+    let haloY = 0;
+    let haloTargetX = 0;
+    let haloTargetY = 0;
+    let pointerInside = false;
+    let boostWindow: [number, number, number, number] | null = null;
+
+    function clearBoost() {
+      if (!boostWindow) return;
+      const [c0, c1, r0, r1] = boostWindow;
+      for (let row = r0; row <= r1; row++) {
+        for (let col = c0; col <= c1; col++) {
+          boost[row * cols + col] = 0;
+        }
+      }
+      boostWindow = null;
+    }
+
+    function stampBoost() {
+      clearBoost();
+      if (haloStrength <= 0 || cols === 0) return;
+      const radius = HALO_RADIUS_CELLS;
+      const c0 = Math.max(0, Math.floor(haloX - radius));
+      const c1 = Math.min(cols - 1, Math.ceil(haloX + radius));
+      const r0 = Math.max(0, Math.floor(haloY - radius));
+      const r1 = Math.min(rows - 1, Math.ceil(haloY + radius));
+      if (c1 < c0 || r1 < r0) return;
+      boostWindow = [c0, c1, r0, r1];
+      for (let row = r0; row <= r1; row++) {
+        for (let col = c0; col <= c1; col++) {
+          const dx = col - haloX;
+          const dy = row - haloY;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist >= radius) continue;
+          const t = 1 - dist / radius;
+          const falloff = t * t * (3 - 2 * t);
+          boost[row * cols + col] = HALO_BOOST * haloStrength * falloff;
+        }
+      }
+    }
+
+    function rebuildColors() {
+      colors.length = 0;
+      for (let level = 0; level < LEVELS; level++) {
+        colors.push(levelColor(level / (LEVELS - 1)));
+      }
+    }
+
+    rebuildColors();
     for (let level = 0; level < LEVELS; level++) {
       const t = level / (LEVELS - 1);
-      colors.push(levelColor(t));
       glyphs.push(
         RAMP[Math.min(RAMP.length - 1, Math.floor(t * RAMP.length))] ?? " ",
       );
@@ -235,7 +299,7 @@ export function AsciiCanvas({
       for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
           const i = row * cols + col;
-          let lum = base[i] ?? 0;
+          let lum = (base[i] ?? 0) + (boost[i] ?? 0);
           if (animate) {
             lum +=
               WAVE_AMPLITUDE *
@@ -284,9 +348,53 @@ export function AsciiCanvas({
       visible: true,
       render(dt: number) {
         time += dt * speedRef.current;
+        if (haloEnabled && (pointerInside || haloStrength > 0)) {
+          haloStrength = pointerInside
+            ? Math.min(1, haloStrength + dt / HALO_RISE_S)
+            : Math.max(0, haloStrength - dt / HALO_FADE_S);
+          const ease = 1 - Math.pow(1 - HALO_LERP, dt * FPS);
+          haloX += (haloTargetX - haloX) * ease;
+          haloY += (haloTargetY - haloY) * ease;
+          stampBoost();
+        } else if (boostWindow) {
+          clearBoost();
+        }
         draw();
+        if (!animate && !pointerInside && haloStrength === 0) {
+          instances.delete(instance);
+          syncLoop();
+        }
       },
     };
+
+    function onPointerMove(event: PointerEvent) {
+      if (!wrapper || disposed || cell === 0) return;
+      const rect = wrapper.getBoundingClientRect();
+      const inside =
+        event.clientX >= rect.left &&
+        event.clientX <= rect.right &&
+        event.clientY >= rect.top &&
+        event.clientY <= rect.bottom;
+      if (inside) {
+        haloTargetX = ((event.clientX - rect.left) * dpr) / cell;
+        haloTargetY = ((event.clientY - rect.top) * dpr) / cell;
+        if (!pointerInside) {
+          pointerInside = true;
+          if (haloStrength === 0) {
+            haloX = haloTargetX;
+            haloY = haloTargetY;
+          }
+          instances.add(instance);
+          syncLoop();
+        }
+      } else if (pointerInside) {
+        pointerInside = false;
+      }
+    }
+
+    function onPointerLeaveDocument() {
+      pointerInside = false;
+    }
 
     function layout() {
       if (!wrapper || !canvas || !image || disposed) return;
@@ -298,6 +406,8 @@ export function AsciiCanvas({
       cols = Math.ceil(canvas.width / cell);
       rows = Math.ceil(canvas.height / cell);
       base = sampleLuminance(image, src, cols, rows);
+      boost = new Float32Array(cols * rows);
+      boostWindow = null;
       if (ctx) {
         vignette = ctx.createRadialGradient(
           canvas.width / 2,
@@ -313,6 +423,12 @@ export function AsciiCanvas({
       }
       draw();
     }
+
+    function handleThemeChange() {
+      rebuildColors();
+      layout();
+    }
+    window.addEventListener("themechange", handleThemeChange);
 
     const resizeObserver = new ResizeObserver(layout);
     resizeObserver.observe(wrapper);
@@ -335,8 +451,18 @@ export function AsciiCanvas({
       })
       .catch(() => {});
 
+    if (haloEnabled) {
+      window.addEventListener("pointermove", onPointerMove, { passive: true });
+      document.addEventListener("pointerleave", onPointerLeaveDocument);
+    }
+
     return () => {
       disposed = true;
+      if (haloEnabled) {
+        window.removeEventListener("pointermove", onPointerMove);
+        document.removeEventListener("pointerleave", onPointerLeaveDocument);
+      }
+      window.removeEventListener("themechange", handleThemeChange);
       instances.delete(instance);
       syncLoop();
       resizeObserver.disconnect();

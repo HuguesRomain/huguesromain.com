@@ -47,15 +47,23 @@ export function PromptBar({
   disabled,
   onSend,
   onEscape,
+  autoFocus = false,
+  hideChips = false,
 }: {
   strings: ChatStrings;
   disabled: boolean;
   onSend: (text: string) => void;
-  onEscape: () => void;
+  onEscape?: () => void;
+  autoFocus?: boolean;
+  hideChips?: boolean;
 }) {
   const [value, setValue] = useState("");
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    if (autoFocus) textareaRef.current?.focus();
+  }, [autoFocus]);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -80,7 +88,7 @@ export function PromptBar({
       event.preventDefault();
       submit(value);
     }
-    if (event.key === "Escape") onEscape();
+    if (event.key === "Escape") onEscape?.();
   }
 
   function autoGrow() {
@@ -129,19 +137,21 @@ export function PromptBar({
           </LiquidGlass>
         </form>
       </CornerFrame>
-      <div className="flex flex-wrap items-center justify-center gap-3">
-        {strings.chips.map((chip) => (
-          <button
-            key={chip}
-            type="button"
-            disabled={disabled}
-            onClick={() => submit(chip)}
-            className="rounded-full border border-surface-border bg-surface px-4 py-2 font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted transition-colors hover:text-text disabled:opacity-50"
-          >
-            {chip}
-          </button>
-        ))}
-      </div>
+      {hideChips ? null : (
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          {strings.chips.map((chip) => (
+            <button
+              key={chip}
+              type="button"
+              disabled={disabled}
+              onClick={() => submit(chip)}
+              className="rounded-full border border-surface-border bg-surface px-4 py-2 font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted transition-colors hover:text-text disabled:opacity-50"
+            >
+              {chip}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

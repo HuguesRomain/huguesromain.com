@@ -29,6 +29,7 @@ export interface ChatStrings {
   errorRateLimit: string;
   errorEmpty: string;
   closeHint: string;
+  close: string;
   inputAriaLabel: string;
   sendAriaLabel: string;
   panelAriaLabel: string;

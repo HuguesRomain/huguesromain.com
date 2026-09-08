@@ -62,12 +62,14 @@ function Slider({
 }
 
 export function LabClient() {
-  const [glassScale, setGlassScale] = useState(55);
+  const [glassScale, setGlassScale] = useState(110);
   const [tune, setTune] = useState<MetalTune>(DEFAULT_METAL_TUNE);
 
   useEffect(() => {
     const map = document.getElementById("glass-distortion-map");
     map?.setAttribute("scale", String(glassScale));
+    const edgeMap = document.getElementById("glass-distortion-edge-map");
+    edgeMap?.setAttribute("scale", String(Math.round(glassScale * 1.5)));
   }, [glassScale]);
 
   return (
@@ -127,7 +129,7 @@ export function LabClient() {
               label="scale"
               value={glassScale}
               min={0}
-              max={200}
+              max={250}
               step={5}
               onChange={setGlassScale}
             />

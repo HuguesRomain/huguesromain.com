@@ -1,5 +1,5 @@
+import Image from "next/image";
 import type { Profile } from "@/content/types";
-import { PortraitReveal } from "./portrait-reveal";
 import { SectionHeader } from "./section-header";
 
 export function AboutSection({ profile }: { profile: Profile }) {
@@ -20,11 +20,15 @@ export function AboutSection({ profile }: { profile: Profile }) {
             </p>
           ))}
         </div>
-        <PortraitReveal
-          src={profile.about.portrait}
-          alt={profile.about.portraitAlt}
-          hint={profile.about.portraitHint}
-        />
+        <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[4px] bg-bg-panel">
+          <Image
+            src={profile.about.portrait}
+            alt={profile.about.portraitAlt}
+            fill
+            sizes="(min-width: 768px) 380px, 90vw"
+            className="object-cover"
+          />
+        </div>
       </div>
     </section>
   );
