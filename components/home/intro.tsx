@@ -33,8 +33,8 @@ export function Intro({ profile }: { profile: Profile }) {
         </span>
         <p className="text-[13px] font-medium text-text-muted">
           {fr
-            ? "Disponible pour missions · Paris · remote friendly"
-            : "Available for work · Paris · remote friendly"}
+            ? "Disponible pour missions · Nice · remote friendly"
+            : "Available for work · Nice · remote friendly"}
         </p>
       </div>
       <div className="flex flex-col gap-4">

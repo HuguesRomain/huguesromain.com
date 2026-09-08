@@ -5,7 +5,7 @@ export const profileEn: Profile = {
   locale: "en",
   name: "Hugues Romain",
   tagline:
-    "Freelance full-stack & AI engineer · architecture, AI agents, end-to-end web & mobile products · Paris",
+    "Freelance full-stack & AI engineer · architecture, AI agents, end-to-end web & mobile products · Nice",
   heroFirstName: "Hugues",
   heroLastName: "Romain",
   sections: {
@@ -145,7 +145,7 @@ export const profileEn: Profile = {
   about: {
     paragraphs: [
       "Independent full-stack engineer since 2024 through my company Axiome, I design and build web and mobile products end to end — from architecture to production. A HETIC graduate trained through work-study at Ouihelp, Alobees and Microdoing, I now co-found aiOrigin, a platform for autonomous AI agents in the enterprise.",
-      "My ground: systems where AI meets real engineering — multi-provider agent loops, real-time streaming, durable workflows, mobile apps shipped solo. Based in Paris, working in French and English.",
+      "My ground: systems where AI meets real engineering — multi-provider agent loops, real-time streaming, durable workflows, mobile apps shipped solo. Based in Nice, working in French and English.",
     ],
     portrait: "/images/portrait.webp",
     portraitAlt: "Portrait of Hugues Romain",

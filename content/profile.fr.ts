@@ -7,7 +7,7 @@ export const profileFr: Profile = {
   locale: "fr",
   name: "Hugues Romain",
   tagline:
-    "Ingénieur full-stack & IA — freelance · architecture, agents IA, produits web & mobile de bout en bout · Paris",
+    "Ingénieur full-stack & IA — freelance · architecture, agents IA, produits web & mobile de bout en bout · Nice",
   heroFirstName: "Hugues",
   heroLastName: "Romain",
   sections: {
@@ -148,7 +148,7 @@ export const profileFr: Profile = {
   about: {
     paragraphs: [
       "Ingénieur full-stack indépendant depuis 2024 sous ma société Axiome, je conçois et construis des produits web et mobiles de bout en bout — de l'architecture à la production. Diplômé d'HETIC, formé en alternance chez Ouihelp, Alobees puis Microdoing, je co-fonde aujourd'hui aiOrigin, une plateforme d'agents IA autonomes pour l'entreprise.",
-      "Mon terrain : les systèmes où l'IA rencontre la vraie ingénierie — boucles d'agents multi-providers, streaming temps réel, workflows durables, apps mobiles publiées en solo. Basé à Paris, je travaille en français comme en anglais.",
+      "Mon terrain : les systèmes où l'IA rencontre la vraie ingénierie — boucles d'agents multi-providers, streaming temps réel, workflows durables, apps mobiles publiées en solo. Basé à Nice, je travaille en français comme en anglais.",
     ],
     portrait: "/images/portrait.webp",
     portraitAlt: "Portrait de Hugues Romain",

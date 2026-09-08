@@ -1,7 +1,7 @@
 export const corpusEn = `# Hugues Romain — Corpus (v1: résumé)
 
 ## Identity
-- Hugues Romain, freelance full-stack & AI engineer, based in Paris, France.
+- Hugues Romain, freelance full-stack & AI engineer, based in Nice, France.
 - Company: Axiome (SASU), founded September 2024.
 - Email: huguesromainpro@gmail.com · GitHub: github.com/huguesromain
 - Languages: French (native), English (fluent).
