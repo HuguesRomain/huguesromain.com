@@ -1,4 +1,4 @@
-import { createAnthropic } from "@ai-sdk/anthropic";
+import { createXai } from "@ai-sdk/xai";
 import { APICallError, streamText } from "ai";
 import { buildSystemPrompt } from "@/content/persona";
 import type { Locale } from "@/content/types";
@@ -6,7 +6,7 @@ import { getContext } from "@/lib/get-context";
 
 export const runtime = "nodejs";
 
-const CHAT_MODEL = "claude-sonnet-4-5";
+const CHAT_MODEL = "grok-4.20-non-reasoning-latest";
 const MAX_INPUT_LENGTH = 500;
 const MAX_HISTORY_MESSAGES = 24;
 const MAX_OUTPUT_TOKENS = 700;
@@ -60,12 +60,9 @@ function parseBody(body: unknown): {
 }
 
 function chatModel() {
-  const workspaceId = process.env.ANTHROPIC_WORKSPACE_ID?.trim();
-  return createAnthropic({
-    headers: workspaceId
-      ? { "anthropic-workspace-id": workspaceId }
-      : undefined,
-  })(CHAT_MODEL);
+  return createXai({
+    apiKey: process.env.XAI_API_KEY,
+  }).chat(CHAT_MODEL);
 }
 
 function errorMessage(error: unknown): string {
@@ -74,19 +71,26 @@ function errorMessage(error: unknown): string {
   return "";
 }
 
-function isWorkspaceRequiredError(error: unknown): boolean {
-  const message = errorMessage(error);
-  return (
-    message.includes("anthropic-workspace-id") ||
-    message.includes("not scoped to a workspace")
-  );
-}
-
 function isCreditError(error: unknown): boolean {
   const message = errorMessage(error).toLowerCase();
   return (
-    message.includes("credit balance") ||
-    message.includes("too low to access the anthropic api")
+    message.includes("credit") ||
+    message.includes("quota") ||
+    message.includes("insufficient") ||
+    message.includes("spending limit") ||
+    message.includes("billing")
+  );
+}
+
+function isAuthError(error: unknown): boolean {
+  const message = errorMessage(error).toLowerCase();
+  const status = APICallError.isInstance(error) ? error.statusCode : undefined;
+  return (
+    status === 401 ||
+    message.includes("incorrect api key") ||
+    message.includes("invalid api key") ||
+    message.includes("unauthorized") ||
+    message.includes("authentication")
   );
 }
 
@@ -135,13 +139,13 @@ function creditFallbackResponse(locale: Locale): Response {
 function providerErrorResponse(error: unknown, locale: Locale): Response {
   debugChatError(error);
   if (isCreditError(error)) return creditFallbackResponse(locale);
-  if (isWorkspaceRequiredError(error)) {
-    return Response.json({ error: "workspace_required" }, { status: 503 });
+  if (isAuthError(error)) {
+    return Response.json({ error: "xai_unauthorized" }, { status: 503 });
   }
   const status = APICallError.isInstance(error) ? error.statusCode : undefined;
   const httpStatus =
     typeof status === "number" && status >= 400 && status < 600 ? status : 502;
-  return Response.json({ error: "upstream" }, { status: httpStatus });
+  return Response.json({ error: "xai_upstream" }, { status: httpStatus });
 }
 
 async function toChatTextResponse(
@@ -198,7 +202,7 @@ async function toChatTextResponse(
 }
 
 export async function POST(request: Request) {
-  if (!process.env.ANTHROPIC_API_KEY) {
+  if (!process.env.XAI_API_KEY) {
     return Response.json({ error: "not_configured" }, { status: 503 });
   }
 
