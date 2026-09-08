@@ -37,35 +37,16 @@ const MONTHS_EN = [
 export async function Contributions({ locale }: { locale: Locale }) {
   const fr = locale === "fr";
   const data = await getContributions();
-  if (!data || data.days.length === 0) return null;
+  if (!data || data.weeks.length === 0) return null;
 
-  const days = data.days;
-  const firstWeekday = new Date(days[0]!.date).getDay();
-  const leadingEmpty = (firstWeekday + 6) % 7;
-  const weeks: ((typeof days)[number] | null)[][] = [];
-  let current: ((typeof days)[number] | null)[] = Array.from(
-    { length: leadingEmpty },
-    () => null,
-  );
-  for (const day of days) {
-    current.push(day);
-    if (current.length === 7) {
-      weeks.push(current);
-      current = [];
-    }
-  }
-  if (current.length > 0) {
-    while (current.length < 7) current.push(null);
-    weeks.push(current);
-  }
-
+  const weeks = data.weeks;
   const months = fr ? MONTHS_FR : MONTHS_EN;
   const monthLabels: { index: number; label: string }[] = [];
   let lastMonth = -1;
   weeks.forEach((week, index) => {
     const firstDay = week.find((day) => day !== null);
     if (!firstDay) return;
-    const month = new Date(firstDay.date).getMonth();
+    const month = new Date(`${firstDay.date}T00:00:00Z`).getUTCMonth();
     if (month !== lastMonth) {
       monthLabels.push({ index, label: months[month] ?? "" });
       lastMonth = month;
