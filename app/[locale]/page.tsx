@@ -1,13 +1,16 @@
+import { notFound } from "next/navigation";
 import { Hero } from "@/components/hero/hero";
 import { AboutSection } from "@/components/sections/about";
 import { ContactSection } from "@/components/sections/contact";
 import { StackSection } from "@/components/sections/stack";
 import { WorkSection } from "@/components/sections/work";
-import { profileFr } from "@/content/profile.fr";
+import { getProfile, isLocale } from "@/content/get-profile";
 
-const profile = profileFr;
+export default async function Home({ params }: PageProps<"/[locale]">) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  const profile = getProfile(locale);
 
-export default function Home() {
   return (
     <>
       <Hero profile={profile} />
