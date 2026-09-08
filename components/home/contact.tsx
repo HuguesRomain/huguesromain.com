@@ -3,6 +3,7 @@ import {
   TODO_BOOKING_URL,
   TODO_LINKEDIN_URL,
 } from "@/content/profile.fr";
+import { Card } from "./card";
 import { Section } from "./section";
 
 export function Contact({ profile }: { profile: Profile }) {
@@ -13,7 +14,7 @@ export function Contact({ profile }: { profile: Profile }) {
 
   return (
     <Section id="contact" title="Contact">
-      <div className="flex flex-col gap-5">
+      <Card className="flex flex-col gap-5 p-6 sm:p-8">
         <p className="max-w-[480px] text-[15px] leading-[1.65] text-text-muted">
           {profile.contact.intro}
         </p>
@@ -53,7 +54,7 @@ export function Contact({ profile }: { profile: Profile }) {
             </a>
           ) : null}
         </div>
-      </div>
+      </Card>
     </Section>
   );
 }

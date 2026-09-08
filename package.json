@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^4.0.49",
-    "@paper-design/shaders": "^0.0.80",
     "ai": "^7.0.93",
     "gray-matter": "^4.0.3",
     "motion": "^13.2.0",

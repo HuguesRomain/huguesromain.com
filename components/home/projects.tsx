@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Profile, Project } from "@/content/types";
+import { Card } from "./card";
 import { Section } from "./section";
 
 type ProjectIcon = {
@@ -28,45 +29,43 @@ const ICONS: Record<string, ProjectIcon> = {
   },
 };
 
-function ProjectRow({ project }: { project: Project }) {
+function ProjectCard({ project }: { project: Project }) {
   const icon = ICONS[project.slug];
   return (
-    <li>
-      <div className="group -mx-3 flex items-start gap-4 rounded-2xl px-3 py-3 transition-colors hover:bg-surface">
+    <Card className="bento-hover flex flex-col gap-4 p-5 sm:p-6">
+      <div className="flex items-center justify-between gap-3">
         <span
-          className={`flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-[12px] border border-surface-border ${icon?.padding ?? ""}`}
+          className={`flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-[13px] border border-surface-border ${icon?.padding ?? ""}`}
           style={{ background: icon?.background ?? "var(--surface)" }}
         >
           {icon?.image ? (
             <Image
               src={icon.image}
               alt=""
-              width={44}
-              height={44}
+              width={48}
+              height={48}
               className="size-full object-contain"
             />
           ) : (
-            <span className="text-[15px] font-semibold text-white">A</span>
+            <span className="text-[16px] font-semibold text-white">A</span>
           )}
         </span>
-        <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-          <div className="flex items-baseline justify-between gap-3">
-            <h3 className="text-[15px] font-semibold tracking-[-0.01em]">
-              {project.title}
-            </h3>
-            <span className="shrink-0 text-[12px] text-text-muted">
-              {project.period}
-            </span>
-          </div>
-          <p className="text-[13px] font-medium text-text-muted">
-            {project.role}
-          </p>
-          <p className="text-[14px] leading-[1.55] text-text-muted">
-            {project.context}
-          </p>
-        </div>
+        <span className="shrink-0 text-[12px] text-text-muted">
+          {project.period}
+        </span>
       </div>
-    </li>
+      <div className="flex flex-col gap-1">
+        <h3 className="text-[16px] font-semibold tracking-[-0.01em]">
+          {project.title}
+        </h3>
+        <p className="text-[13px] font-medium text-text-muted">
+          {project.role}
+        </p>
+      </div>
+      <p className="text-[14px] leading-[1.55] text-text-muted">
+        {project.context}
+      </p>
+    </Card>
   );
 }
 
@@ -74,11 +73,11 @@ export function Projects({ profile }: { profile: Profile }) {
   const fr = profile.locale === "fr";
   return (
     <Section id="projects" title={fr ? "Projets" : "Projects"}>
-      <ul className="flex flex-col gap-1">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {profile.projects.map((project) => (
-          <ProjectRow key={project.slug} project={project} />
+          <ProjectCard key={project.slug} project={project} />
         ))}
-      </ul>
+      </div>
       <p className="text-[13px] leading-[1.6] text-text-muted">
         {fr
           ? "Également en freelance pour Savoir, Lead Genius, Teamway, Champagne Dupont, HomeExchange et Aleteia."

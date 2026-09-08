@@ -14,7 +14,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
   const profile = getProfile(locale);
 
   return (
-    <div className="mx-auto flex w-full max-w-[680px] flex-col gap-16 px-6 pb-40 pt-16 sm:gap-20 sm:pt-24">
+    <div className="mx-auto flex w-full max-w-[760px] flex-col gap-14 px-5 pb-40 pt-16 sm:gap-16 sm:px-6 sm:pt-24">
       <Intro profile={profile} />
       <AiSection profile={profile} />
       <Projects profile={profile} />

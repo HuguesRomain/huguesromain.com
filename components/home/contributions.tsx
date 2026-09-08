@@ -1,5 +1,6 @@
 import type { Locale } from "@/content/types";
 import { getContributions, GITHUB_PROFILE_URL } from "@/lib/github";
+import { Card } from "./card";
 import { Section } from "./section";
 
 const LEVEL_PERCENT = [0, 25, 50, 75, 100] as const;
@@ -85,8 +86,8 @@ export async function Contributions({ locale }: { locale: Locale }) {
         </a>
       }
     >
-      <div className="flex flex-col gap-3 overflow-x-auto rounded-2xl border border-surface-border p-5">
-        <div className="flex min-w-[600px] flex-col gap-1.5">
+      <Card className="flex flex-col gap-3 p-5 sm:p-6">
+        <div className="flex flex-col gap-1.5">
           <div className="relative h-4">
             {monthLabels.map((month) => (
               <span
@@ -98,9 +99,14 @@ export async function Contributions({ locale }: { locale: Locale }) {
               </span>
             ))}
           </div>
-          <div className="flex justify-between gap-[3px]">
+          <div
+            className="grid gap-[2px]"
+            style={{
+              gridTemplateColumns: `repeat(${weeks.length}, minmax(0, 1fr))`,
+            }}
+          >
             {weeks.map((week, weekIndex) => (
-              <div key={weekIndex} className="flex flex-col gap-[3px]">
+              <div key={weekIndex} className="grid grid-rows-7 gap-[2px]">
                 {week.map((day, dayIndex) => (
                   <span
                     key={day?.date ?? `empty-${weekIndex}-${dayIndex}`}
@@ -109,8 +115,9 @@ export async function Contributions({ locale }: { locale: Locale }) {
                         ? `${day.count} ${fr ? "contributions le" : "contributions on"} ${day.date}`
                         : undefined
                     }
-                    className="size-[9px] rounded-[2.5px]"
+                    className="w-full rounded-[25%]"
                     style={{
+                      aspectRatio: "1 / 1",
                       background:
                         day && day.level > 0
                           ? `color-mix(in srgb, var(--accent) ${LEVEL_PERCENT[day.level]}%, var(--contrib-empty))`
@@ -130,7 +137,7 @@ export async function Contributions({ locale }: { locale: Locale }) {
             ? "contributions sur les 12 derniers mois"
             : "contributions in the last year"}
         </p>
-      </div>
+      </Card>
     </Section>
   );
 }

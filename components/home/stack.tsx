@@ -3,6 +3,7 @@ import {
   getStackIcon,
   getStackInitial,
 } from "@/components/sections/stack-icons";
+import { Card } from "./card";
 import { Section } from "./section";
 
 function StackChip({ item }: { item: string }) {
@@ -33,7 +34,7 @@ function StackChip({ item }: { item: string }) {
 export function Stack({ profile }: { profile: Profile }) {
   return (
     <Section id="stack" title="Stack">
-      <div className="flex flex-col gap-4">
+      <Card className="flex flex-col gap-5 p-6 sm:p-7">
         {profile.stack.map((group) => (
           <div key={group.label} className="flex flex-col gap-2">
             <p className="text-[12px] font-medium text-text-muted">
@@ -46,7 +47,7 @@ export function Stack({ profile }: { profile: Profile }) {
             </div>
           </div>
         ))}
-      </div>
+      </Card>
     </Section>
   );
 }
