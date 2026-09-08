@@ -3,7 +3,7 @@ import {
   TODO_BOOKING_URL,
   TODO_LINKEDIN_URL,
 } from "@/content/profile.fr";
-import { Card } from "./card";
+import { LiquidGlass } from "@/components/ui/liquid-glass";
 import { Section } from "./section";
 
 export function Contact({ profile }: { profile: Profile }) {
@@ -14,47 +14,62 @@ export function Contact({ profile }: { profile: Profile }) {
 
   return (
     <Section id="contact" title="Contact">
-      <Card className="flex flex-col gap-5 p-6 sm:p-8">
-        <p className="max-w-[480px] text-[15px] leading-[1.65] text-text-muted">
-          {profile.contact.intro}
-        </p>
-        <a
-          href={`mailto:${profile.contact.email}`}
-          className="contact-email self-start text-[clamp(1.15rem,3vw,1.5rem)] font-semibold tracking-[-0.02em]"
-        >
-          {profile.contact.email}
-        </a>
-        <div className="flex flex-wrap items-center gap-2.5">
-          <a
-            href={profile.contact.github}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex h-10 items-center rounded-full border border-surface-border px-5 text-[13px] font-medium text-text transition-colors hover:bg-surface"
-          >
-            GitHub
-          </a>
-          {hasLinkedin ? (
-            <a
-              href={profile.contact.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-10 items-center rounded-full border border-surface-border px-5 text-[13px] font-medium text-text transition-colors hover:bg-surface"
-            >
-              LinkedIn
-            </a>
-          ) : null}
-          {hasBooking ? (
-            <a
-              href={profile.contact.booking}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-10 items-center rounded-full bg-text px-5 text-[13px] font-medium text-bg transition-opacity hover:opacity-85"
-            >
-              {profile.contact.bookingLabel}
-            </a>
-          ) : null}
+      <div className="contact-ember">
+        <div aria-hidden className="contact-ember-stage">
+          <span className="contact-ember-core" />
+          <span className="contact-ember-ash" />
+          <span className="contact-ember-spark" />
+          <span className="contact-ember-grain" />
         </div>
-      </Card>
+        <LiquidGlass
+          radius={24}
+          className="w-full"
+          contentClassName="flex min-h-[228px] flex-col justify-between gap-8 p-7 sm:min-h-[260px] sm:px-8 sm:py-9"
+        >
+          <p className="max-w-[28rem] text-[15px] leading-[1.65] text-text-muted">
+            {profile.contact.intro}
+          </p>
+          <a
+            href={`mailto:${profile.contact.email}`}
+            className="contact-email max-w-full self-start break-words text-[clamp(1.12rem,3.4vw,1.62rem)] font-semibold tracking-[-0.03em]"
+          >
+            {profile.contact.email}
+          </a>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <a
+              href={profile.contact.github}
+              target="_blank"
+              rel="noreferrer"
+              className="contact-meta"
+            >
+              GitHub
+              <span aria-hidden>↗</span>
+            </a>
+            {hasLinkedin ? (
+              <a
+                href={profile.contact.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="contact-meta"
+              >
+                LinkedIn
+                <span aria-hidden>↗</span>
+              </a>
+            ) : null}
+            {hasBooking ? (
+              <a
+                href={profile.contact.booking}
+                target="_blank"
+                rel="noreferrer"
+                className="contact-meta"
+              >
+                {profile.contact.bookingLabel}
+                <span aria-hidden>↗</span>
+              </a>
+            ) : null}
+          </div>
+        </LiquidGlass>
+      </div>
     </Section>
   );
 }
