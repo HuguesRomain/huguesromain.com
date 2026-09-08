@@ -27,6 +27,11 @@ const ICONS: Record<string, ProjectIcon> = {
     background: "#fdf3ef",
     padding: "p-1.5",
   },
+  thetribe: {
+    image: "/images/projects/thetribe-logo.png",
+    background: "#01012b",
+    padding: "p-1.5",
+  },
 };
 
 function ProjectCard({ project }: { project: Project }) {
@@ -78,11 +83,6 @@ export function Projects({ profile }: { profile: Profile }) {
           <ProjectCard key={project.slug} project={project} />
         ))}
       </div>
-      <p className="text-[13px] leading-[1.6] text-text-muted">
-        {fr
-          ? "Également en freelance pour Savoir, Lead Genius, Teamway, Champagne Dupont, HomeExchange et Aleteia."
-          : "Also worked freelance for Savoir, Lead Genius, Teamway, Champagne Dupont, HomeExchange and Aleteia."}
-      </p>
     </Section>
   );
 }

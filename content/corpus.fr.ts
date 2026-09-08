@@ -39,6 +39,12 @@ Studio d'apps mobiles grand public, conçu et opéré en solo.
 - Instrumentation PostHog sur tout le portfolio : plan de tracking, funnels d'onboarding, suivi activation / rétention, itérations produit pilotées par la donnée.
 - Monétisation par abonnement (paywalls Superwall) et suivi d'erreurs Sentry sur chaque app.
 
+### theTribe — Ingénieur Full-Stack freelance (oct. 2025 – 2026)
+Missions full-stack via theTribe, agence produit française, pour plusieurs de ses clients.
+- Teamway : évolutions, corrections et releases iOS / Android de l'app mobile Workplace 365 (React Native).
+- HomeExchange Day : plateforme événementielle (front React, back Express, PostgreSQL) — intégration Luma, parcours d'inscription hôtes / invités, exports de données.
+- Aleteia : média en ligne (Next.js, GraphQL) — refonte des pages d'archives et du header, recherche Algolia, internationalisation, migration CSS vers Tailwind.
+
 ### Ida — Full-Stack Engineer (sept. 2024 – sept. 2025)
 Plateforme B2B de commande de produits frais pour les épiceries de quartier.
 - Conception et construction du cœur du produit : commande et gestion des produits frais (FastAPI, React).

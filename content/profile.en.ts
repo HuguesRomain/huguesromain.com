@@ -73,6 +73,21 @@ export const profileEn: Profile = {
       image: "/images/work-ida.webp",
       imageAlt: "Wind-sculpted dune ridge in darkness",
     },
+    {
+      slug: "thetribe",
+      title: "theTribe",
+      role: "Full-Stack Engineer (freelance)",
+      period: "2025 — 2026",
+      context:
+        "Full-stack missions through theTribe, a French product agency, for several of its clients.",
+      bullets: [
+        "Teamway — Workplace 365 mobile app (React Native): features, fixes and iOS / Android releases",
+        "HomeExchange Day — event platform (React, Express, PostgreSQL): Luma integration, host / guest registration flows",
+        "Aleteia — online media (Next.js, GraphQL): rebuilt archive pages and header, Algolia search, i18n, CSS migration to Tailwind",
+      ],
+      image: "/images/projects/thetribe-logo.png",
+      imageAlt: "theTribe logo",
+    },
   ],
   stack: [
     { label: "Languages", items: ["TypeScript", "JavaScript", "Python", "SQL"] },
