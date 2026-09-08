@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { GlassFilter } from "@/components/ui/glass-filter";
 import { GridLines } from "@/components/ui/grid-lines";
 import { SiteNav } from "@/components/site-nav";
 
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${instrumentSerif.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-bg font-mono text-text">
+        <GlassFilter />
         <GridLines />
         <SiteNav />
         <main className="relative z-10 flex-1">{children}</main>
