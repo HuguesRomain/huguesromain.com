@@ -64,7 +64,14 @@ export const apiTransport: ChatTransport = async function* (
     signal,
   });
   if (response.status === 429) throw new RateLimitError();
-  if (!response.ok || !response.body) throw new Error("network");
+  const contentType = response.headers.get("content-type") ?? "";
+  if (
+    !response.ok ||
+    !response.body ||
+    contentType.includes("application/json")
+  ) {
+    throw new Error("network");
+  }
   const reader = response.body.getReader();
   const decoder = new TextDecoder();
   try {
