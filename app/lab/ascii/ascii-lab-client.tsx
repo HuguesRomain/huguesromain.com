@@ -24,6 +24,15 @@ const DEMO_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="50
 
 const DEMO_SRC = `data:image/svg+xml,${encodeURIComponent(DEMO_SVG)}`;
 
+const REAL_IMAGES = [
+  { src: "/images/hero-terraces.webp", label: "hero — rizières", cell: 16 },
+  { src: "/images/work-aiorigin.webp", label: "aiorigin — sculpture", cell: 8 },
+  { src: "/images/work-sinea.webp", label: "sinea — treillis", cell: 8 },
+  { src: "/images/work-axiome.webp", label: "axiome — circuit", cell: 8 },
+  { src: "/images/work-ida.webp", label: "ida — dunes", cell: 8 },
+  { src: "/images/portrait.webp", label: "portrait", cell: 12 },
+] as const;
+
 export function AsciiLabClient() {
   const [speed, setSpeed] = useState(1);
   const [animated, setAnimated] = useState(true);
@@ -68,26 +77,20 @@ export function AsciiLabClient() {
       </div>
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        <div className="flex flex-col gap-3">
-          <MonoLabel>cellSize 8 — vignette projet</MonoLabel>
-          <AsciiCanvas
-            src={DEMO_SRC}
-            cellSize={8}
-            animated={animated}
-            speed={speed}
-            className="aspect-[16/10] w-full bg-bg-panel"
-          />
-        </div>
-        <div className="flex flex-col gap-3">
-          <MonoLabel>cellSize 12 — portrait</MonoLabel>
-          <AsciiCanvas
-            src={DEMO_SRC}
-            cellSize={12}
-            animated={animated}
-            speed={speed}
-            className="aspect-[16/10] w-full bg-bg-panel"
-          />
-        </div>
+        {REAL_IMAGES.map((image) => (
+          <div key={image.src} className="flex flex-col gap-3">
+            <MonoLabel>
+              {image.label} — cellSize {image.cell}
+            </MonoLabel>
+            <AsciiCanvas
+              src={image.src}
+              cellSize={image.cell}
+              animated={animated}
+              speed={speed}
+              className="aspect-[16/10] w-full bg-bg-panel"
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
