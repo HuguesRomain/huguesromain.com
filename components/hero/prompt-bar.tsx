@@ -8,7 +8,7 @@ import {
 } from "react";
 import type { ChatStrings } from "@/content/types";
 import { LiquidGlass } from "@/components/ui/liquid-glass";
-import { GlassButton } from "@/components/ui/glass-button";
+import { AskButton } from "@/components/ui/ask-button";
 
 const PLACEHOLDER_INTERVAL_MS = 4000;
 const MAX_INPUT_LENGTH = 500;
@@ -97,13 +97,13 @@ export function PromptBar({
             onKeyDown={onKeyDown}
             className="prompt-input min-h-[42px] flex-1 resize-none bg-transparent py-2.5 text-[15px] leading-[1.6] text-text placeholder:text-[14px] placeholder:text-text-muted"
           />
-          <GlassButton
+          <AskButton
             ariaLabel={strings.sendAriaLabel}
             height={42}
             disabled={disabled}
           >
             ASK
-          </GlassButton>
+          </AskButton>
         </LiquidGlass>
       </form>
       {hideChips ? null : (

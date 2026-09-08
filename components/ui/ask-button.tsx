@@ -7,14 +7,12 @@ import {
   type MouseEvent as ReactMouseEvent,
   type ReactNode,
 } from "react";
-import { LiquidGlass } from "@/components/ui/liquid-glass";
 
-const RING_WIDTH = 5;
 const RIPPLE_MS = 600;
 
 type Ripple = { id: number; x: number; y: number; size: number };
 
-type GlassButtonProps = {
+type AskButtonProps = {
   children: ReactNode;
   ariaLabel: string;
   className?: string;
@@ -24,7 +22,7 @@ type GlassButtonProps = {
   onClick?: (event: ReactMouseEvent<HTMLButtonElement>) => void;
 };
 
-export function GlassButton({
+export function AskButton({
   children,
   ariaLabel,
   className = "",
@@ -32,7 +30,7 @@ export function GlassButton({
   type = "submit",
   disabled = false,
   onClick,
-}: GlassButtonProps) {
+}: AskButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [ripples, setRipples] = useState<Ripple[]>([]);
 
@@ -58,45 +56,36 @@ export function GlassButton({
     [onClick],
   );
 
-  const coreHeight = height - RING_WIDTH * 2;
-
   return (
-    <LiquidGlass
-      radius={height / 2}
-      className={`shrink-0 transition-opacity duration-200 ${disabled ? "opacity-50" : ""} ${className}`}
+    <button
+      ref={buttonRef}
+      type={type}
+      aria-label={ariaLabel}
+      disabled={disabled}
+      onClick={handleClick}
+      className={`relative inline-flex shrink-0 items-center justify-center overflow-hidden text-[13px] font-medium text-[#f4f1ee] transition-[filter,opacity] duration-200 hover:enabled:brightness-125 disabled:opacity-50 ${className}`}
+      style={{
+        height,
+        minWidth: height,
+        borderRadius: height / 2,
+        background: "linear-gradient(180deg, #202020, #000)",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.25)",
+      }}
     >
-      <button
-        ref={buttonRef}
-        type={type}
-        aria-label={ariaLabel}
-        disabled={disabled}
-        onClick={handleClick}
-        className="relative inline-flex items-center justify-center overflow-hidden text-[13px] font-medium text-[#f4f1ee] transition-[filter] duration-200 hover:enabled:brightness-125"
-        style={{
-          height: coreHeight,
-          minWidth: coreHeight,
-          margin: RING_WIDTH,
-          borderRadius: coreHeight / 2,
-          background: "linear-gradient(180deg, #202020, #000)",
-          boxShadow:
-            "inset 0 1px 1px rgba(255,255,255,0.14), inset 0 -1px 1px rgba(0,0,0,0.5)",
-        }}
-      >
-        {ripples.map((ripple) => (
-          <span
-            key={ripple.id}
-            aria-hidden
-            className="metal-ripple absolute z-0 rounded-full"
-            style={{
-              left: ripple.x,
-              top: ripple.y,
-              width: ripple.size,
-              height: ripple.size,
-            }}
-          />
-        ))}
-        <span className="relative z-10 px-4">{children}</span>
-      </button>
-    </LiquidGlass>
+      {ripples.map((ripple) => (
+        <span
+          key={ripple.id}
+          aria-hidden
+          className="metal-ripple absolute z-0 rounded-full"
+          style={{
+            left: ripple.x,
+            top: ripple.y,
+            width: ripple.size,
+            height: ripple.size,
+          }}
+        />
+      ))}
+      <span className="relative z-10 px-4">{children}</span>
+    </button>
   );
 }
