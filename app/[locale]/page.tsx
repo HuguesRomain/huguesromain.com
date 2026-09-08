@@ -7,6 +7,12 @@ import { Projects } from "@/components/home/projects";
 import { Stack } from "@/components/home/stack";
 import { getProfile, isLocale } from "@/content/get-profile";
 
+const FOOTER_ASCII = `    .:.
+   :=+=:
+  :#   #:
+ :#     #:
+:#=======#:`;
+
 export default async function Home({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
@@ -20,10 +26,16 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
       <Contributions locale={locale} />
       <BlogList locale={locale} />
       <Contact profile={profile} />
-      <footer>
+      <footer className="flex items-end justify-between gap-6">
         <p className="text-[12px] text-text-muted">
           © {new Date().getFullYear()} Hugues Romain
         </p>
+        <pre
+          aria-hidden="true"
+          className="select-none font-mono text-[10px] leading-[1.05] text-text-muted opacity-70"
+        >
+          {FOOTER_ASCII}
+        </pre>
       </footer>
     </div>
   );
