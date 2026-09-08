@@ -39,8 +39,8 @@ export default async function OpengraphImage({
           alignItems: "center",
           justifyContent: "center",
           gap: 36,
-          background: "#0b0a09",
-          border: "1px solid rgba(255,120,60,0.18)",
+          background: "#f6f2ec",
+          border: "1px solid rgba(200,70,20,0.18)",
           position: "relative",
         }}
       >
@@ -53,7 +53,7 @@ export default async function OpengraphImage({
             fontFamily: "JetBrains Mono",
             fontSize: 20,
             letterSpacing: "0.08em",
-            color: "rgba(244,241,238,0.55)",
+            color: "rgba(29,23,18,0.6)",
           }}
         >
           {`001 / ${resolved.toUpperCase()}`}
@@ -65,8 +65,8 @@ export default async function OpengraphImage({
             right: 48,
             width: 14,
             height: 14,
-            borderTop: "2px solid #ff5a2b",
-            borderRight: "2px solid #ff5a2b",
+            borderTop: "2px solid #d94314",
+            borderRight: "2px solid #d94314",
           }}
         />
         <div
@@ -76,8 +76,8 @@ export default async function OpengraphImage({
             left: 48,
             width: 14,
             height: 14,
-            borderBottom: "2px solid #ff5a2b",
-            borderLeft: "2px solid #ff5a2b",
+            borderBottom: "2px solid #d94314",
+            borderLeft: "2px solid #d94314",
           }}
         />
         <div
@@ -85,7 +85,7 @@ export default async function OpengraphImage({
             display: "flex",
             fontFamily: "Instrument Serif",
             fontSize: 132,
-            color: "#f4f1ee",
+            color: "#1d1712",
             letterSpacing: "-0.02em",
           }}
         >
@@ -97,7 +97,7 @@ export default async function OpengraphImage({
             fontFamily: "JetBrains Mono",
             fontSize: 26,
             letterSpacing: "0.08em",
-            color: "rgba(244,241,238,0.55)",
+            color: "rgba(29,23,18,0.6)",
             textTransform: "uppercase",
             maxWidth: 900,
             textAlign: "center",

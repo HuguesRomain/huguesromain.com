@@ -73,17 +73,8 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      suppressHydrationWarning
       className={`${instrumentSerif.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              'try{if(localStorage.getItem("preferred-theme")==="light")document.documentElement.dataset.theme="light"}catch(e){}',
-          }}
-        />
-      </head>
       <body className="flex min-h-full flex-col bg-bg font-mono text-text">
         <GlassFilter />
         <GridLines />

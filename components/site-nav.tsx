@@ -1,7 +1,6 @@
 import type { Locale } from "@/content/types";
 import { LiquidGlass } from "./ui/liquid-glass";
 import { LocaleSwitch } from "./locale-switch";
-import { ThemeToggle } from "./theme-toggle";
 
 const LINKS = [
   { href: "#work", label: "Work" },
@@ -44,7 +43,6 @@ export function SiteNav({ locale }: { locale: Locale }) {
         <span aria-hidden className="h-4 w-px shrink-0 bg-surface-border" />
         <div className="flex items-center gap-2.5 sm:gap-3">
           <LocaleSwitch locale={locale} />
-          <ThemeToggle locale={locale} />
         </div>
       </LiquidGlass>
     </nav>

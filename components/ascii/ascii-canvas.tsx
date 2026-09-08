@@ -42,17 +42,11 @@ function getPalette(): Palette {
   if (paletteCache) return paletteCache;
   const styles = getComputedStyle(document.documentElement);
   paletteCache = {
-    dim: parseHex(styles.getPropertyValue("--ascii-dim") || "#5e2110"),
-    accent: parseHex(styles.getPropertyValue("--accent") || "#ff5a2b"),
-    bg: parseHex(styles.getPropertyValue("--bg") || "#0b0a09"),
+    dim: parseHex(styles.getPropertyValue("--ascii-dim") || "#ecc9b4"),
+    accent: parseHex(styles.getPropertyValue("--accent") || "#d94314"),
+    bg: parseHex(styles.getPropertyValue("--bg") || "#f6f2ec"),
   };
   return paletteCache;
-}
-
-if (typeof window !== "undefined") {
-  window.addEventListener("themechange", () => {
-    paletteCache = null;
-  });
 }
 
 function levelColor(t: number): string {
@@ -220,16 +214,9 @@ export function AsciiCanvas({
     const dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
     const animate = animated && canAnimateAscii();
 
-    function rebuildColors() {
-      colors.length = 0;
-      for (let level = 0; level < LEVELS; level++) {
-        colors.push(levelColor(level / (LEVELS - 1)));
-      }
-    }
-
-    rebuildColors();
     for (let level = 0; level < LEVELS; level++) {
       const t = level / (LEVELS - 1);
+      colors.push(levelColor(t));
       glyphs.push(
         RAMP[Math.min(RAMP.length - 1, Math.floor(t * RAMP.length))] ?? " ",
       );
@@ -327,12 +314,6 @@ export function AsciiCanvas({
       draw();
     }
 
-    function handleThemeChange() {
-      rebuildColors();
-      layout();
-    }
-    window.addEventListener("themechange", handleThemeChange);
-
     const resizeObserver = new ResizeObserver(layout);
     resizeObserver.observe(wrapper);
 
@@ -358,7 +339,6 @@ export function AsciiCanvas({
       disposed = true;
       instances.delete(instance);
       syncLoop();
-      window.removeEventListener("themechange", handleThemeChange);
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
     };
