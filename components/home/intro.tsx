@@ -47,23 +47,25 @@ export function Intro({ profile }: { profile: Profile }) {
           {profile.about.paragraphs[1]}
         </p>
       </div>
-      <div className="flex items-center gap-3">
-        <a
-          href={`mailto:${profile.contact.email}`}
-          className="inline-flex h-10 items-center rounded-full bg-text px-5 text-[13px] font-medium text-bg transition-opacity hover:opacity-85"
-        >
-          {fr ? "M'écrire" : "Get in touch"}
-        </a>
-        <a
-          href={profile.contact.github}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex h-10 items-center rounded-full border border-surface-border px-5 text-[13px] font-medium text-text transition-colors hover:bg-surface"
-        >
-          GitHub
-        </a>
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-3">
+          <a
+            href={`mailto:${profile.contact.email}`}
+            className="inline-flex h-10 items-center rounded-full bg-text px-5 text-[13px] font-medium text-bg transition-opacity hover:opacity-85"
+          >
+            {fr ? "M'écrire" : "Get in touch"}
+          </a>
+          <a
+            href={profile.contact.github}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex h-10 items-center rounded-full border border-surface-border px-5 text-[13px] font-medium text-text transition-colors hover:bg-surface"
+          >
+            GitHub
+          </a>
+        </div>
+        <ProfileChat profile={profile} />
       </div>
-      <ProfileChat profile={profile} />
     </header>
   );
 }

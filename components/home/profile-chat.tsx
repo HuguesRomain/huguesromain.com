@@ -36,12 +36,12 @@ export function ProfileChat({ profile }: { profile: Profile }) {
   }
 
   return (
-    <div className="flex flex-col gap-3">
-      <p className="text-[13px] text-text-muted">
-        {fr
-          ? "Ou posez-moi directement vos questions — une version IA de moi répond."
-          : "Or just ask me — an AI version of me answers."}
-      </p>
+    <div className="flex flex-col gap-2">
+      {!open ? (
+        <p className="text-[13px] font-semibold tracking-[-0.01em]">
+          {fr ? "Parle-moi" : "Talk to me now"}
+        </p>
+      ) : null}
       <div className="flex min-h-[104px] w-full items-start">
         {!open && (
           <motion.div
@@ -56,6 +56,7 @@ export function ProfileChat({ profile }: { profile: Profile }) {
               disabled={chat.status === "streaming"}
               onSend={handleSend}
               autoFocus={everOpened}
+              align="start"
             />
           </motion.div>
         )}

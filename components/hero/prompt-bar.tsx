@@ -20,6 +20,7 @@ export function PromptBar({
   onEscape,
   autoFocus = false,
   hideChips = false,
+  align = "center",
 }: {
   strings: ChatStrings;
   disabled: boolean;
@@ -27,6 +28,7 @@ export function PromptBar({
   onEscape?: () => void;
   autoFocus?: boolean;
   hideChips?: boolean;
+  align?: "center" | "start";
 }) {
   const [value, setValue] = useState("");
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
@@ -69,8 +71,16 @@ export function PromptBar({
     textarea.style.height = `${Math.min(textarea.scrollHeight, 120)}px`;
   }
 
+  const start = align === "start";
+
   return (
-    <div className="flex w-full max-w-[640px] flex-col items-center gap-4">
+    <div
+      className={
+        start
+          ? "flex w-full flex-col items-stretch gap-3"
+          : "flex w-full max-w-[640px] flex-col items-center gap-4"
+      }
+    >
       <form
         onSubmit={(event) => {
           event.preventDefault();
@@ -107,14 +117,24 @@ export function PromptBar({
         </LiquidGlass>
       </form>
       {hideChips ? null : (
-        <div className="flex flex-wrap items-center justify-center gap-2.5">
+        <div
+          className={
+            start
+              ? "flex flex-wrap items-center justify-start gap-2"
+              : "flex flex-wrap items-center justify-center gap-2.5"
+          }
+        >
           {strings.chips.map((chip) => (
             <button
               key={chip}
               type="button"
               disabled={disabled}
               onClick={() => submit(chip)}
-              className="rounded-full border border-surface-border bg-surface px-4 py-2 text-[13px] font-medium text-text-muted transition-colors hover:text-text disabled:opacity-50"
+              className={
+                start
+                  ? "rounded-full border border-surface-border px-3.5 py-1.5 text-[12px] font-medium text-text-muted transition-colors hover:text-text disabled:opacity-50"
+                  : "rounded-full border border-surface-border bg-surface px-4 py-2 text-[13px] font-medium text-text-muted transition-colors hover:text-text disabled:opacity-50"
+              }
             >
               {chip}
             </button>
