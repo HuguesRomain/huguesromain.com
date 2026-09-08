@@ -1,0 +1,58 @@
+---
+title: "Multi-provider LLM: why and how to abstract"
+description: "Making four LLM providers interchangeable without touching agent code: the reasons to do it, the architecture that held up, and the traps along the way."
+date: "2026-07-07"
+tags: ["LLM", "LiteLLM", "Architecture", "Claude Agent SDK"]
+published: true
+---
+
+When you build a product on top of an LLM, the temptation is to code directly against one provider's SDK. It is fast, the docs are good, and it works. Six months later that choice becomes a wall: a customer requires a specific provider for compliance reasons, a new model ships and beats yours on your exact use case, or your main provider goes down on a Monday morning. On the aiOrigin platform, four providers — Anthropic, OpenAI, Gemini, Mistral — are interchangeable without changing a single line of agent code. Here is why, and how.
+
+## Why abstract from day one
+
+Three concrete reasons, all lived through:
+
+- **Sales negotiations.** In B2B, the provider choice is sometimes imposed by the customer, not by you. Being able to answer "yes, we support yours" without a re-architecture is a selling point.
+- **Price-performance shifts every quarter.** The best model for an intent router is not the best model for writing a prospecting email. Without an abstraction, every model change is a project; with one, it is a line of configuration.
+- **Resilience.** A provider outage must not mean a platform outage. Automatic fallback is only possible if the call is already normalized.
+
+## The architecture: two layers, not one
+
+The classic mistake is wanting a single abstraction that covers everything. In practice, two distinct needs coexist.
+
+The **call layer** normalizes the interface: message formats, tool calls, streaming, token accounting. That is LiteLLM's job — it exposes every provider behind an OpenAI-compatible API. We did not rewrite it, we configured it.
+
+The **agentic layer** runs the loop: which tool to call, how to interpret the result, when to stop. In our case the Claude Agent SDK drives that loop, and the call layer underneath decides which model actually executes each turn. Agent code only ever sees aliases:
+
+```python
+MODEL_ALIASES = {
+    "agent-core": ["anthropic/claude-sonnet-4-5", "openai/gpt-5.2"],
+    "intent-router": ["mistral/mistral-medium", "gemini/gemini-flash"],
+}
+
+async def complete(alias: str, messages: list[Message], **kwargs):
+    for model in MODEL_ALIASES[alias]:
+        try:
+            return await litellm.acompletion(
+                model=model, messages=messages, **kwargs
+            )
+        except ProviderError as err:
+            logger.warning("provider failed, falling back", model=model, err=err)
+    raise AllProvidersDownError(alias)
+```
+
+The agent asks for `agent-core`, never for a specific model. The alias-to-models mapping lives in configuration, per tenant when needed. Switching providers for a customer means editing one entry.
+
+## The traps the docs don't show you
+
+**Tool calls are not actually standardized.** Every provider speaks "function calling", but behavioral differences are real: some models return malformed JSON arguments under load, others struggle with deeply nested schemas. Our countermeasures: flat tool schemas, systematic Pydantic validation on receipt, and an automatic re-ask when arguments are invalid.
+
+**Streaming differs in subtle ways.** Chunk granularity, where tool-call events appear in the flow, how end-of-stream is signaled: each provider has quirks. We normalize everything into typed internal events right at the LiteLLM boundary, and the rest of the system only ever sees that format.
+
+**Prompts are not 100% portable.** A system prompt tuned for Claude does not produce the same behavior on Gemini. Accept it: we maintain prompt variants per model family for critical agents, and we measure. This is where automated evals and Langfuse traces stop being nice-to-haves.
+
+## What it costs, honestly
+
+The abstraction has a price: one more layer to debug, provider quirks to learn, integration tests multiplied by four. If your product depends on the frontier capabilities of a single model, start simple — but still isolate the LLM call behind an internal interface from day one. Refactoring costs ten times less when the boundary already exists.
+
+Multi-provider is not a goal in itself. It is insurance — and like all insurance, you buy it before you need it.

@@ -1,0 +1,58 @@
+---
+title: "Multi-provider LLM : pourquoi et comment abstraire"
+description: "Rendre quatre fournisseurs de LLM interchangeables sans toucher au code des agents : les raisons d'y aller, l'architecture qui a tenu, et les pièges rencontrés en chemin."
+date: "2026-07-07"
+tags: ["LLM", "LiteLLM", "Architecture", "Claude Agent SDK"]
+published: true
+---
+
+Quand on construit un produit sur un LLM, la tentation est forte de coder directement contre le SDK d'un fournisseur. C'est rapide, la doc est bonne, et ça marche. Six mois plus tard, ce choix devient un mur : un client exige un provider précis pour des raisons de conformité, un nouveau modèle sort et surclasse le vôtre sur votre cas d'usage, ou votre provider principal tombe un lundi matin. Sur la plateforme aiOrigin, quatre fournisseurs — Anthropic, OpenAI, Gemini, Mistral — sont interchangeables sans modifier une ligne du code des agents. Voici pourquoi et comment.
+
+## Pourquoi abstraire dès le départ
+
+Trois raisons concrètes, vécues :
+
+- **La négociation commerciale.** En B2B, le choix du provider est parfois imposé par le client, pas par vous. Pouvoir répondre "oui, on supporte le vôtre" sans re-architecture est un argument de vente.
+- **Le rapport qualité-prix bouge tous les trimestres.** Le meilleur modèle pour un routeur d'intentions n'est pas le meilleur pour rédiger un email de prospection. Sans abstraction, chaque changement de modèle est un chantier ; avec, c'est une ligne de configuration.
+- **La résilience.** Un provider en panne ne doit pas signifier une plateforme en panne. Le fallback automatique n'est possible que si l'appel est déjà normalisé.
+
+## L'architecture : deux couches, pas une
+
+L'erreur classique est de vouloir une abstraction unique qui couvre tout. En pratique, deux besoins distincts cohabitent.
+
+La **couche d'appel** normalise l'interface : formats de messages, tool calls, streaming, comptage de tokens. C'est le travail de LiteLLM, qui expose tous les providers derrière une API compatible OpenAI. On ne l'a pas réécrit, on l'a configuré.
+
+La **couche agentique** gère la boucle : quel outil appeler, comment interpréter le résultat, quand s'arrêter. Chez nous c'est le Claude Agent SDK qui pilote cette boucle, et la couche d'appel en dessous décide quel modèle exécute réellement chaque tour. Le code de l'agent ne connaît que des alias :
+
+```python
+MODEL_ALIASES = {
+    "agent-core": ["anthropic/claude-sonnet-4-5", "openai/gpt-5.2"],
+    "intent-router": ["mistral/mistral-medium", "gemini/gemini-flash"],
+}
+
+async def complete(alias: str, messages: list[Message], **kwargs):
+    for model in MODEL_ALIASES[alias]:
+        try:
+            return await litellm.acompletion(
+                model=model, messages=messages, **kwargs
+            )
+        except ProviderError as err:
+            logger.warning("provider failed, falling back", model=model, err=err)
+    raise AllProvidersDownError(alias)
+```
+
+L'agent demande `agent-core`, jamais un modèle précis. Le mapping alias → modèles vit en configuration, par tenant si besoin. Changer de provider pour un client, c'est éditer une entrée.
+
+## Les pièges qui ne se voient pas dans la doc
+
+**Les tool calls ne sont pas vraiment standardisés.** Tous les providers parlent "function calling", mais les différences de comportement sont réelles : certains modèles renvoient des arguments JSON malformés sous charge, d'autres gèrent mal les schémas profondément imbriqués. Notre parade : des schémas d'outils plats, une validation Pydantic systématique à la réception, et une re-demande automatique en cas d'arguments invalides.
+
+**Le streaming diffère subtilement.** La granularité des chunks, la position des événements de tool call dans le flux, la gestion de la fin de stream : chaque provider a ses particularités. On normalise tout en événements internes typés dès la sortie de LiteLLM, et le reste du système ne voit que ce format.
+
+**Les prompts ne sont pas portables à 100 %.** Un system prompt optimisé pour Claude ne donne pas le même comportement sur Gemini. Il faut l'accepter : on maintient des variantes de prompt par famille de modèles pour les agents critiques, et on mesure. C'est là que les évaluations automatisées et les traces Langfuse cessent d'être du nice-to-have.
+
+## Ce que ça coûte, honnêtement
+
+L'abstraction a un prix : une couche de plus à débugger, des comportements de providers à connaître, des tests d'intégration multipliés par quatre. Si votre produit repose sur les capacités de pointe d'un seul modèle, commencez simple, mais isolez quand même l'appel LLM derrière une interface interne dès le premier jour. Le refactoring coûte dix fois moins cher quand la frontière existe déjà.
+
+Le multi-provider n'est pas un objectif en soi. C'est une assurance — et comme toute assurance, on la souscrit avant d'en avoir besoin.

@@ -1,0 +1,55 @@
+---
+title: "Orchestrating AI agents in production: lessons learned"
+description: "What eighteen months of running autonomous agents in production taught me about durable workflows, streaming, and the failure modes nobody plans for."
+date: "2026-08-18"
+tags: ["AI Agents", "Temporal", "FastAPI", "Production"]
+published: true
+---
+
+An AI agent that works in a demo and an AI agent that runs in production are two very different objects. The first needs a good prompt. The second needs an architecture that survives crashes, LLM timeouts, users closing their tab mid-response, and jobs that run for forty minutes. Here is what I learned building the agent platform at aiOrigin, a fully async FastAPI backend orchestrating multi-provider agents for B2B customers.
+
+## The real problem isn't the LLM, it's duration
+
+An agent conversation can last a few seconds. A four-phase multi-agent prospecting pipeline can last an hour. In between, anything can die: the worker, the provider connection, the whole pod. If your orchestration lives inside an HTTP request or an asyncio task, every redeploy destroys work in flight.
+
+That is the problem Temporal solves. Every long-running job is a durable workflow: state is persisted at each step, and if a worker dies, another one resumes exactly where the previous one stopped. In practice it means you can deploy in the middle of the day without wondering which jobs you just killed.
+
+Two details made a real difference for us:
+
+- **A double heartbeat.** The Temporal activity sends its own heartbeat, but the agent also writes a liveness signal to Redis. When the two diverge, we know the activity is alive but the agent is stuck — typically an LLM call that never returns.
+- **Automatic cleanup of orphaned runs.** A scheduled job scans executions marked "running" whose heartbeat is stale, terminates them cleanly and releases their resources. Without it, orphans pile up silently.
+
+## Streaming is a reliability feature, not a comfort feature
+
+An agent response can take several minutes. Without streaming, the user stares at a spinner and concludes the product is broken. But wiring the LLM generator directly into the HTTP response is a trap: if the connection drops, everything is lost.
+
+Our pipeline decouples token production from token consumption: the agent writes every event to a Redis Stream, and an SSE route relays the stream to the React client. Every event carries a sequence number, which makes reads idempotent: a client that reconnects resumes from the last ID it received, with no duplicates and no gaps.
+
+```python
+async def relay(stream_key: str, last_id: str = "0"):
+    while True:
+        entries = await redis.xread({stream_key: last_id}, block=15_000)
+        if not entries:
+            yield sse_ping()
+            continue
+        for entry_id, fields in entries[0][1]:
+            last_id = entry_id
+            yield sse_event(fields)
+            if fields.get("type") == "done":
+                return
+```
+
+This split has an unexpected bonus: the backend can crash mid-generation, the Redis stream is still there, and the client only sees a pause of a few seconds.
+
+## A watchdog, because LLMs sometimes go silent
+
+The sneakiest failure mode is not an error, it's silence. A provider that accepts the request and then never sends anything back, indefinitely. We added an inactivity watchdog: if no token arrives for N seconds, the generation is cancelled, an error event is published to the stream, and the agent loop decides whether to retry or give up. It is three lines of logic and it eliminated an entire class of zombie conversations.
+
+## The lessons, condensed
+
+- Treat every agent execution as potentially long and interruptible. Durable workflows are not a luxury, they are the foundation.
+- Decouple token production from consumption. A persistent buffer between the agent and the client changes everything about recovery.
+- Instrument silence as much as errors. Heartbeats, watchdogs, sequence numbers: that is what separates a system you understand from a system that happens to you.
+- Observability (Langfuse for LLM traces, Sentry for everything else) is not optional: without a full trace of an agent run, every bug is a blind investigation.
+
+None of this is specific to AI agents, and that is precisely the point: the hard part of AI in production is the distributed-systems engineering around the model.

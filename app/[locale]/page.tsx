@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { AiCard } from "@/components/bento/ai-card";
+import { BlogCard } from "@/components/bento/blog-card";
 import { ClientsCard } from "@/components/bento/clients-card";
 import { ContactCard } from "@/components/bento/contact-card";
 import { ContributionsCard } from "@/components/bento/contributions-card";
@@ -28,6 +29,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         <ContributionsCard locale={locale} />
         <ClientsCard locale={locale} />
         <StackCard profile={profile} />
+        <BlogCard locale={locale} />
         <ContactCard profile={profile} />
       </div>
       <footer className="pt-10">

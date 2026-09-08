@@ -1,0 +1,55 @@
+---
+title: "Orchestrer des agents IA en production : leçons apprises"
+description: "Ce que dix-huit mois à faire tourner des agents autonomes en production m'ont appris sur les workflows durables, le streaming et les pannes qu'on n'avait pas prévues."
+date: "2026-08-18"
+tags: ["Agents IA", "Temporal", "FastAPI", "Production"]
+published: true
+---
+
+Un agent IA qui fonctionne dans une démo et un agent IA qui tourne en production sont deux objets très différents. Le premier a besoin d'un bon prompt. Le second a besoin d'une architecture qui survit aux crashs, aux timeouts de LLM, aux utilisateurs qui ferment leur onglet au milieu d'une réponse, et aux jobs qui durent quarante minutes. Voici ce que j'ai retenu en construisant la plateforme d'agents d'aiOrigin, un backend FastAPI entièrement async qui orchestre des agents multi-provider pour des clients B2B.
+
+## Le vrai problème n'est pas le LLM, c'est la durée
+
+Une conversation d'agent peut durer quelques secondes. Un pipeline de prospection multi-agents en quatre phases peut durer une heure. Entre les deux, tout peut planter : le worker, la connexion au provider, le pod entier. Si votre orchestration vit dans une requête HTTP ou une tâche asyncio, chaque redéploiement détruit du travail en cours.
+
+C'est le problème que Temporal résout. Chaque job long est un workflow durable : l'état est persisté à chaque étape, et si le worker meurt, un autre reprend exactement où le précédent s'était arrêté. Concrètement, on peut redéployer en pleine journée sans se demander quels jobs vont mourir.
+
+Deux détails ont fait la différence chez nous :
+
+- **Un double heartbeat.** L'activité Temporal envoie son heartbeat, mais l'agent lui-même écrit aussi un signal de vie dans Redis. Quand les deux divergent, on sait que l'activité tourne mais que l'agent est bloqué — typiquement un appel LLM qui ne rend jamais la main.
+- **Un nettoyage automatique des exécutions orphelines.** Un job planifié parcourt les exécutions marquées "en cours" dont le heartbeat est trop vieux, les termine proprement et libère les ressources associées. Sans ça, les orphelins s'accumulent silencieusement.
+
+## Le streaming est une feature de fiabilité, pas de confort
+
+Une réponse d'agent peut prendre plusieurs minutes. Sans streaming, l'utilisateur regarde un spinner et conclut que c'est cassé. Mais brancher directement le générateur du LLM sur la réponse HTTP est un piège : si la connexion tombe, tout est perdu.
+
+Notre pipeline découple la production des tokens de leur consommation : l'agent écrit chaque événement dans un Redis Stream, et une route SSE relaie le stream vers le client React. Chaque événement porte un numéro de séquence, ce qui rend la lecture idempotente : le client qui se reconnecte reprend à partir du dernier identifiant reçu, sans doublon ni trou.
+
+```python
+async def relay(stream_key: str, last_id: str = "0"):
+    while True:
+        entries = await redis.xread({stream_key: last_id}, block=15_000)
+        if not entries:
+            yield sse_ping()
+            continue
+        for entry_id, fields in entries[0][1]:
+            last_id = entry_id
+            yield sse_event(fields)
+            if fields.get("type") == "done":
+                return
+```
+
+Ce découpage a un bonus inattendu : le backend peut crasher pendant une génération, le stream Redis reste là, et le client ne voit qu'une pause de quelques secondes.
+
+## Un watchdog, parce que les LLM se taisent parfois
+
+Le mode de panne le plus sournois n'est pas l'erreur, c'est le silence. Un provider qui accepte la requête puis ne renvoie plus rien, indéfiniment. On a ajouté un watchdog d'inactivité : si aucun token n'arrive pendant N secondes, la génération est annulée, l'événement d'erreur est publié dans le stream, et la boucle d'agent décide de retenter ou d'abandonner. C'est trois lignes de logique et ça a éliminé une classe entière de conversations zombies.
+
+## Les leçons, en résumé
+
+- Traitez toute exécution d'agent comme potentiellement longue et interruptible. Les workflows durables ne sont pas du luxe, c'est le socle.
+- Découplez production et consommation des tokens. Un buffer persistant entre l'agent et le client change tout en termes de reprise.
+- Instrumentez le silence autant que les erreurs. Heartbeats, watchdogs, séquençage : c'est ce qui distingue un système qu'on comprend d'un système qu'on subit.
+- L'observabilité (Langfuse pour les traces LLM, Sentry pour le reste) n'est pas optionnelle : sans trace complète d'une exécution d'agent, chaque bug est une enquête à l'aveugle.
+
+Rien de tout ça n'est spécifique aux agents IA, et c'est précisément le point : la partie difficile de l'IA en production, c'est l'ingénierie des systèmes distribués autour du modèle.
