@@ -165,15 +165,15 @@ export const profileFr: Profile = {
   },
   chat: {
     placeholders: [
-      "Quelle est ton expérience avec les agents IA ?",
-      "Tu es dispo pour une mission ?",
-      "Raconte-moi l'archi de aiOrigin",
-      "Tu bosses en React Native ?",
+      "Tu es dispo en ce moment ?",
+      "C'est quoi ton parcours ?",
+      "T'habites où, tu travailles comment ?",
+      "T'es comment à travailler avec toi ?",
     ],
     chips: [
-      "Ton expérience avec les agents IA ?",
-      "Dispo pour une mission ?",
-      "L'archi de aiOrigin ?",
+      "Tu es dispo en ce moment ?",
+      "C'est quoi ton parcours ?",
+      "T'habites où, tu travailles comment ?",
     ],
     panelTitle: "Discussion avec Hugues",
     youLabel: "Vous",

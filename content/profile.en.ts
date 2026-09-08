@@ -162,15 +162,15 @@ export const profileEn: Profile = {
   },
   chat: {
     placeholders: [
-      "What's your experience with AI agents?",
-      "Are you available for a mission?",
-      "Walk me through aiOrigin's architecture",
-      "Do you work with React Native?",
+      "Are you available right now?",
+      "What's your background?",
+      "Where are you based, how do you work?",
+      "What's it like working with you?",
     ],
     chips: [
-      "Your experience with AI agents?",
-      "Available for a mission?",
-      "aiOrigin's architecture?",
+      "Are you available right now?",
+      "What's your background?",
+      "Where are you based, how do you work?",
     ],
     panelTitle: "Chat with Hugues",
     youLabel: "You",
