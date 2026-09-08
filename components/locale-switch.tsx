@@ -14,7 +14,7 @@ function persist(locale: Locale) {
 
 export function LocaleSwitch({ locale }: { locale: Locale }) {
   return (
-    <span className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.08em]">
+    <span className="flex items-center gap-2 text-[12px] font-medium">
       {(["fr", "en"] as const).map((candidate, index) => (
         <span key={candidate} className="flex items-center gap-2">
           {index > 0 ? (

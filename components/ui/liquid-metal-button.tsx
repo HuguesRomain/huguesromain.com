@@ -250,7 +250,7 @@ export function LiquidMetalButton({
       onClick={handleClick}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      className={`relative inline-flex items-center justify-center overflow-hidden font-mono text-[12px] uppercase tracking-[0.08em] text-[#f4f1ee] disabled:opacity-50 ${className}`}
+      className={`relative inline-flex items-center justify-center overflow-hidden text-[13px] font-medium text-[#f4f1ee] disabled:opacity-50 ${className}`}
       style={{
         height,
         minWidth: height,

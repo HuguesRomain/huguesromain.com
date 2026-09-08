@@ -8,7 +8,6 @@ import {
 } from "react";
 import dynamic from "next/dynamic";
 import type { ChatStrings } from "@/content/types";
-import { CornerFrame } from "@/components/ui/corner-frame";
 import { LiquidGlass } from "@/components/ui/liquid-glass";
 
 const METAL_FALLBACK_STYLE = {
@@ -30,7 +29,7 @@ const LiquidMetalButton = dynamic(
     loading: () => (
       <span
         aria-hidden
-        className="inline-flex items-center justify-center px-5 font-mono text-[12px] uppercase tracking-[0.08em] text-[#f4f1ee]"
+        className="inline-flex items-center justify-center px-5 text-[13px] font-medium text-[#f5f5f7]"
         style={METAL_FALLBACK_STYLE}
       >
         ASK
@@ -99,53 +98,51 @@ export function PromptBar({
   }
 
   return (
-    <div className="flex w-full max-w-[640px] flex-col items-center gap-5">
-      <CornerFrame className="w-full p-2">
-        <form
-          onSubmit={(event) => {
-            event.preventDefault();
-            submit(value);
-          }}
-          className="w-full"
+    <div className="flex w-full max-w-[640px] flex-col items-center gap-4">
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          submit(value);
+        }}
+        className="w-full"
+      >
+        <LiquidGlass
+          radius={26}
+          className="w-full transition-shadow duration-300 focus-within:shadow-[0_0_0_1px_var(--accent)]"
+          contentClassName="flex items-end gap-3 py-2.5 pl-5 pr-2.5"
         >
-          <LiquidGlass
-            radius={24}
-            className="w-full transition-shadow duration-300 focus-within:shadow-[0_0_0_1px_var(--accent)]"
-            contentClassName="flex items-end gap-3 py-2.5 pl-5 pr-2.5"
+          <textarea
+            ref={textareaRef}
+            rows={1}
+            value={value}
+            maxLength={MAX_INPUT_LENGTH}
+            aria-label={strings.inputAriaLabel}
+            placeholder={strings.placeholders[placeholderIndex]}
+            onChange={(event) => {
+              setValue(event.target.value);
+              autoGrow();
+            }}
+            onKeyDown={onKeyDown}
+            className="prompt-input min-h-[42px] flex-1 resize-none bg-transparent py-2.5 text-[15px] leading-[1.6] text-text placeholder:text-[14px] placeholder:text-text-muted"
+          />
+          <LiquidMetalButton
+            ariaLabel={strings.sendAriaLabel}
+            height={42}
+            disabled={disabled}
           >
-            <textarea
-              ref={textareaRef}
-              rows={1}
-              value={value}
-              maxLength={MAX_INPUT_LENGTH}
-              aria-label={strings.inputAriaLabel}
-              placeholder={strings.placeholders[placeholderIndex]}
-              onChange={(event) => {
-                setValue(event.target.value);
-                autoGrow();
-              }}
-              onKeyDown={onKeyDown}
-              className="prompt-input min-h-[42px] flex-1 resize-none bg-transparent py-2.5 font-mono text-[13px] leading-[1.6] text-text placeholder:text-[11px] placeholder:uppercase placeholder:tracking-[0.08em] placeholder:text-text-muted"
-            />
-            <LiquidMetalButton
-              ariaLabel={strings.sendAriaLabel}
-              height={42}
-              disabled={disabled}
-            >
-              ASK
-            </LiquidMetalButton>
-          </LiquidGlass>
-        </form>
-      </CornerFrame>
+            ASK
+          </LiquidMetalButton>
+        </LiquidGlass>
+      </form>
       {hideChips ? null : (
-        <div className="flex flex-wrap items-center justify-center gap-3">
+        <div className="flex flex-wrap items-center justify-center gap-2.5">
           {strings.chips.map((chip) => (
             <button
               key={chip}
               type="button"
               disabled={disabled}
               onClick={() => submit(chip)}
-              className="rounded-full border border-surface-border bg-surface px-4 py-2 font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted transition-colors hover:text-text disabled:opacity-50"
+              className="rounded-full border border-surface-border bg-surface px-4 py-2 text-[13px] font-medium text-text-muted transition-colors hover:text-text disabled:opacity-50"
             >
               {chip}
             </button>

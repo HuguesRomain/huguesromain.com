@@ -47,7 +47,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
 export function Markdown({ content }: { content: string }) {
   const blocks = content.split(/\n{2,}/);
   return (
-    <div className="flex flex-col gap-3 font-mono text-[13px] leading-[1.7] text-text-muted">
+    <div className="flex flex-col gap-3 text-[15px] leading-[1.7] text-text">
       {blocks.map((block, blockIndex) => {
         const lines = block.split("\n");
         const isList = lines.every((line) => /^\s*[-*] /.test(line.trim()) || line.trim() === "");
@@ -59,7 +59,7 @@ export function Markdown({ content }: { content: string }) {
                 .map((line, lineIndex) => (
                   <li key={lineIndex} className="flex gap-2.5">
                     <span aria-hidden className="text-accent">
-                      /
+                      •
                     </span>
                     <span>
                       {renderInline(

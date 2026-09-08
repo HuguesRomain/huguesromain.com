@@ -19,13 +19,9 @@ export default async function OpengraphImage({
   const { locale } = await params;
   const resolved = isLocale(locale) ? locale : "en";
   const profile = getProfile(resolved);
-  const [serif, mono] = await Promise.all([
-    readFile(
-      path.join(process.cwd(), "assets/fonts/InstrumentSerif-Regular.ttf"),
-    ),
-    readFile(
-      path.join(process.cwd(), "assets/fonts/JetBrainsMono-Regular.ttf"),
-    ),
+  const [regular, semibold] = await Promise.all([
+    readFile(path.join(process.cwd(), "assets/fonts/Inter-Regular.otf")),
+    readFile(path.join(process.cwd(), "assets/fonts/Inter-SemiBold.otf")),
   ]);
 
   return new ImageResponse(
@@ -35,83 +31,83 @@ export default async function OpengraphImage({
           width: "100%",
           height: "100%",
           display: "flex",
-          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          gap: 36,
-          background: "#f6f2ec",
-          border: "1px solid rgba(200,70,20,0.18)",
-          position: "relative",
+          background: "#f5f5f7",
+          fontFamily: "Inter",
         }}
       >
         <div
           style={{
-            position: "absolute",
-            top: 40,
-            left: 48,
             display: "flex",
-            fontFamily: "JetBrains Mono",
-            fontSize: 20,
-            letterSpacing: "0.08em",
-            color: "rgba(29,23,18,0.6)",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 28,
+            width: 1080,
+            height: 510,
+            background: "#ffffff",
+            borderRadius: 48,
+            border: "1px solid rgba(0,0,0,0.08)",
+            boxShadow: "0 24px 60px rgba(0,0,0,0.08)",
           }}
         >
-          {`001 / ${resolved.toUpperCase()}`}
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            top: 40,
-            right: 48,
-            width: 14,
-            height: 14,
-            borderTop: "2px solid #d94314",
-            borderRight: "2px solid #d94314",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: 40,
-            left: 48,
-            width: 14,
-            height: 14,
-            borderBottom: "2px solid #d94314",
-            borderLeft: "2px solid #d94314",
-          }}
-        />
-        <div
-          style={{
-            display: "flex",
-            fontFamily: "Instrument Serif",
-            fontSize: 132,
-            color: "#1d1712",
-            letterSpacing: "-0.02em",
-          }}
-        >
-          Hugues Romain
-        </div>
-        <div
-          style={{
-            display: "flex",
-            fontFamily: "JetBrains Mono",
-            fontSize: 26,
-            letterSpacing: "0.08em",
-            color: "rgba(29,23,18,0.6)",
-            textTransform: "uppercase",
-            maxWidth: 900,
-            textAlign: "center",
-          }}
-        >
-          {profile.tagline}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 12,
+              fontSize: 22,
+              fontWeight: 600,
+              color: "#e8500f",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                width: 12,
+                height: 12,
+                borderRadius: 6,
+                background: "#e8500f",
+              }}
+            />
+            {resolved === "fr"
+              ? "Ingénieur full-stack & IA"
+              : "Full-stack & AI engineer"}
+          </div>
+          <div
+            style={{
+              display: "flex",
+              fontSize: 110,
+              fontWeight: 600,
+              letterSpacing: "-0.03em",
+              color: "#1d1d1f",
+            }}
+          >
+            {profile.name}
+          </div>
+          <div
+            style={{
+              display: "flex",
+              fontSize: 26,
+              lineHeight: 1.4,
+              color: "#86868b",
+              maxWidth: 820,
+              textAlign: "center",
+            }}
+          >
+            {resolved === "fr"
+              ? "Produits web & mobiles de bout en bout — architecture, agents IA, production."
+              : "Web & mobile products end to end — architecture, AI agents, production."}
+          </div>
         </div>
       </div>
     ),
     {
       ...size,
       fonts: [
-        { name: "Instrument Serif", data: serif, style: "normal" },
-        { name: "JetBrains Mono", data: mono, style: "normal" },
+        { name: "Inter", data: regular, style: "normal", weight: 400 },
+        { name: "Inter", data: semibold, style: "normal", weight: 600 },
       ],
     },
   );

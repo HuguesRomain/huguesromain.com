@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
 import { GlassFilter } from "@/components/ui/glass-filter";
@@ -7,11 +7,9 @@ import { SiteNav } from "@/components/site-nav";
 import { getProfile, isLocale, LOCALES } from "@/content/get-profile";
 import { SITE_URL } from "@/lib/site";
 
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -73,7 +71,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       suppressHydrationWarning
-      className={`${instrumentSerif.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <head>
         <script
@@ -83,7 +81,7 @@ export default async function LocaleLayout({
           }}
         />
       </head>
-      <body className="flex min-h-full flex-col bg-bg font-mono text-text">
+      <body className="flex min-h-full flex-col bg-bg font-sans text-text">
         <GlassFilter />
         <SiteNav locale={locale} />
         <main className="relative z-10 flex-1">{children}</main>

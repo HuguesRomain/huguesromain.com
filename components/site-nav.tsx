@@ -3,12 +3,13 @@ import { LiquidGlass } from "./ui/liquid-glass";
 import { LocaleSwitch } from "./locale-switch";
 import { ThemeToggle } from "./theme-toggle";
 
-const LINKS = [
-  { href: "#work", label: "Work" },
-  { href: "#stack", label: "Stack" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
-] as const;
+const LINKS = (locale: Locale) =>
+  [
+    { href: `/${locale}#projects`, label: locale === "fr" ? "Projets" : "Projects" },
+    { href: `/${locale}#stack`, label: "Stack" },
+    { href: `/${locale}/blog`, label: "Blog" },
+    { href: `/${locale}#contact`, label: "Contact" },
+  ] as const;
 
 export function SiteNav({ locale }: { locale: Locale }) {
   return (
@@ -19,11 +20,11 @@ export function SiteNav({ locale }: { locale: Locale }) {
       <LiquidGlass
         radius={30}
         className="pointer-events-auto"
-        contentClassName="flex h-[52px] items-center gap-2.5 px-3.5 sm:h-[56px] sm:gap-5 sm:px-6"
+        contentClassName="flex h-[52px] items-center gap-3 px-4 sm:h-[56px] sm:gap-5 sm:px-6"
       >
         <a
           href={`/${locale}`}
-          className="hidden font-mono text-[12px] uppercase tracking-[0.08em] text-text sm:inline"
+          className="hidden text-[13px] font-semibold tracking-[-0.01em] text-text sm:inline"
         >
           Hugues Romain
         </a>
@@ -31,12 +32,12 @@ export function SiteNav({ locale }: { locale: Locale }) {
           aria-hidden
           className="hidden h-4 w-px shrink-0 bg-surface-border sm:block"
         />
-        <ul className="flex items-center gap-2.5 sm:gap-5">
-          {LINKS.map((link) => (
+        <ul className="flex items-center gap-3 sm:gap-4">
+          {LINKS(locale).map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="font-mono text-[10px] uppercase tracking-[0.06em] text-text-muted transition-colors hover:text-text sm:text-[11px] sm:tracking-[0.08em]"
+                className="text-[13px] font-medium text-text-muted transition-colors hover:text-text"
               >
                 {link.label}
               </a>

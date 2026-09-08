@@ -21,7 +21,7 @@ function ActionButton({
     <button
       type="button"
       onClick={onClick}
-      className="rounded-full border border-surface-border px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted transition-colors hover:text-text"
+      className="rounded-full border border-surface-border px-4 py-1.5 text-[13px] font-medium text-text-muted transition-colors hover:text-text"
     >
       {label}
     </button>
@@ -93,11 +93,11 @@ export function ChatConversation({
       className="fixed inset-0 z-[70] flex flex-col bg-bg"
     >
       <div className="flex items-center justify-between gap-4 border-b border-surface-border px-6 py-4">
-        <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
+        <span className="text-[13px] font-medium text-text-muted">
           {strings.panelTitle}
         </span>
         <div className="flex items-center gap-3">
-          <span className="hidden font-mono text-[10px] uppercase tracking-[0.08em] text-text-muted opacity-60 md:block">
+          <span className="hidden text-[12px] text-text-muted opacity-60 md:block">
             {strings.closeHint}
           </span>
           {streaming ? (
@@ -109,7 +109,7 @@ export function ChatConversation({
             type="button"
             onClick={onClose}
             aria-label={strings.close}
-            className="flex h-8 w-8 items-center justify-center rounded-full border border-surface-border font-mono text-[13px] text-text-muted transition-colors hover:text-text"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-surface-border text-[13px] text-text-muted transition-colors hover:text-text"
           >
             ✕
           </button>
@@ -127,10 +127,10 @@ export function ChatConversation({
             if (message.role === "user") {
               return (
                 <div key={message.id} className="flex flex-col items-end gap-2">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-text-muted opacity-70">
+                  <span className="text-[11px] font-medium uppercase tracking-[0.08em] text-text-muted opacity-70">
                     {strings.youLabel}
                   </span>
-                  <p className="max-w-[85%] rounded-2xl rounded-br-md border border-surface-border bg-surface px-4 py-2.5 font-mono text-[13px] leading-[1.7] text-text">
+                  <p className="max-w-[85%] rounded-2xl rounded-br-md border border-surface-border bg-surface px-4 py-2.5 text-[14px] leading-[1.65] text-text">
                     {message.content}
                   </p>
                 </div>
@@ -138,7 +138,7 @@ export function ChatConversation({
             }
             return (
               <div key={message.id} className="flex flex-col gap-2">
-                <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-text-muted opacity-70">
+                <span className="text-[11px] font-medium uppercase tracking-[0.08em] text-text-muted opacity-70">
                   {strings.meLabel}
                 </span>
                 <div>
@@ -152,7 +152,7 @@ export function ChatConversation({
           })}
           {errorMessage ? (
             <div className="flex flex-col items-start gap-3">
-              <p className="font-mono text-[12px] leading-[1.7] text-text-muted">
+              <p className="text-[14px] leading-[1.65] text-text-muted">
                 {errorMessage}
               </p>
               {chat.status !== "error-ratelimit" ? (

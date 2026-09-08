@@ -48,7 +48,7 @@ export function ThemeToggle({ locale }: { locale: "fr" | "en" }) {
       onClick={() => setTheme(next)}
       className="flex h-7 w-7 items-center justify-center rounded-full border border-surface-border text-text-muted transition-colors hover:text-text"
     >
-      <span aria-hidden className="font-mono text-[12px] leading-none">
+      <span aria-hidden className="text-[12px] leading-none">
         {theme === "light" ? "☾" : "☀"}
       </span>
     </button>
