@@ -16,6 +16,24 @@ export interface StackGroup {
   items: readonly string[];
 }
 
+export interface ChatStrings {
+  placeholders: readonly string[];
+  chips: readonly [string, string, string];
+  panelTitle: string;
+  youLabel: string;
+  meLabel: string;
+  stop: string;
+  clear: string;
+  retry: string;
+  errorNetwork: string;
+  errorRateLimit: string;
+  errorEmpty: string;
+  closeHint: string;
+  inputAriaLabel: string;
+  sendAriaLabel: string;
+  panelAriaLabel: string;
+}
+
 export interface Profile {
   locale: Locale;
   name: string;
@@ -44,5 +62,6 @@ export interface Profile {
     booking: string;
     bookingLabel: string;
   };
+  chat: ChatStrings;
   footer: string;
 }

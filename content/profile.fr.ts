@@ -148,5 +148,33 @@ export const profileFr: Profile = {
     booking: TODO_BOOKING_URL,
     bookingLabel: "Book a call",
   },
+  chat: {
+    placeholders: [
+      "QUELLE EST TON EXPÉRIENCE AVEC LES AGENTS IA ?",
+      "TU ES DISPO POUR UNE MISSION ?",
+      "RACONTE-MOI L'ARCHI DE AIORIGIN",
+      "TU BOSSES EN REACT NATIVE ?",
+    ],
+    chips: [
+      "Ton expérience avec les agents IA ?",
+      "Dispo pour une mission ?",
+      "L'archi de aiOrigin ?",
+    ],
+    panelTitle: "CONVERSATION",
+    youLabel: "VOUS",
+    meLabel: "HUGUES · IA",
+    stop: "STOP",
+    clear: "CLEAR",
+    retry: "RÉESSAYER",
+    errorNetwork:
+      "La connexion a échoué. Vérifiez votre réseau et réessayez.",
+    errorRateLimit:
+      "Limite atteinte : 20 messages par heure. Revenez un peu plus tard, ou écrivez-moi directement par email.",
+    errorEmpty: "Réponse vide reçue. Relancez la question.",
+    closeHint: "ESC POUR FERMER",
+    inputAriaLabel: "Posez votre question à la version IA de Hugues",
+    sendAriaLabel: "Envoyer la question",
+    panelAriaLabel: "Conversation avec la version IA de Hugues",
+  },
   footer: "BUILT WITH NEXT.JS · NO TEMPLATE",
 };

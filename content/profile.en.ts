@@ -144,5 +144,32 @@ export const profileEn: Profile = {
     booking: TODO_BOOKING_URL,
     bookingLabel: "Book a call",
   },
+  chat: {
+    placeholders: [
+      "WHAT'S YOUR EXPERIENCE WITH AI AGENTS?",
+      "ARE YOU AVAILABLE FOR A MISSION?",
+      "WALK ME THROUGH AIORIGIN'S ARCHITECTURE",
+      "DO YOU WORK WITH REACT NATIVE?",
+    ],
+    chips: [
+      "Your experience with AI agents?",
+      "Available for a mission?",
+      "aiOrigin's architecture?",
+    ],
+    panelTitle: "CONVERSATION",
+    youLabel: "YOU",
+    meLabel: "HUGUES · AI",
+    stop: "STOP",
+    clear: "CLEAR",
+    retry: "RETRY",
+    errorNetwork: "Connection failed. Check your network and try again.",
+    errorRateLimit:
+      "Rate limit reached: 20 messages per hour. Come back later, or email me directly.",
+    errorEmpty: "Empty response received. Ask again.",
+    closeHint: "ESC TO CLOSE",
+    inputAriaLabel: "Ask the AI version of Hugues a question",
+    sendAriaLabel: "Send the question",
+    panelAriaLabel: "Conversation with the AI version of Hugues",
+  },
   footer: "BUILT WITH NEXT.JS · NO TEMPLATE",
 };

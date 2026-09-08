@@ -49,6 +49,11 @@ body {
   outline-offset: 2px;
 }
 
+.prompt-input,
+.prompt-input:focus-visible {
+  outline: none;
+}
+
 .liquid-glass {
   border-radius: var(--lg-radius, 24px);
   box-shadow:
@@ -102,6 +107,28 @@ body {
   to {
     transform: scale(2.6);
     opacity: 0;
+  }
+}
+
+.chat-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: chat-cursor-blink 1.06s steps(2, start) infinite;
+}
+
+@keyframes chat-cursor-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-cursor {
+    animation: none;
   }
 }
 
