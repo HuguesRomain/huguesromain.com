@@ -45,7 +45,7 @@ Full-stack missions through theTribe, a French product agency, for several of it
 - HomeExchange Day: event platform (React frontend, Express backend, PostgreSQL) — Luma integration, host / guest registration flows, data exports.
 - Aleteia: online media (Next.js, GraphQL) — rebuilt archive pages and header, Algolia search, internationalisation, CSS migration to Tailwind.
 
-### Ida — Full-Stack Engineer (Sept. 2024 – Sept. 2025)
+### Ida — Freelance Full-Stack Engineer (Sept. 2024 – Sept. 2025)
 B2B ordering platform for fresh produce serving neighbourhood grocery stores.
 - Designed and built the core ordering and fresh-product management features of the platform (FastAPI, React).
 - Delivered a dynamic price list: real-time pricing, packaging units, product groups and business rules reacting to stock movements.

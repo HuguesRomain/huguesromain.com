@@ -61,7 +61,7 @@ export const profileEn: Profile = {
     {
       slug: "ida",
       title: "Ida",
-      role: "Full-Stack Engineer",
+      role: "Full-Stack Engineer (freelance)",
       period: "2024 — 2025",
       context:
         "B2B ordering platform for fresh produce serving neighbourhood grocery stores.",
