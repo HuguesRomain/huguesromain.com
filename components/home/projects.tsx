@@ -33,6 +33,20 @@ const ICONS: Record<string, ProjectIcon> = {
     background: "#01012b",
     padding: "p-1.5",
   },
+  microdoing: {
+    image: "/images/projects/microdoing-logo.png",
+    background: "#0d0d37",
+  },
+  alobees: {
+    image: "/images/projects/alobees-logo.png",
+    background: "#ffffff",
+    padding: "p-1",
+  },
+  ouihelp: {
+    image: "/images/projects/ouihelp-logo.png",
+    background: "#ffffff",
+    padding: "p-1",
+  },
 };
 
 function ProjectCard({ project }: { project: Project }) {
@@ -78,7 +92,7 @@ function ProjectCard({ project }: { project: Project }) {
 export function Projects({ profile }: { profile: Profile }) {
   const fr = profile.locale === "fr";
   return (
-    <Section id="projects" title={fr ? "Projets" : "Projects"}>
+    <Section id="experience" title={fr ? "Expérience" : "Experience"}>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {profile.projects.map((project) => (
           <ProjectCard key={project.slug} project={project} />
