@@ -20,7 +20,8 @@ const ICONS: Record<string, ProjectIcon> = {
     padding: "p-1",
   },
   axiome: {
-    background: "linear-gradient(160deg, #e8500f, #ff8a4d)",
+    image: "/images/projects/axiome-icon.png",
+    background: "#1d1d1f",
   },
   ida: {
     image: "/images/projects/ida-icon.png",
