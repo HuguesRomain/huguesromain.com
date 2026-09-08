@@ -18,7 +18,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
       return (
         <code
           key={key}
-          className="rounded-[3px] bg-bg-panel px-1.5 py-0.5 text-[0.92em] text-text"
+          className="rounded-[3px] bg-surface px-1.5 py-0.5 text-[0.92em] text-text"
         >
           {part.slice(1, -1)}
         </code>
@@ -44,10 +44,16 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
   });
 }
 
-export function Markdown({ content }: { content: string }) {
+export function Markdown({
+  content,
+  className = "flex flex-col gap-3 text-[15px] leading-[1.7] text-text",
+}: {
+  content: string;
+  className?: string;
+}) {
   const blocks = content.split(/\n{2,}/);
   return (
-    <div className="flex flex-col gap-3 text-[15px] leading-[1.7] text-text">
+    <div className={className}>
       {blocks.map((block, blockIndex) => {
         const lines = block.split("\n");
         const isList = lines.every((line) => /^\s*[-*] /.test(line.trim()) || line.trim() === "");

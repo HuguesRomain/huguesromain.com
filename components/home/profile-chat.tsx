@@ -66,6 +66,13 @@ export function ProfileChat({ profile }: { profile: Profile }) {
           <ChatConversation
             chat={chat}
             strings={profile.chat}
+            name={profile.name}
+            portrait={profile.about.portrait}
+            portraitAlt={profile.about.portraitAlt}
+            onlineLabel={fr ? "En ligne" : "Active now"}
+            typingLabel={
+              fr ? "Hugues est en train d'écrire" : "Hugues is typing"
+            }
             onClose={() => setOpen(false)}
           />
         )}
