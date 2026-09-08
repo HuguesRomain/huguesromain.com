@@ -6,6 +6,7 @@ import { ThemeToggle } from "./theme-toggle";
 const LINKS = (locale: Locale) =>
   [
     { href: `/${locale}#experience`, label: locale === "fr" ? "Expérience" : "Experience" },
+    { href: `/${locale}#entrepreneuriat`, label: "Studio" },
     { href: `/${locale}#stack`, label: "Stack" },
     { href: `/${locale}/blog`, label: "Blog" },
     { href: `/${locale}#contact`, label: "Contact" },

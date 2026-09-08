@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import type { Locale } from "@/content/types";
 
 const LOCALE_COOKIE = "preferred-locale";
@@ -12,7 +13,17 @@ function persist(locale: Locale) {
   document.cookie = `${LOCALE_COOKIE}=${locale}; path=/; max-age=31536000; samesite=lax`;
 }
 
+function hrefForLocale(pathname: string, locale: Locale) {
+  const segments = pathname.split("/");
+  if (segments.length > 1) {
+    segments[1] = locale;
+    return segments.join("/") || `/${locale}`;
+  }
+  return `/${locale}`;
+}
+
 export function LocaleSwitch({ locale }: { locale: Locale }) {
+  const pathname = usePathname() || `/${locale}`;
   return (
     <span className="flex items-center gap-2 text-[12px] font-medium">
       {(["fr", "en"] as const).map((candidate, index) => (
@@ -28,7 +39,7 @@ export function LocaleSwitch({ locale }: { locale: Locale }) {
             </span>
           ) : (
             <Link
-              href={`/${candidate}`}
+              href={hrefForLocale(pathname, candidate)}
               onClick={() => persist(candidate)}
               className="text-text-muted transition-colors hover:text-text"
             >

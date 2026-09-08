@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { getProjectSlugs } from "@/content/experience";
 import { LOCALES } from "@/content/get-profile";
 import { getPosts } from "@/lib/blog";
 import { SITE_URL } from "@/lib/site";
@@ -23,6 +24,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       },
     },
   ]);
+
+  for (const locale of LOCALES) {
+    for (const slug of getProjectSlugs()) {
+      entries.push({
+        url: `${SITE_URL}/${locale}/experience/${slug}`,
+        lastModified: new Date(),
+        alternates: {
+          languages: {
+            fr: `${SITE_URL}/fr/experience/${slug}`,
+            en: `${SITE_URL}/en/experience/${slug}`,
+          },
+        },
+      });
+    }
+  }
 
   for (const locale of LOCALES) {
     for (const post of getPosts(locale)) {
