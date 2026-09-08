@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Profile } from "@/content/types";
 import {
   TODO_BOOKING_URL,
@@ -14,19 +15,22 @@ export function Contact({ profile }: { profile: Profile }) {
 
   return (
     <Section id="contact" title="Contact">
-      <div className="contact-ember">
-        <div aria-hidden className="contact-ember-stage">
-          <span className="contact-ember-core" />
-          <span className="contact-ember-ash" />
-          <span className="contact-ember-spark" />
-          <span className="contact-ember-grain" />
-        </div>
+      <div className="contact-view">
+        <Image
+          src="/images/contact-mars.webp"
+          alt=""
+          fill
+          sizes="(max-width: 760px) calc(100vw - 40px), 760px"
+          className="contact-view-photo object-cover"
+          aria-hidden
+        />
+        <span aria-hidden className="contact-view-veil" />
         <LiquidGlass
-          radius={24}
-          className="w-full"
+          radius={28}
+          className="contact-view-panel w-full"
           contentClassName="flex min-h-[228px] flex-col justify-between gap-8 p-7 sm:min-h-[260px] sm:px-8 sm:py-9"
         >
-          <p className="max-w-[28rem] text-[15px] leading-[1.65] text-text-muted">
+          <p className="max-w-[28rem] text-[15px] leading-[1.65] text-text">
             {profile.contact.intro}
           </p>
           <a

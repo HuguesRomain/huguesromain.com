@@ -208,118 +208,51 @@ html[data-chat-open] .site-nav {
   display: none;
 }
 
-.contact-ember {
+.contact-view {
   position: relative;
   isolation: isolate;
-  padding: 11px;
+  overflow: hidden;
   border-radius: 32px;
+  padding: 16px;
   box-shadow:
-    0 1px 2px rgba(140, 52, 12, 0.06),
-    0 18px 36px rgba(180, 64, 16, 0.1);
-  --glass-tint: rgba(255, 255, 255, 0.14);
-  --ember-core: #e8500f;
-  --ember-ash: rgba(92, 32, 10, 0.62);
-  --ember-spark: #ff8a3a;
+    0 1px 2px rgba(140, 52, 12, 0.08),
+    0 18px 40px rgba(180, 64, 16, 0.16);
+  --glass-tint: rgba(255, 244, 236, 0.58);
 }
 
-html[data-theme="dark"] .contact-ember {
-  box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.4),
-    0 22px 48px rgba(0, 0, 0, 0.45);
-  --glass-tint: rgba(16, 6, 4, 0.12);
-  --ember-core: #e8500f;
-  --ember-ash: rgba(36, 10, 4, 0.95);
-  --ember-spark: #ff6e28;
+@media (min-width: 640px) {
+  .contact-view {
+    padding: 20px;
+  }
 }
 
-.contact-ember-stage {
+html[data-theme="dark"] .contact-view {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    0 22px 48px rgba(0, 0, 0, 0.5);
+  --glass-tint: rgba(16, 8, 4, 0.52);
+}
+
+.contact-view-photo {
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-view-veil {
   pointer-events: none;
   position: absolute;
   inset: 0;
   z-index: 0;
-  overflow: hidden;
-  border-radius: inherit;
-  background:
-    radial-gradient(circle at 88% 10%, var(--ember-core) 0 11%, rgba(232, 80, 15, 0.72) 18%, rgba(232, 80, 15, 0.22) 34%, transparent 52%),
-    radial-gradient(ellipse 48% 90% at 100% 0%, rgba(255, 120, 48, 0.55) 0%, transparent 58%),
-    radial-gradient(ellipse 70% 80% at -8% 118%, var(--ember-ash) 0%, transparent 58%),
-    linear-gradient(118deg, transparent 38%, rgba(255, 176, 110, 0.35) 52%, transparent 64%),
-    linear-gradient(152deg, #f3e0cb 0%, #e6c09a 52%, #cc7a42 100%);
+  background: rgba(200, 86, 36, 0.08);
 }
 
-html[data-theme="dark"] .contact-ember-stage {
-  background:
-    radial-gradient(circle at 90% 6%, var(--ember-core) 0 10%, rgba(232, 80, 15, 0.7) 18%, rgba(232, 80, 15, 0.18) 36%, transparent 54%),
-    radial-gradient(ellipse 52% 95% at 100% 0%, rgba(255, 90, 24, 0.45) 0%, transparent 60%),
-    radial-gradient(ellipse 80% 90% at -10% 120%, var(--ember-ash) 0%, transparent 56%),
-    linear-gradient(118deg, transparent 40%, rgba(232, 80, 15, 0.22) 54%, transparent 66%),
-    linear-gradient(156deg, #160a07 0%, #0d0705 50%, #050302 100%);
+html[data-theme="dark"] .contact-view-veil {
+  background: rgba(10, 4, 2, 0.42);
 }
 
-.contact-ember-core,
-.contact-ember-ash,
-.contact-ember-spark {
-  position: absolute;
-  display: block;
-}
-
-.contact-ember-core {
-  top: 2%;
-  right: 4%;
-  width: 28%;
-  height: 52%;
-  border-radius: 50%;
-  background: radial-gradient(circle at 42% 40%, var(--ember-core) 0 28%, transparent 70%);
-}
-
-.contact-ember-ash {
-  bottom: -12%;
-  left: -8%;
-  width: 46%;
-  height: 58%;
-  border-radius: 48% 52% 40% 60%;
-  background: radial-gradient(circle at 50% 38%, var(--ember-ash), transparent 68%);
-}
-
-.contact-ember-spark {
-  top: 14%;
-  right: 12%;
-  width: 9%;
-  height: 14%;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--ember-spark) 0 30%, transparent 72%);
-}
-
-.contact-ember-grain {
-  position: absolute;
-  inset: 0;
-  opacity: 0.32;
-  mix-blend-mode: overlay;
-  background-image: url("/images/contact-grain.png");
-  background-size: 128px 128px;
-}
-
-html[data-theme="dark"] .contact-ember-grain {
-  opacity: 0.5;
-  mix-blend-mode: overlay;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .contact-ember-core {
-    animation: contact-ember-drift 22s ease-in-out infinite alternate;
-  }
-  .contact-ember-spark {
-    animation: contact-ember-drift 16s ease-in-out infinite alternate-reverse;
-  }
-}
-
-@keyframes contact-ember-drift {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-14px, 10px, 0);
-  }
+.contact-view-panel {
+  position: relative;
+  z-index: 1;
 }
 
 .contact-meta {
