@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import { AiSection } from "@/components/home/ai-section";
 import { BlogList } from "@/components/home/blog-list";
 import { Contact } from "@/components/home/contact";
 import { Contributions } from "@/components/home/contributions";
@@ -16,7 +15,6 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
   return (
     <div className="mx-auto flex w-full max-w-[760px] flex-col gap-14 px-5 pb-40 pt-16 sm:gap-16 sm:px-6 sm:pt-24">
       <Intro profile={profile} />
-      <AiSection profile={profile} />
       <Projects profile={profile} />
       <Contributions locale={locale} />
       <BlogList locale={locale} />

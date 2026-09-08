@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Profile } from "@/content/types";
+import { ProfileChat } from "./profile-chat";
 
 export function Intro({ profile }: { profile: Profile }) {
   const fr = profile.locale === "fr";
@@ -62,6 +63,7 @@ export function Intro({ profile }: { profile: Profile }) {
           GitHub
         </a>
       </div>
+      <ProfileChat profile={profile} />
     </header>
   );
 }
