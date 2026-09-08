@@ -7,7 +7,7 @@ export const profileFr: Profile = {
   locale: "fr",
   name: "Hugues Romain",
   tagline:
-    "Ingénieur full-stack & IA — freelance · architecture, agents IA, produits web & mobile de bout en bout · Nice",
+    "Ingénieur full-stack, architecte IA — freelance · workflows et agents IA, produits web & mobile de bout en bout · Nice",
   heroFirstName: "Hugues",
   heroLastName: "Romain",
   sections: {
@@ -62,6 +62,21 @@ export const profileFr: Profile = {
       imageAlt: "Macro d'un circuit imprimé en lumière rasante",
     },
     {
+      slug: "thetribe",
+      title: "theTribe",
+      role: "Ingénieur Full-Stack (freelance)",
+      period: "2025 — 2026",
+      context:
+        "Missions full-stack via theTribe, agence produit française, pour plusieurs de ses clients.",
+      bullets: [
+        "Teamway — app mobile Workplace 365 (React Native) : évolutions, corrections et releases iOS / Android",
+        "HomeExchange Day — plateforme événementielle (React, Express, PostgreSQL) : intégration Luma, parcours d'inscription hôtes / invités",
+        "Aleteia — média en ligne (Next.js, GraphQL) : refonte des pages d'archives et du header, recherche Algolia, i18n, migration CSS vers Tailwind",
+      ],
+      image: "/images/projects/thetribe-logo.png",
+      imageAlt: "Logo theTribe",
+    },
+    {
       slug: "ida",
       title: "Ida",
       role: "Ingénieur Full-Stack (freelance)",
@@ -77,19 +92,49 @@ export const profileFr: Profile = {
       imageAlt: "Crête de dune sculptée par le vent dans l'obscurité",
     },
     {
-      slug: "thetribe",
-      title: "theTribe",
-      role: "Ingénieur Full-Stack (freelance)",
-      period: "2025 — 2026",
+      slug: "microdoing",
+      title: "Microdoing",
+      role: "Ingénieur Full-Stack (alternance)",
+      period: "2022 — 2023",
       context:
-        "Missions full-stack via theTribe, agence produit française, pour plusieurs de ses clients.",
+        "Produit mobile React Native, porté sur le web avec Expo for Web.",
       bullets: [
-        "Teamway — app mobile Workplace 365 (React Native) : évolutions, corrections et releases iOS / Android",
-        "HomeExchange Day — plateforme événementielle (React, Express, PostgreSQL) : intégration Luma, parcours d'inscription hôtes / invités",
-        "Aleteia — média en ligne (Next.js, GraphQL) : refonte des pages d'archives et du header, recherche Algolia, i18n, migration CSS vers Tailwind",
+        "Feature de gamification qui a augmenté l'engagement et l'adoption de 20 %",
+        "Portage de l'app React Native vers le web avec Expo for Web",
+        "Réorganisation de l'équipe (code reviews, sprints, daily, rétrospectives) pour réduire le taux d'erreurs en production",
       ],
-      image: "/images/projects/thetribe-logo.png",
-      imageAlt: "Logo theTribe",
+      image: "/images/projects/microdoing-logo.png",
+      imageAlt: "Logo Microdoing",
+    },
+    {
+      slug: "alobees",
+      title: "Alobees",
+      role: "Ingénieur Full-Stack (alternance)",
+      period: "2021 — 2022",
+      context:
+        "Outil interactif de planification de chantiers pour les professionnels du BTP.",
+      bullets: [
+        "Réarchitecture des fronts web et mobile, unifiés autour d'un design system atomique",
+        "Outil interactif de planification de chantiers pour les professionnels du BTP",
+        "Suppression des frictions UX sur l'inscription et la connexion",
+      ],
+      image: "/images/projects/alobees-logo.png",
+      imageAlt: "Logo Alobees",
+    },
+    {
+      slug: "ouihelp",
+      title: "Ouihelp",
+      role: "Ingénieur Front-End (alternance)",
+      period: "2019 — 2021",
+      context:
+        "Portail client et géolocalisation pour les familles, les bénéficiaires et les auxiliaires de vie.",
+      bullets: [
+        "Géolocalisation intelligente pour identifier les auxiliaires de vie les plus proches de chaque bénéficiaire",
+        "Refonte du state management : Redux remplacé par hooks et contexts React",
+        "Portail client simplifiant l'accès aux services Ouihelp pour les familles",
+      ],
+      image: "/images/projects/ouihelp-logo.png",
+      imageAlt: "Logo Ouihelp",
     },
   ],
   stack: [
@@ -147,7 +192,7 @@ export const profileFr: Profile = {
   ],
   about: {
     paragraphs: [
-      "Ingénieur full-stack indépendant depuis 2024 sous ma société Axiome, je conçois et construis des produits web et mobiles de bout en bout — de l'architecture à la production. Diplômé d'HETIC, formé en alternance chez Ouihelp, Alobees puis Microdoing, je co-fonde aujourd'hui aiOrigin, une plateforme d'agents IA autonomes pour l'entreprise.",
+      "Ingénieur full-stack et architecte IA indépendant depuis 2024 sous ma société Axiome, je conçois et construis des produits web et mobiles de bout en bout. Je crée et mets en production des workflows et des agents IA. Diplômé d'HETIC, formé en alternance chez Ouihelp, Alobees puis Microdoing, je co-fonde aujourd'hui aiOrigin, une plateforme d'agents IA autonomes pour l'entreprise.",
       "Mon terrain : les systèmes où l'IA rencontre la vraie ingénierie — boucles d'agents multi-providers, streaming temps réel, workflows durables, apps mobiles publiées en solo. Basé à Nice, je travaille en français comme en anglais.",
     ],
     portrait: "/images/portrait.webp",

@@ -5,7 +5,7 @@ import { getProfile, isLocale, LOCALES } from "@/content/get-profile";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Hugues Romain — Full-stack & AI engineer";
+export const alt = "Hugues Romain — Full-stack engineer & AI architect";
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -72,8 +72,8 @@ export default async function OpengraphImage({
               }}
             />
             {resolved === "fr"
-              ? "Ingénieur full-stack & IA"
-              : "Full-stack & AI engineer"}
+              ? "Ingénieur full-stack, architecte IA"
+              : "Full-stack engineer & AI architect"}
           </div>
           <div
             style={{
@@ -97,8 +97,8 @@ export default async function OpengraphImage({
             }}
           >
             {resolved === "fr"
-              ? "Produits web & mobiles de bout en bout — architecture, agents IA, production."
-              : "Web & mobile products end to end — architecture, AI agents, production."}
+              ? "Je crée et mets en production des workflows et des agents IA."
+              : "I design and ship AI workflows and agents."}
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 export const corpusFr = `# Hugues Romain — Corpus (v1 : CV)
 
 ## Identité
-- Hugues Romain, ingénieur full-stack & IA freelance, basé à Nice.
+- Hugues Romain, ingénieur full-stack et architecte IA freelance, basé à Nice. Il crée et met en production des workflows et des agents IA.
 - Société : Axiome (SASU), fondée en septembre 2024.
 - Email : huguesromainpro@gmail.com · GitHub : github.com/huguesromain
 - Langues : français (natif), anglais (courant).
@@ -52,18 +52,21 @@ Plateforme B2B de commande de produits frais pour les épiceries de quartier.
 - Instrumentation PostHog : suivi des comportements, priorisation de la roadmap, optimisation des parcours clés.
 - Coordination quotidienne de l'équipe tech (code reviews, rituels agiles).
 
-### Microdoing — Full-Stack Engineer, alternance (oct. 2022 – oct. 2023, Paris)
+### Microdoing — Ingénieur Full-Stack, alternance (oct. 2022 – oct. 2023, Paris)
+Produit mobile React Native, porté sur le web avec Expo for Web.
 - Feature de gamification qui a augmenté l'engagement et l'adoption de 20 %.
 - Portage de l'app React Native vers le web avec Expo for Web.
 - Réorganisation de l'équipe (code reviews, sprints, daily, rétrospectives) pour réduire le taux d'erreurs en production.
 
-### Alobees — Full-Stack Engineer, alternance (déc. 2021 – sept. 2022, Paris)
+### Alobees — Ingénieur Full-Stack, alternance (déc. 2021 – sept. 2022, Paris)
+Outil interactif de planification de chantiers pour les professionnels du BTP.
 - Réarchitecture des fronts web et mobile, unifiés autour d'un design system atomique.
 - Outil interactif de planification de chantiers pour les professionnels du BTP.
 - Suppression des frictions UX sur l'inscription et la connexion.
 - Introduction des tests automatisés (Jest).
 
-### Ouihelp — Front-End Engineer, alternance (juil. 2019 – sept. 2021, Paris)
+### Ouihelp — Ingénieur Front-End, alternance (juil. 2019 – sept. 2021, Paris)
+Portail client et géolocalisation pour les familles, les bénéficiaires et les auxiliaires de vie.
 - Feature de géolocalisation intelligente pour identifier les auxiliaires de vie les plus proches de chaque bénéficiaire.
 - Refonte du state management (Redux remplacé par hooks et contexts React).
 - Portail client simplifiant l'accès aux services Ouihelp pour les familles.

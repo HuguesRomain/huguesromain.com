@@ -31,10 +31,12 @@ export async function generateMetadata({
   const profile = getProfile(locale);
   const description =
     locale === "fr"
-      ? "Ingénieur full-stack & IA freelance. Posez vos questions directement à une IA qui répond à sa place."
-      : "Freelance full-stack & AI engineer. Ask your questions directly to an AI that answers on his behalf.";
+      ? "Ingénieur full-stack, architecte IA freelance. Je crée et mets en production des workflows et des agents IA. Posez vos questions directement à une IA qui répond à sa place."
+      : "Freelance full-stack engineer & AI architect. I design and ship AI workflows and agents. Ask your questions directly to an AI that answers on his behalf.";
   const title = `${profile.name} — ${
-    locale === "fr" ? "Ingénieur full-stack & IA" : "Full-stack & AI engineer"
+    locale === "fr"
+      ? "Ingénieur full-stack, architecte IA"
+      : "Full-stack engineer & AI architect"
   }`;
   return {
     metadataBase: new URL(SITE_URL),

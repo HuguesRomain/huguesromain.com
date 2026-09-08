@@ -5,7 +5,7 @@ export const profileEn: Profile = {
   locale: "en",
   name: "Hugues Romain",
   tagline:
-    "Freelance full-stack & AI engineer · architecture, AI agents, end-to-end web & mobile products · Nice",
+    "Freelance full-stack engineer & AI architect · AI workflows and agents, end-to-end web & mobile products · Nice",
   heroFirstName: "Hugues",
   heroLastName: "Romain",
   sections: {
@@ -59,6 +59,21 @@ export const profileEn: Profile = {
       imageAlt: "Macro shot of a printed circuit board in raking light",
     },
     {
+      slug: "thetribe",
+      title: "theTribe",
+      role: "Full-Stack Engineer (freelance)",
+      period: "2025 — 2026",
+      context:
+        "Full-stack missions through theTribe, a French product agency, for several of its clients.",
+      bullets: [
+        "Teamway — Workplace 365 mobile app (React Native): features, fixes and iOS / Android releases",
+        "HomeExchange Day — event platform (React, Express, PostgreSQL): Luma integration, host / guest registration flows",
+        "Aleteia — online media (Next.js, GraphQL): rebuilt archive pages and header, Algolia search, i18n, CSS migration to Tailwind",
+      ],
+      image: "/images/projects/thetribe-logo.png",
+      imageAlt: "theTribe logo",
+    },
+    {
       slug: "ida",
       title: "Ida",
       role: "Full-Stack Engineer (freelance)",
@@ -74,19 +89,49 @@ export const profileEn: Profile = {
       imageAlt: "Wind-sculpted dune ridge in darkness",
     },
     {
-      slug: "thetribe",
-      title: "theTribe",
-      role: "Full-Stack Engineer (freelance)",
-      period: "2025 — 2026",
+      slug: "microdoing",
+      title: "Microdoing",
+      role: "Full-Stack Engineer (work-study)",
+      period: "2022 — 2023",
       context:
-        "Full-stack missions through theTribe, a French product agency, for several of its clients.",
+        "React Native product, ported to the web with Expo for Web.",
       bullets: [
-        "Teamway — Workplace 365 mobile app (React Native): features, fixes and iOS / Android releases",
-        "HomeExchange Day — event platform (React, Express, PostgreSQL): Luma integration, host / guest registration flows",
-        "Aleteia — online media (Next.js, GraphQL): rebuilt archive pages and header, Algolia search, i18n, CSS migration to Tailwind",
+        "Designed and built a gamification feature that lifted user engagement and adoption by 20%",
+        "Ported the React Native mobile app to the web with Expo for Web",
+        "Reorganised the team (code reviews, sprints, daily rituals, retrospectives) to cut the production error rate",
       ],
-      image: "/images/projects/thetribe-logo.png",
-      imageAlt: "theTribe logo",
+      image: "/images/projects/microdoing-logo.png",
+      imageAlt: "Microdoing logo",
+    },
+    {
+      slug: "alobees",
+      title: "Alobees",
+      role: "Full-Stack Engineer (work-study)",
+      period: "2021 — 2022",
+      context:
+        "Interactive site-planning tool for construction professionals.",
+      bullets: [
+        "Rearchitected the web and mobile front ends, unified around an atomic design system",
+        "Interactive site-planning tool for construction professionals",
+        "Removed UX friction from sign-up and login flows",
+      ],
+      image: "/images/projects/alobees-logo.png",
+      imageAlt: "Alobees logo",
+    },
+    {
+      slug: "ouihelp",
+      title: "Ouihelp",
+      role: "Front-End Engineer (work-study)",
+      period: "2019 — 2021",
+      context:
+        "Client portal and location tools for families, beneficiaries and caregivers.",
+      bullets: [
+        "Smart location feature to identify the caregivers closest to each beneficiary",
+        "Reworked state management: Redux replaced with React hooks and contexts",
+        "Client portal simplifying access to Ouihelp services for families",
+      ],
+      image: "/images/projects/ouihelp-logo.png",
+      imageAlt: "Ouihelp logo",
     },
   ],
   stack: [
@@ -144,7 +189,7 @@ export const profileEn: Profile = {
   ],
   about: {
     paragraphs: [
-      "Independent full-stack engineer since 2024 through my company Axiome, I design and build web and mobile products end to end — from architecture to production. A HETIC graduate trained through work-study at Ouihelp, Alobees and Microdoing, I now co-found aiOrigin, a platform for autonomous AI agents in the enterprise.",
+      "Independent full-stack engineer and AI architect since 2024 through my company Axiome, I design and build web and mobile products end to end. I design and ship AI workflows and agents. A HETIC graduate trained through work-study at Ouihelp, Alobees and Microdoing, I now co-found aiOrigin, a platform for autonomous AI agents in the enterprise.",
       "My ground: systems where AI meets real engineering — multi-provider agent loops, real-time streaming, durable workflows, mobile apps shipped solo. Based in Nice, working in French and English.",
     ],
     portrait: "/images/portrait.webp",

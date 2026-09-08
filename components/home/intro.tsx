@@ -22,7 +22,9 @@ export function Intro({ profile }: { profile: Profile }) {
             {profile.name}
           </h1>
           <p className="text-[15px] text-text-muted">
-            {fr ? "Ingénieur full-stack & IA" : "Full-stack & AI engineer"}
+            {fr
+              ? "Ingénieur full-stack, architecte IA"
+              : "Full-stack engineer & AI architect"}
           </p>
         </div>
       </div>
@@ -73,8 +75,8 @@ export function Intro({ profile }: { profile: Profile }) {
       <div className="flex flex-col gap-4">
         <p className="text-[16px] leading-[1.65] text-text">
           {fr
-            ? "Je conçois et construis des produits web et mobiles de bout en bout — architecture, agents IA, mise en production. Freelance sous ma société Axiome, co-fondateur d'aiOrigin, une plateforme d'agents IA autonomes pour l'entreprise."
-            : "I design and build web and mobile products end to end — architecture, AI agents, all the way to production. Freelance under my company Axiome, co-founder of aiOrigin, a platform of autonomous AI agents for the enterprise."}
+            ? "Je conçois et construis des produits web et mobiles de bout en bout, et je crée et mets en production des workflows et des agents IA. Freelance sous ma société Axiome, co-fondateur d'aiOrigin, une plateforme d'agents IA autonomes pour l'entreprise."
+            : "I build web and mobile products end to end, and I design and ship AI workflows and agents. Freelance under my company Axiome, co-founder of aiOrigin, a platform of autonomous AI agents for the enterprise."}
         </p>
         <p className="text-[15px] leading-[1.65] text-text-muted">
           {profile.about.paragraphs[1]}
