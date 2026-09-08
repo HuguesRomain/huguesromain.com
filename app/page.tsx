@@ -1,9 +1,25 @@
+import { Hero } from "@/components/hero/hero";
+import { AboutSection } from "@/components/sections/about";
+import { ContactSection } from "@/components/sections/contact";
+import { StackSection } from "@/components/sections/stack";
+import { WorkSection } from "@/components/sections/work";
+import { profileFr } from "@/content/profile.fr";
+
+const profile = profileFr;
+
 export default function Home() {
   return (
-    <section className="flex min-h-[calc(100vh-57px)] items-center justify-center px-6">
-      <h1 className="text-center font-serif text-[clamp(3rem,8vw,7rem)] leading-[1.05] tracking-[-0.02em]">
-        Hugues <em>Romain</em>
-      </h1>
-    </section>
+    <>
+      <Hero profile={profile} />
+      <WorkSection profile={profile} />
+      <StackSection profile={profile} />
+      <AboutSection profile={profile} />
+      <ContactSection profile={profile} />
+      <footer className="border-t border-surface-border px-6 py-8">
+        <p className="mx-auto max-w-6xl text-center font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
+          © {new Date().getFullYear()} · {profile.footer}
+        </p>
+      </footer>
+    </>
   );
 }

@@ -72,7 +72,7 @@ export function AsciiLabClient() {
           cellSize={16}
           animated={animated}
           speed={speed}
-          className="h-[420px] w-full bg-bg-panel"
+          className="relative h-[420px] w-full bg-bg-panel"
         />
       </div>
 
@@ -87,7 +87,7 @@ export function AsciiLabClient() {
               cellSize={image.cell}
               animated={animated}
               speed={speed}
-              className="aspect-[16/10] w-full bg-bg-panel"
+              className="relative aspect-[16/10] w-full bg-bg-panel"
             />
           </div>
         ))}

@@ -28,7 +28,7 @@ export function AsciiImage({
   const [asciiReady, setAsciiReady] = useState(false);
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className={`overflow-hidden ${className}`}>
       <Image
         src={src}
         alt={alt}

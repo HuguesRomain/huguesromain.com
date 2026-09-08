@@ -341,7 +341,7 @@ export function AsciiCanvas({
   }, [src, cellSize, animated]);
 
   return (
-    <div ref={wrapperRef} aria-hidden className={`relative ${className}`}>
+    <div ref={wrapperRef} aria-hidden className={className}>
       <canvas
         ref={canvasRef}
         className={`absolute inset-0 h-full w-full transition-opacity duration-600 ${
