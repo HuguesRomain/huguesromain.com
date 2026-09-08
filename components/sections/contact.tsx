@@ -41,7 +41,7 @@ export function ContactSection({ profile }: { profile: Profile }) {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover opacity-70"
+        className="contact-texture object-cover opacity-70"
       />
       <div className="relative mx-auto max-w-xl px-6">
         <CornerFrame className="p-3">

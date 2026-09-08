@@ -36,10 +36,9 @@ export function AsciiImage({
         sizes={sizes}
         priority={priority}
         fetchPriority={priority ? "high" : undefined}
-        className={`object-cover transition-opacity duration-600 ${
+        className={`ascii-poster object-cover transition-opacity duration-600 ${
           asciiReady ? "opacity-0" : "opacity-35"
         }`}
-        style={{ filter: "grayscale(1) brightness(0.45) contrast(1.1)" }}
       />
       <AsciiCanvas
         src={src}

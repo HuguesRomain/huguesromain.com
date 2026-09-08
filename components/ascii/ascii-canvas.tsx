@@ -34,16 +34,25 @@ function parseHex(value: string): Rgb {
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 }
 
-let paletteCache: { dim: Rgb; accent: Rgb } | null = null;
+type Palette = { dim: Rgb; accent: Rgb; bg: Rgb };
 
-function getPalette(): { dim: Rgb; accent: Rgb } {
+let paletteCache: Palette | null = null;
+
+function getPalette(): Palette {
   if (paletteCache) return paletteCache;
   const styles = getComputedStyle(document.documentElement);
   paletteCache = {
     dim: parseHex(styles.getPropertyValue("--ascii-dim") || "#5e2110"),
     accent: parseHex(styles.getPropertyValue("--accent") || "#ff5a2b"),
+    bg: parseHex(styles.getPropertyValue("--bg") || "#0b0a09"),
   };
   return paletteCache;
+}
+
+if (typeof window !== "undefined") {
+  window.addEventListener("themechange", () => {
+    paletteCache = null;
+  });
 }
 
 function levelColor(t: number): string {
@@ -211,9 +220,16 @@ export function AsciiCanvas({
     const dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
     const animate = animated && canAnimateAscii();
 
+    function rebuildColors() {
+      colors.length = 0;
+      for (let level = 0; level < LEVELS; level++) {
+        colors.push(levelColor(level / (LEVELS - 1)));
+      }
+    }
+
+    rebuildColors();
     for (let level = 0; level < LEVELS; level++) {
       const t = level / (LEVELS - 1);
-      colors.push(levelColor(t));
       glyphs.push(
         RAMP[Math.min(RAMP.length - 1, Math.floor(t * RAMP.length))] ?? " ",
       );
@@ -304,11 +320,18 @@ export function AsciiCanvas({
           canvas.height / 2,
           Math.max(canvas.width, canvas.height) * 0.72,
         );
-        vignette.addColorStop(0, "rgba(0,0,0,0)");
-        vignette.addColorStop(1, `rgba(0,0,0,${VIGNETTE})`);
+        const [br, bgG, bb] = getPalette().bg;
+        vignette.addColorStop(0, `rgba(${br},${bgG},${bb},0)`);
+        vignette.addColorStop(1, `rgba(${br},${bgG},${bb},${VIGNETTE})`);
       }
       draw();
     }
+
+    function handleThemeChange() {
+      rebuildColors();
+      layout();
+    }
+    window.addEventListener("themechange", handleThemeChange);
 
     const resizeObserver = new ResizeObserver(layout);
     resizeObserver.observe(wrapper);
@@ -335,6 +358,7 @@ export function AsciiCanvas({
       disposed = true;
       instances.delete(instance);
       syncLoop();
+      window.removeEventListener("themechange", handleThemeChange);
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
     };

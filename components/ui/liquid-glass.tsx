@@ -79,15 +79,12 @@ export function LiquidGlass({
       <span
         aria-hidden
         className="absolute inset-0 z-10 rounded-[inherit]"
-        style={{ background: "rgba(255, 255, 255, 0.07)" }}
+        style={{ background: "var(--glass-tint)" }}
       />
       <span
         aria-hidden
         className="absolute inset-0 z-20 rounded-[inherit]"
-        style={{
-          boxShadow:
-            "inset 2px 2px 1px 0 rgba(255,255,255,0.22), inset -1px -1px 1px 1px rgba(255,255,255,0.14)",
-        }}
+        style={{ boxShadow: "var(--glass-inset)" }}
       />
       <div className={`relative z-30 ${contentClassName}`}>{children}</div>
     </Comp>

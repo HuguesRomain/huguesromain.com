@@ -18,7 +18,7 @@ export function Hero({ profile }: { profile: Profile }) {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(11,10,9,0.72) 0%, rgba(11,10,9,0.5) 45%, rgba(11,10,9,0.78) 100%)",
+            "linear-gradient(180deg, rgba(var(--veil-rgb),0.72) 0%, rgba(var(--veil-rgb),0.5) 45%, rgba(var(--veil-rgb),0.78) 100%)",
         }}
       />
       <HeroFlow profile={profile} />

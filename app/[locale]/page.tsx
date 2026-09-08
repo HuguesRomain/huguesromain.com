@@ -18,7 +18,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
       <StackSection profile={profile} />
       <AboutSection profile={profile} />
       <ContactSection profile={profile} />
-      <footer className="border-t border-surface-border px-6 py-8">
+      <footer className="border-t border-surface-border px-6 pt-8 pb-28">
         <p className="mx-auto max-w-6xl text-center font-mono text-[11px] uppercase tracking-[0.08em] text-text-muted">
           © {new Date().getFullYear()} · {profile.footer}
         </p>

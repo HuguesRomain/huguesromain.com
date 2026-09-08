@@ -30,7 +30,7 @@ const LiquidMetalButton = dynamic(
     loading: () => (
       <span
         aria-hidden
-        className="inline-flex items-center justify-center px-5 font-mono text-[12px] uppercase tracking-[0.08em] text-text"
+        className="inline-flex items-center justify-center px-5 font-mono text-[12px] uppercase tracking-[0.08em] text-[#f4f1ee]"
         style={METAL_FALLBACK_STYLE}
       >
         ASK

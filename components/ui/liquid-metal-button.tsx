@@ -14,6 +14,7 @@ import {
   type ReactNode,
 } from "react";
 
+const RING_WIDTH = 3;
 const REST_SPEED = 0.6;
 const HOVER_SPEED = 1;
 const CLICK_SPEED = 2.4;
@@ -68,7 +69,7 @@ function supportsWebGl(): boolean {
 }
 
 function createPillMask(width: number, height: number): string {
-  const scale = 2;
+  const scale = 4;
   const canvas = document.createElement("canvas");
   canvas.width = Math.max(2, Math.round(width * scale));
   canvas.height = Math.max(2, Math.round(height * scale));
@@ -77,6 +78,17 @@ function createPillMask(width: number, height: number): string {
   ctx.fillStyle = "#000000";
   ctx.beginPath();
   ctx.roundRect(0, 0, canvas.width, canvas.height, canvas.height / 2);
+  ctx.fill();
+  const inset = RING_WIDTH * scale;
+  ctx.globalCompositeOperation = "destination-out";
+  ctx.beginPath();
+  ctx.roundRect(
+    inset,
+    inset,
+    canvas.width - inset * 2,
+    canvas.height - inset * 2,
+    (canvas.height - inset * 2) / 2,
+  );
   ctx.fill();
   return canvas.toDataURL("image/png");
 }
@@ -238,14 +250,15 @@ export function LiquidMetalButton({
       onClick={handleClick}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      className={`relative inline-flex items-center justify-center overflow-hidden font-mono text-[12px] uppercase tracking-[0.08em] text-text disabled:opacity-50 ${className}`}
+      className={`relative inline-flex items-center justify-center overflow-hidden font-mono text-[12px] uppercase tracking-[0.08em] text-[#f4f1ee] disabled:opacity-50 ${className}`}
       style={{
         height,
         minWidth: height,
         borderRadius: height / 2,
         background: "linear-gradient(180deg, #202020, #000)",
-        boxShadow:
-          "0 8px 16px rgba(0,0,0,0.45), 0 2px 5px rgba(0,0,0,0.35), inset 0 1px 1px rgba(255,255,255,0.14), inset 0 -1px 1px rgba(0,0,0,0.5)",
+        boxShadow: shaderReady
+          ? "0 8px 16px rgba(0,0,0,0.45), 0 2px 5px rgba(0,0,0,0.35), inset 0 1px 1px rgba(255,255,255,0.14), inset 0 -1px 1px rgba(0,0,0,0.5)"
+          : "0 8px 16px rgba(0,0,0,0.45), 0 2px 5px rgba(0,0,0,0.35), inset 0 0 0 1px rgba(255,90,43,0.35), inset 0 1px 1px rgba(255,255,255,0.14), inset 0 -1px 1px rgba(0,0,0,0.5)",
         transformStyle: "preserve-3d",
       }}
     >
