@@ -26,6 +26,7 @@ export function useChat(transport: ChatTransport, locale: string) {
   const [status, setStatus] = useState<ChatStatus>("idle");
   const abortRef = useRef<AbortController | null>(null);
   const lastQuestionRef = useRef<string>("");
+  const messagesRef = useRef<ChatMessage[]>([]);
 
   const stop = useCallback(() => {
     abortRef.current?.abort();
@@ -37,6 +38,7 @@ export function useChat(transport: ChatTransport, locale: string) {
     abortRef.current?.abort();
     abortRef.current = null;
     setMessages([]);
+    messagesRef.current = [];
     setStatus("idle");
   }, []);
 
@@ -52,11 +54,13 @@ export function useChat(transport: ChatTransport, locale: string) {
         content: question,
       };
       const assistantId = makeId();
-      const history: ChatMessage[] = [...messages, userMessage];
-      setMessages([
+      const history: ChatMessage[] = [...messagesRef.current, userMessage];
+      const nextMessages: ChatMessage[] = [
         ...history,
         { id: assistantId, role: "assistant", content: "" },
-      ]);
+      ];
+      messagesRef.current = nextMessages;
+      setMessages(nextMessages);
       setStatus("streaming");
 
       const controller = new AbortController();
@@ -70,16 +74,22 @@ export function useChat(transport: ChatTransport, locale: string) {
           controller.signal,
         )) {
           received += token;
-          setMessages((prev) =>
-            prev.map((message) =>
+          setMessages((prev) => {
+            const next = prev.map((message) =>
               message.id === assistantId
                 ? { ...message, content: received }
                 : message,
-            ),
-          );
+            );
+            messagesRef.current = next;
+            return next;
+          });
         }
         if (received.trim() === "") {
-          setMessages((prev) => prev.filter((m) => m.id !== assistantId));
+          setMessages((prev) => {
+            const next = prev.filter((m) => m.id !== assistantId);
+            messagesRef.current = next;
+            return next;
+          });
           setStatus("error-empty");
         } else {
           setStatus("idle");
@@ -87,11 +97,21 @@ export function useChat(transport: ChatTransport, locale: string) {
       } catch (error) {
         if (error instanceof DOMException && error.name === "AbortError") {
           if (received.trim() === "") {
-            setMessages((prev) => prev.filter((m) => m.id !== assistantId));
+            setMessages((prev) => {
+              const next = prev.filter((m) => m.id !== assistantId);
+              messagesRef.current = next;
+              return next;
+            });
           }
           setStatus("idle");
+        } else if (received.trim() !== "") {
+          setStatus("idle");
         } else {
-          setMessages((prev) => prev.filter((m) => m.id !== assistantId));
+          setMessages((prev) => {
+            const next = prev.filter((m) => m.id !== assistantId);
+            messagesRef.current = next;
+            return next;
+          });
           setStatus(
             error instanceof RateLimitError
               ? "error-ratelimit"
@@ -102,7 +122,7 @@ export function useChat(transport: ChatTransport, locale: string) {
         abortRef.current = null;
       }
     },
-    [messages, transport, locale],
+    [transport, locale],
   );
 
   const retry = useCallback(() => {
@@ -114,6 +134,7 @@ export function useChat(transport: ChatTransport, locale: string) {
       if (last && last.role === "user" && last.content === question) {
         trimmed.pop();
       }
+      messagesRef.current = trimmed;
       return trimmed;
     });
     setStatus("idle");

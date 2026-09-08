@@ -57,6 +57,7 @@ export const apiTransport: ChatTransport = async function* (
   const response = await fetch("/api/chat", {
     method: "POST",
     headers: { "content-type": "application/json" },
+    cache: "no-store",
     body: JSON.stringify({
       locale,
       messages: messages.map(({ role, content }) => ({ role, content })),
@@ -65,11 +66,22 @@ export const apiTransport: ChatTransport = async function* (
   });
   if (response.status === 429) throw new RateLimitError();
   const contentType = response.headers.get("content-type") ?? "";
+  if (!response.ok || !response.body) {
+    console.error(
+      "[DEBUG] chat transport",
+      response.status,
+      contentType,
+    );
+    throw new Error("network");
+  }
   if (
-    !response.ok ||
-    !response.body ||
-    contentType.includes("application/json")
+    contentType.split(",")[0].trim().toLowerCase().startsWith("application/json")
   ) {
+    console.error(
+      "[DEBUG] chat transport json body",
+      response.status,
+      contentType,
+    );
     throw new Error("network");
   }
   const reader = response.body.getReader();
@@ -80,6 +92,8 @@ export const apiTransport: ChatTransport = async function* (
       if (done) break;
       yield decoder.decode(value, { stream: true });
     }
+    const tail = decoder.decode();
+    if (tail) yield tail;
   } finally {
     reader.releaseLock();
   }

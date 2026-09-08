@@ -13,6 +13,11 @@ const MAX_OUTPUT_TOKENS = 700;
 const RATE_LIMIT_MESSAGES = 20;
 const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 
+const STREAM_HEADERS = {
+  "content-type": "text/plain; charset=utf-8",
+  "cache-control": "no-store",
+};
+
 const hitsByIp = new Map<string, number[]>();
 
 function isRateLimited(ip: string): boolean {
@@ -77,20 +82,59 @@ function isWorkspaceRequiredError(error: unknown): boolean {
   );
 }
 
-function debugChatError(error: unknown) {
-  if (APICallError.isInstance(error)) {
-    console.error("[DEBUG] chat stream error", error.statusCode, error.message);
-    return;
-  }
-  if (error instanceof Error) {
-    console.error("[DEBUG] chat stream error", error.message);
-    return;
-  }
-  console.error("[DEBUG] chat stream error", error);
+function isCreditError(error: unknown): boolean {
+  const message = errorMessage(error).toLowerCase();
+  return (
+    message.includes("credit balance") ||
+    message.includes("too low to access the anthropic api")
+  );
 }
 
-function providerErrorResponse(error: unknown): Response {
+function debugChatError(error: unknown) {
+  const status = APICallError.isInstance(error) ? error.statusCode : undefined;
+  const message = errorMessage(error);
+  const data = APICallError.isInstance(error) ? error.data : undefined;
+  console.error("[DEBUG] chat stream error", status, message, data);
+}
+
+function textStreamResponse(text: string): Response {
+  const encoder = new TextEncoder();
+  return new Response(
+    new ReadableStream({
+      start(controller) {
+        controller.enqueue(encoder.encode(text));
+        controller.close();
+      },
+    }),
+    { headers: STREAM_HEADERS },
+  );
+}
+
+function byteStreamFromStrings(stream: ReadableStream<string>): Response {
+  const encoder = new TextEncoder();
+  return new Response(
+    stream.pipeThrough(
+      new TransformStream<string, Uint8Array>({
+        transform(chunk, controller) {
+          if (chunk) controller.enqueue(encoder.encode(chunk));
+        },
+      }),
+    ),
+    { headers: STREAM_HEADERS },
+  );
+}
+
+function creditFallbackResponse(locale: Locale): Response {
+  return textStreamResponse(
+    locale === "en"
+      ? "I can't reply from this chat right now. Email me at huguesromainpro@gmail.com and I'll answer in person."
+      : "Je ne peux pas répondre depuis ce chat pour le moment. Écris-moi à huguesromainpro@gmail.com, je répondrai moi-même.",
+  );
+}
+
+function providerErrorResponse(error: unknown, locale: Locale): Response {
   debugChatError(error);
+  if (isCreditError(error)) return creditFallbackResponse(locale);
   if (isWorkspaceRequiredError(error)) {
     return Response.json({ error: "workspace_required" }, { status: 503 });
   }
@@ -102,6 +146,7 @@ function providerErrorResponse(error: unknown): Response {
 
 async function toChatTextResponse(
   result: ReturnType<typeof streamText>,
+  locale: Locale,
 ): Promise<Response> {
   const reader = result.fullStream.getReader();
   try {
@@ -111,7 +156,7 @@ async function toChatTextResponse(
         return Response.json({ error: "empty" }, { status: 502 });
       }
       if (value.type === "error") {
-        return providerErrorResponse(value.error);
+        return providerErrorResponse(value.error, locale);
       }
       if (value.type !== "text-delta" || !value.text) continue;
       const first = value.text;
@@ -128,11 +173,7 @@ async function toChatTextResponse(
                 }
                 if (next.value.type === "error") {
                   debugChatError(next.value.error);
-                  controller.error(
-                    next.value.error instanceof Error
-                      ? next.value.error
-                      : new Error("upstream"),
-                  );
+                  controller.close();
                   return;
                 }
                 if (next.value.type === "text-delta" && next.value.text) {
@@ -140,7 +181,8 @@ async function toChatTextResponse(
                 }
               }
             } catch (error) {
-              controller.error(error);
+              debugChatError(error);
+              controller.close();
             }
           })();
         },
@@ -148,12 +190,10 @@ async function toChatTextResponse(
           void reader.cancel();
         },
       });
-      return new Response(stream.pipeThrough(new TextEncoderStream()), {
-        headers: { "content-type": "text/plain; charset=utf-8" },
-      });
+      return byteStreamFromStrings(stream);
     }
   } catch (error) {
-    return providerErrorResponse(error);
+    return providerErrorResponse(error, locale);
   }
 }
 
@@ -184,7 +224,8 @@ export async function POST(request: Request) {
     return Response.json({ error: "invalid_request" }, { status: 400 });
   }
 
-  const lastQuestion = parsed.messages[parsed.messages.length - 1]?.content ?? "";
+  const lastQuestion =
+    parsed.messages[parsed.messages.length - 1]?.content ?? "";
   const corpus = await getContext(lastQuestion, parsed.locale);
 
   const result = streamText({
@@ -195,5 +236,5 @@ export async function POST(request: Request) {
     temperature: 0.4,
   });
 
-  return toChatTextResponse(result);
+  return toChatTextResponse(result, parsed.locale);
 }
