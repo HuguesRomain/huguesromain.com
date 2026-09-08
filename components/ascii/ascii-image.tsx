@@ -35,6 +35,7 @@ export function AsciiImage({
         fill
         sizes={sizes}
         priority={priority}
+        fetchPriority={priority ? "high" : undefined}
         className={`object-cover transition-opacity duration-600 ${
           asciiReady ? "opacity-0" : "opacity-35"
         }`}

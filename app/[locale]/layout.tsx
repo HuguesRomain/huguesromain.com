@@ -6,6 +6,7 @@ import { GlassFilter } from "@/components/ui/glass-filter";
 import { GridLines } from "@/components/ui/grid-lines";
 import { SiteNav } from "@/components/site-nav";
 import { getProfile, isLocale, LOCALES } from "@/content/get-profile";
+import { SITE_URL } from "@/lib/site";
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
@@ -35,13 +36,29 @@ export async function generateMetadata({
     locale === "fr"
       ? "Ingénieur full-stack & IA freelance. Posez vos questions directement à une IA qui répond à sa place."
       : "Freelance full-stack & AI engineer. Ask your questions directly to an AI that answers on his behalf.";
+  const title = `${profile.name} — ${
+    locale === "fr" ? "Ingénieur full-stack & IA" : "Full-stack & AI engineer"
+  }`;
   return {
-    title: `${profile.name} — ${
-      locale === "fr" ? "Ingénieur full-stack & IA" : "Full-stack & AI engineer"
-    }`,
+    metadataBase: new URL(SITE_URL),
+    title,
     description,
     alternates: {
+      canonical: `/${locale}`,
       languages: { fr: "/fr", en: "/en" },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/${locale}`,
+      siteName: profile.name,
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }

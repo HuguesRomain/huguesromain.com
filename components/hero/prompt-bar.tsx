@@ -6,10 +6,38 @@ import {
   useState,
   type KeyboardEvent as ReactKeyboardEvent,
 } from "react";
+import dynamic from "next/dynamic";
 import type { ChatStrings } from "@/content/types";
 import { CornerFrame } from "@/components/ui/corner-frame";
 import { LiquidGlass } from "@/components/ui/liquid-glass";
-import { LiquidMetalButton } from "@/components/ui/liquid-metal-button";
+
+const METAL_FALLBACK_STYLE = {
+  height: 42,
+  minWidth: 42,
+  borderRadius: 21,
+  background: "linear-gradient(180deg, #202020, #000)",
+  boxShadow:
+    "0 8px 16px rgba(0,0,0,0.45), 0 2px 5px rgba(0,0,0,0.35), inset 0 1px 1px rgba(255,255,255,0.14), inset 0 -1px 1px rgba(0,0,0,0.5)",
+} as const;
+
+const LiquidMetalButton = dynamic(
+  () =>
+    import("@/components/ui/liquid-metal-button").then(
+      (mod) => mod.LiquidMetalButton,
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <span
+        aria-hidden
+        className="inline-flex items-center justify-center px-5 font-mono text-[12px] uppercase tracking-[0.08em] text-text"
+        style={METAL_FALLBACK_STYLE}
+      >
+        ASK
+      </span>
+    ),
+  },
+);
 
 const PLACEHOLDER_INTERVAL_MS = 4000;
 const MAX_INPUT_LENGTH = 500;

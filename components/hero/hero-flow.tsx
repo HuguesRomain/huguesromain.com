@@ -1,14 +1,20 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import type { Profile } from "@/content/types";
-import { ChatPanel } from "@/components/chat/chat-panel";
 import { useChat } from "@/components/chat/use-chat";
 import { apiTransport } from "@/lib/chat-transport";
 import { PromptBar } from "./prompt-bar";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
+
+const ChatPanel = dynamic(
+  () =>
+    import("@/components/chat/chat-panel").then((mod) => mod.ChatPanel),
+  { ssr: false },
+);
 
 export function HeroFlow({ profile }: { profile: Profile }) {
   const [open, setOpen] = useState(false);
