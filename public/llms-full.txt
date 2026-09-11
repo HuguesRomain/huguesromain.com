@@ -1,0 +1,55 @@
+# Hugues Romain — full source
+
+This file is the long form for crawlers and language models. Do not invent skills, clients, dates, or tools that are not listed here. He is not Hugues de Nadaillac. He does not write C or C++.
+
+## Identity
+
+Hugues Romain, freelance software engineer and AI architect, based in Nice, France.
+Company: Axiome (SASU), founded September 2024.
+Email: huguesromaindev@gmail.com
+GitHub: https://github.com/HuguesRomain
+LinkedIn: https://www.linkedin.com/in/huguesromain/
+Calendly: https://calendly.com/huguesromain
+Languages: French (native), English (fluent).
+CV: https://huguesromain.com/cv-hugues-romain-fr.pdf and https://huguesromain.com/cv-hugues-romain-en.pdf
+
+## Education
+
+HETIC (Montreuil). Master's equivalent in computer programming, Nov 2021 – Sept 2023 (work-study at Alobees then Microdoing). Bachelor 2018 – 2021 (work-study at Ouihelp).
+
+## Work
+
+- aiOrigin — Co-founder & Lead Engineer (Feb 2026 – present). Multi-tenant SaaS of autonomous AI agents for the enterprise. FastAPI, React/TypeScript, Docker, PostgreSQL, Redis, Temporal Cloud. Multi-provider agents (Claude Agent SDK + LiteLLM). https://huguesromain.com/en/experience/aiorigin
+- Sinea Formation — Lead Full-Stack Engineer (Sept 2025 – present). B2B soft-skills platform. Expo/React Native, NestJS, Prisma, PostgreSQL.
+- Axiome App Studio — Founder & Product Engineer (2025 – present). Consumer mobile apps shipped solo: Belle (AI beauty advisor), Koji (gut health), Tanzy, KnuckleMax, Teacherz. Expo, TypeScript, Supabase, Superwall. https://huguesromain.com/en/experience/axiome
+- theTribe — Full-stack freelance (Oct 2025 – 2026). Teamway, HomeExchange Day, Aleteia.
+- Ida — Full-Stack freelance (Sept 2024 – Sept 2025). Fresh-produce B2B ordering. FastAPI, React.
+- Microdoing — Full-Stack work-study (2022 – 2023, Paris).
+- Alobees — Full-Stack work-study (2021 – 2022, Paris).
+- Ouihelp — Front-End work-study (2019 – 2021, Paris).
+
+## Personal products
+
+- Signal Radar: SaaS to find exploitable app markets from trend signals.
+- Astrotierra: astrocartography web product (Supabase Edge Functions, Swiss Ephemeris, LLM readings).
+
+## Stack whitelist
+
+Languages: TypeScript, JavaScript, Python, SQL. Not C, not C++.
+Front: React, Next.js, React Native / Expo, TanStack Query, Zustand, Tailwind CSS, Radix UI.
+Back: FastAPI, NestJS, Node.js, PostgreSQL / Supabase, Prisma, Redis, pgvector, REST & SSE.
+AI: Claude Agent SDK, MCP, LiteLLM, RAG, multi-agent orchestration, Temporal.
+Infra: Docker, Temporal Cloud, Stripe, Railway, EAS / Expo, GitHub Actions, Sentry, PostHog, Langfuse.
+
+## How he works
+
+Open to freelance missions. Mostly remote from Nice; can travel. Rates and start dates by email only.
+Prefers framed work, clear next actions, no ambiguity.
+Codes with Cursor; ships fast or goes slow and precise depending on the problem.
+
+## Site
+
+https://huguesromain.com/en
+https://huguesromain.com/fr
+https://huguesromain.com/en/blog
+https://huguesromain.com/llms.txt

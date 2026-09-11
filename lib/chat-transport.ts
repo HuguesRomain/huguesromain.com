@@ -4,6 +4,7 @@ export interface ChatMessage {
   id: string;
   role: ChatRole;
   content: string;
+  stickerSrc?: string;
 }
 
 export class RateLimitError extends Error {
@@ -22,7 +23,7 @@ export type ChatTransport = (
 const FAKE_REPLY_FR = `Réponse **simulée** pour valider l'interface — le vrai modèle est branché à l'étape suivante.
 
 - Streaming token par token avec curseur bloc
-- Markdown : **gras**, \`code inline\`, [liens](https://github.com/huguesromain)
+- Markdown : **gras**, \`code inline\`, [liens](https://github.com/HuguesRomain)
 - Historique gardé en mémoire pendant la visite
 
 Posez une autre question, ou testez \`/erreur\`, \`/limite\`, \`/vide\`.`;
@@ -30,7 +31,7 @@ Posez une autre question, ou testez \`/erreur\`, \`/limite\`, \`/vide\`.`;
 const FAKE_REPLY_EN = `**Simulated** reply to validate the UI — the real model lands in the next step.
 
 - Token-by-token streaming with a block cursor
-- Markdown: **bold**, \`inline code\`, [links](https://github.com/huguesromain)
+- Markdown: **bold**, \`inline code\`, [links](https://github.com/HuguesRomain)
 - History kept in memory during the visit
 
 Ask another question, or try \`/erreur\`, \`/limite\`, \`/vide\`.`;
@@ -60,7 +61,9 @@ export const apiTransport: ChatTransport = async function* (
     cache: "no-store",
     body: JSON.stringify({
       locale,
-      messages: messages.map(({ role, content }) => ({ role, content })),
+      messages: messages
+        .filter((message) => message.content.trim() !== "" && !message.stickerSrc)
+        .map(({ role, content }) => ({ role, content })),
     }),
     signal,
   });

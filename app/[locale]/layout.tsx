@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
 import { GlassFilter } from "@/components/ui/glass-filter";
 import { SiteNav } from "@/components/site-nav";
 import { getProfile, isLocale, LOCALES } from "@/content/get-profile";
-import { SITE_URL } from "@/lib/site";
+import { localeAlternates, SITE_URL } from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -16,6 +16,13 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  interactiveWidget: "overlays-content",
+};
 
 export const dynamicParams = false;
 
@@ -31,12 +38,12 @@ export async function generateMetadata({
   const profile = getProfile(locale);
   const description =
     locale === "fr"
-      ? "Ingénieur full-stack, architecte IA freelance. Je crée et mets en production des workflows et des agents IA. Posez vos questions directement à une IA qui répond à sa place."
-      : "Freelance full-stack engineer & AI architect. I design and ship AI workflows and agents. Ask your questions directly to an AI that answers on his behalf.";
+      ? "Hugues Romain, ingénieur logiciel et architecte IA freelance à Nice. Workflows et agents IA, produits web et mobile de bout en bout."
+      : "Hugues Romain, freelance software engineer and AI architect in Nice. I design and ship AI workflows and agents, and build web and mobile products end to end.";
   const title = `${profile.name} — ${
     locale === "fr"
-      ? "Ingénieur full-stack, architecte IA"
-      : "Full-stack engineer & AI architect"
+      ? "Ingénieur logiciel, architecte IA"
+      : "Software engineer & AI architect"
   }`;
   return {
     metadataBase: new URL(SITE_URL),
@@ -44,7 +51,10 @@ export async function generateMetadata({
     description,
     alternates: {
       canonical: `/${locale}`,
-      languages: { fr: "/fr", en: "/en" },
+      languages: localeAlternates(""),
+      types: {
+        "application/rss+xml": `/${locale}/feed.xml`,
+      },
     },
     openGraph: {
       title,

@@ -1,17 +1,11 @@
 import Image from "next/image";
 import type { Profile } from "@/content/types";
-import {
-  TODO_BOOKING_URL,
-  TODO_LINKEDIN_URL,
-} from "@/content/profile.fr";
 import { LiquidGlass } from "@/components/ui/liquid-glass";
 import { Section } from "./section";
 
 export function Contact({ profile }: { profile: Profile }) {
-  const hasLinkedin =
-    profile.contact.linkedin && profile.contact.linkedin !== TODO_LINKEDIN_URL;
-  const hasBooking =
-    profile.contact.booking && profile.contact.booking !== TODO_BOOKING_URL;
+  const hasLinkedin = Boolean(profile.contact.linkedin);
+  const hasBooking = Boolean(profile.contact.booking);
 
   return (
     <Section id="contact" title="Contact">

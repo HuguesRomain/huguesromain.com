@@ -1,7 +1,10 @@
 import { Fragment, type ReactNode } from "react";
 
-const INLINE_PATTERN =
-  /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\((?:https?:\/\/|mailto:)[^)\s]+\))/g;
+const LINK_HREF = "(?:https?:\\/\\/|mailto:|\\/(?!\\/))[^)\\s]+";
+const INLINE_PATTERN = new RegExp(
+  `(\\*\\*[^*]+\\*\\*|\`[^\`]+\`|\\[[^\\]]+\\]\\(${LINK_HREF}\\))`,
+  "g",
+);
 
 function renderInline(text: string, keyPrefix: string): ReactNode[] {
   const parts = text.split(INLINE_PATTERN);
@@ -24,9 +27,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
         </code>
       );
     }
-    const link = /^\[([^\]]+)\]\(((?:https?:\/\/|mailto:)[^)\s]+)\)$/.exec(
-      part,
-    );
+    const link = new RegExp(`^\\[([^\\]]+)\\]\\((${LINK_HREF})\\)$`).exec(part);
     if (link) {
       return (
         <a

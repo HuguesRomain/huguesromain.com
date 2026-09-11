@@ -2,26 +2,21 @@ import type { MetadataRoute } from "next";
 import { getProjectSlugs } from "@/content/experience";
 import { LOCALES } from "@/content/get-profile";
 import { getPosts } from "@/lib/blog";
-import { SITE_URL } from "@/lib/site";
+import { CONTENT_UPDATED, localeAlternateUrls, SITE_URL } from "@/lib/site";
+
+const SITE_MODIFIED = new Date(CONTENT_UPDATED);
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = LOCALES.flatMap((locale) => [
     {
       url: `${SITE_URL}/${locale}`,
-      lastModified: new Date(),
-      alternates: {
-        languages: { fr: `${SITE_URL}/fr`, en: `${SITE_URL}/en` },
-      },
+      lastModified: SITE_MODIFIED,
+      alternates: { languages: localeAlternateUrls("") },
     },
     {
       url: `${SITE_URL}/${locale}/blog`,
-      lastModified: new Date(),
-      alternates: {
-        languages: {
-          fr: `${SITE_URL}/fr/blog`,
-          en: `${SITE_URL}/en/blog`,
-        },
-      },
+      lastModified: SITE_MODIFIED,
+      alternates: { languages: localeAlternateUrls("blog") },
     },
   ]);
 
@@ -29,12 +24,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const slug of getProjectSlugs()) {
       entries.push({
         url: `${SITE_URL}/${locale}/experience/${slug}`,
-        lastModified: new Date(),
+        lastModified: SITE_MODIFIED,
         alternates: {
-          languages: {
-            fr: `${SITE_URL}/fr/experience/${slug}`,
-            en: `${SITE_URL}/en/experience/${slug}`,
-          },
+          languages: localeAlternateUrls(`experience/${slug}`),
         },
       });
     }
@@ -46,10 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${SITE_URL}/${locale}/blog/${post.slug}`,
         lastModified: new Date(post.date),
         alternates: {
-          languages: {
-            fr: `${SITE_URL}/fr/blog/${post.slug}`,
-            en: `${SITE_URL}/en/blog/${post.slug}`,
-          },
+          languages: localeAlternateUrls(`blog/${post.slug}`),
         },
       });
     }

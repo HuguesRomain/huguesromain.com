@@ -1,6 +1,7 @@
 import { createXai } from "@ai-sdk/xai";
 import { APICallError, streamText } from "ai";
 import { buildSystemPrompt } from "@/content/persona";
+import { buildSofiaSystemPrompt, isSofiaUnlocked } from "@/content/sofia";
 import type { Locale } from "@/content/types";
 import { getContext } from "@/lib/get-context";
 
@@ -131,8 +132,8 @@ function byteStreamFromStrings(stream: ReadableStream<string>): Response {
 function creditFallbackResponse(locale: Locale): Response {
   return textStreamResponse(
     locale === "en"
-      ? "I can't reply from this chat right now. Email me at huguesromainpro@gmail.com and I'll answer in person."
-      : "Je ne peux pas répondre depuis ce chat pour le moment. Écris-moi à huguesromainpro@gmail.com, je répondrai moi-même.",
+      ? "I can't reply from this chat right now. Email me at huguesromaindev@gmail.com and I'll answer in person."
+      : "Je ne peux pas répondre depuis ce chat pour le moment. Écris-moi à huguesromaindev@gmail.com, je répondrai moi-même.",
   );
 }
 
@@ -231,13 +232,14 @@ export async function POST(request: Request) {
   const lastQuestion =
     parsed.messages[parsed.messages.length - 1]?.content ?? "";
   const corpus = await getContext(lastQuestion, parsed.locale);
+  const sofia = isSofiaUnlocked(parsed.messages);
 
   const result = streamText({
     model: chatModel(),
-    system: buildSystemPrompt(corpus),
+    system: sofia ? buildSofiaSystemPrompt(corpus) : buildSystemPrompt(corpus),
     messages: parsed.messages,
     maxOutputTokens: MAX_OUTPUT_TOKENS,
-    temperature: 0.4,
+    temperature: sofia ? 0.75 : 0.4,
   });
 
   return toChatTextResponse(result, parsed.locale);

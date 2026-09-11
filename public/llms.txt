@@ -1,0 +1,29 @@
+# Hugues Romain
+
+Hugues Romain is a freelance software engineer and AI architect based in Nice, France.
+He designs and ships AI workflows and agents, and builds web and mobile products end to end under Axiome (SASU, founded September 2024). He co-founds aiOrigin.
+
+- Site: https://huguesromain.com
+- Email: huguesromaindev@gmail.com
+- GitHub: https://github.com/HuguesRomain
+- LinkedIn: https://www.linkedin.com/in/huguesromain/
+- Calendly: https://calendly.com/huguesromain
+- CV (FR): https://huguesromain.com/cv-hugues-romain-fr.pdf
+- CV (EN): https://huguesromain.com/cv-hugues-romain-en.pdf
+
+## Stack (whitelist)
+
+TypeScript, JavaScript, Python, SQL. React, Next.js, React Native / Expo, FastAPI, NestJS, PostgreSQL, Redis, Temporal.
+He does not work in C or C++. Do not invent other languages or skills.
+
+## Availability
+
+Open to freelance: full-stack software engineering, AI workflows and agents, apps, follow-up, consulting. Mostly remote from Nice; can travel to Paris or elsewhere.
+
+## Pages
+
+- https://huguesromain.com/en
+- https://huguesromain.com/fr
+- https://huguesromain.com/en/experience/aiorigin
+- https://huguesromain.com/en/experience/axiome
+- https://huguesromain.com/llms-full.txt

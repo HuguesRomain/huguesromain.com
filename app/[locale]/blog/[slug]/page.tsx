@@ -4,8 +4,10 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { isLocale, LOCALES } from "@/content/get-profile";
 import type { Locale } from "@/content/types";
+import { JsonLd } from "@/components/seo/json-ld";
 import { formatPostDate, getPost, getPosts } from "@/lib/blog";
-import { SITE_URL } from "@/lib/site";
+import { blogPostingJsonLd } from "@/lib/json-ld";
+import { localeAlternates, SITE_URL } from "@/lib/site";
 import "@/app/blog-prose.css";
 
 const STRINGS: Record<
@@ -50,10 +52,7 @@ export async function generateMetadata({
     description: post.description,
     alternates: {
       canonical: `/${locale}/blog/${slug}`,
-      languages: {
-        fr: `/fr/blog/${slug}`,
-        en: `/en/blog/${slug}`,
-      },
+      languages: localeAlternates(`blog/${slug}`),
     },
     openGraph: {
       title,
@@ -84,6 +83,7 @@ export default async function BlogPostPage({
 
   return (
     <div className="px-6 pt-24 pb-28 font-sans">
+      <JsonLd data={blogPostingJsonLd(locale, post)} />
       <div className="mx-auto w-full max-w-[680px]">
         <Link
           href={`/${locale}/blog`}

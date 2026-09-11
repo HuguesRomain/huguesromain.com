@@ -3,8 +3,12 @@ import { NextResponse, type NextRequest } from "next/server";
 const LOCALES = ["fr", "en"] as const;
 const DEFAULT_LOCALE = "en";
 const LOCALE_COOKIE = "preferred-locale";
+const CRAWLER =
+  /Googlebot|Google-Extended|Bingbot|GPTBot|ClaudeBot|PerplexityBot|anthropic-ai|CCBot|Amazonbot|Bytespider|Applebot/i;
 
 function pickLocale(request: NextRequest): string {
+  const ua = request.headers.get("user-agent") ?? "";
+  if (CRAWLER.test(ua)) return DEFAULT_LOCALE;
   const cookie = request.cookies.get(LOCALE_COOKIE)?.value;
   if (cookie && (LOCALES as readonly string[]).includes(cookie)) return cookie;
   const header = request.headers.get("accept-language") ?? "";

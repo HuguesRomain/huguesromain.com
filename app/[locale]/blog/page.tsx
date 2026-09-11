@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { isLocale, LOCALES } from "@/content/get-profile";
 import type { Locale } from "@/content/types";
 import { formatPostDate, getPosts } from "@/lib/blog";
-import { SITE_URL } from "@/lib/site";
+import { localeAlternates, SITE_URL } from "@/lib/site";
 
 const STRINGS: Record<
   Locale,
@@ -54,7 +54,7 @@ export async function generateMetadata({
     description: strings.description,
     alternates: {
       canonical: `/${locale}/blog`,
-      languages: { fr: "/fr/blog", en: "/en/blog" },
+      languages: localeAlternates("blog"),
     },
     openGraph: {
       title,

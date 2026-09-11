@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Profile } from "@/content/types";
 import { ProfileChat } from "./profile-chat";
 
@@ -23,8 +24,8 @@ export function Intro({ profile }: { profile: Profile }) {
           </h1>
           <p className="text-[15px] text-text-muted">
             {fr
-              ? "Ingénieur full-stack, architecte IA"
-              : "Full-stack engineer & AI architect"}
+              ? "Ingénieur logiciel, architecte IA"
+              : "Software engineer & AI architect"}
           </p>
         </div>
       </div>
@@ -74,9 +75,48 @@ export function Intro({ profile }: { profile: Profile }) {
       </div>
       <div className="flex flex-col gap-4">
         <p className="text-[16px] leading-[1.65] text-text">
-          {fr
-            ? "Je conçois et construis des produits web et mobiles de bout en bout, et je crée et mets en production des workflows et des agents IA. Freelance sous ma société Axiome, co-fondateur d'aiOrigin, une plateforme d'agents IA autonomes pour l'entreprise."
-            : "I build web and mobile products end to end, and I design and ship AI workflows and agents. Freelance under my company Axiome, co-founder of aiOrigin, a platform of autonomous AI agents for the enterprise."}
+          {fr ? (
+            <>
+              Ingénieur logiciel et architecte IA freelance à Nice. Je conçois
+              et construis des produits web et mobiles de bout en bout, et je
+              crée et mets en production des workflows et des agents IA.
+              Freelance sous ma société{" "}
+              <Link
+                href={`/${profile.locale}/experience/axiome`}
+                className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+              >
+                Axiome
+              </Link>
+              , co-fondateur d&apos;
+              <Link
+                href={`/${profile.locale}/experience/aiorigin`}
+                className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+              >
+                aiOrigin
+              </Link>
+              , une plateforme d&apos;agents IA autonomes pour l&apos;entreprise.
+            </>
+          ) : (
+            <>
+              Software engineer and AI architect, freelance in Nice. I build
+              web and mobile products end to end, and I design and ship AI
+              workflows and agents. Freelance under my company{" "}
+              <Link
+                href={`/${profile.locale}/experience/axiome`}
+                className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+              >
+                Axiome
+              </Link>
+              , co-founder of{" "}
+              <Link
+                href={`/${profile.locale}/experience/aiorigin`}
+                className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+              >
+                aiOrigin
+              </Link>
+              , a platform of autonomous AI agents for the enterprise.
+            </>
+          )}
         </p>
         <p className="text-[15px] leading-[1.65] text-text-muted">
           {profile.about.paragraphs[1]}

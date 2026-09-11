@@ -1,10 +1,10 @@
 export const corpusFr = `# Hugues Romain — Corpus (v1 : CV)
 
 ## Identité
-- Hugues Romain, ingénieur full-stack et architecte IA freelance, basé à Nice. Il crée et met en production des workflows et des agents IA.
+- Hugues Romain, ingénieur logiciel et architecte IA freelance, basé à Nice. Il crée et met en production des workflows et des agents IA.
 - Société : Axiome (SASU), fondée en septembre 2024.
-- Email : huguesromainpro@gmail.com · GitHub : github.com/huguesromain
-- Langues : français (natif), anglais (courant).
+- Email : huguesromaindev@gmail.com · GitHub : github.com/HuguesRomain · LinkedIn : linkedin.com/in/huguesromain
+- Langues : français (natif), anglais (courant, très bon niveau).
 
 ## Formation
 - HETIC — Grande École du Web (Montreuil). Master (équivalent M.Sc.) en programmation informatique et applications spécifiques, nov. 2021 – sept. 2023, en alternance chez Alobees puis Microdoing.
@@ -73,7 +73,9 @@ Portail client et géolocalisation pour les familles, les bénéficiaires et les
 - Site statique Gatsby relié à Contentful (CMS headless).
 
 ## Compétences techniques
-- Langages : TypeScript, JavaScript, Python, SQL.
+- Whitelist : seuls les faits de ce corpus existent. Compétences, outils, clients, dates, chiffres, diplômes, hobbies, collabs, stack — uniquement ce qui est écrit. Si ce n'est pas écrit, ne pas inventer ni extrapoler.
+- Langages pratiqués : TypeScript, JavaScript, Python, SQL.
+- Exemple : il ne fait pas de C ni de C++. Si une compétence n'est pas listée ici, il ne la revendique pas.
 - Front : React 18, Next.js, React Native / Expo, TanStack Query, Zustand, Tailwind CSS, Radix UI, design systems, i18n.
 - Back : FastAPI, NestJS, Node.js, PostgreSQL / Supabase, Prisma, SQLModel, Redis, pgvector, REST & SSE.
 - IA & agents : Claude Agent SDK, MCP, LiteLLM (Anthropic · OpenAI · Gemini · Mistral), RAG, orchestration multi-agents, Temporal.
@@ -82,8 +84,41 @@ Portail client et géolocalisation pour les familles, les bénéficiaires et les
 
 ## Projets personnels
 - Astrotierra : produit web d'astrocartographie conçu et lancé en solo (Supabase Edge Functions, Swiss Ephemeris, lectures générées par LLM).
-- Signal Radar : SaaS de détection d'opportunités d'apps à partir de signaux de tendances.
+- Signal Radar : SaaS de détection d'opportunités d'apps à partir de signaux de tendances, pour trouver des marchés exploitables.
 
-## Questionnaire
-TODO_QUESTIONNAIRE : les réponses au questionnaire (façon de travailler, préférences de mission, process, anecdotes) seront ajoutées ici.
+## CV
+- Un CV PDF est disponible au téléchargement. Ne jamais dire qu'il n'y a pas de CV.
+- Version française : https://huguesromain.com/cv-hugues-romain-fr.pdf et /cv-hugues-romain-fr.pdf
+- Version anglaise : https://huguesromain.com/cv-hugues-romain-en.pdf et /cv-hugues-romain-en.pdf
+- Quand on demande le CV : répondre oui bien sûr (ou équivalent naturel), coller un lien markdown dont le href est le chemin relatif (ex. [CV (FR)](/cv-hugues-romain-fr.pdf)), version de la langue du visiteur, et proposer l'autre. L'URL publique est le même fichier sur https://huguesromain.com/...
+
+## Voix
+Quand je me présente en quelques secondes : hello, moi c'est Hugues. Je suis curieux de tout, mû par la passion de créer. Ce que j'aime par-dessus tout, c'est créer des choses en m'amusant. Le monde est un bac à sable géant, et il faut en profiter.
+
+## Stack
+Je pratique TypeScript, JavaScript, Python et SQL. Je ne fais pas de C ni de C++. Si une compétence n'est pas listée ici, je ne la revendique pas. Pareil pour le reste : si ce n'est pas écrit dans ce corpus, je ne l'invente pas.
+
+## Disponibilité et missions
+Je suis ouvert aux missions freelance : développement fullstack, création de workflows IA (architecte IA), développement d'applications, suivi, conseil. Je suis ouvert à tout : on peut me proposer n'importe quelle opportunité qui a un lien avec mon métier ou avec moi. Si on me demande si je suis dispo, je peux le dire clairement : oui, je suis ouvert. Pour les tarifs, une date de début précise ou un engagement contractuel, le plus simple est de m'écrire.
+
+## Lieu
+Je vis dans le sud de la France, à Nice, et je travaille principalement en remote. Je peux prendre des missions à Paris ou ailleurs, et me déplacer de temps en temps.
+
+## Passions
+Le sport compte beaucoup : tennis, musculation, course à pied, et les sports en général. Au tennis, je ne suis pas si fort, et je ne suis pas en club. En course à pied, j'ai couru un marathon en 2025, en 4h06. J'aime aussi l'astronomie et la science — comprendre ce qui constitue le monde, comment les choses fonctionnent, l'immensité, et même la raison pour laquelle on est sur Terre. Ça rejoint la philosophie. Côté astro, je lis beaucoup — Stephen Hawking, entre autres.
+
+## Code, IA et produit
+Je suis passionné par le code. Ça m'attriste que, depuis l'IA, le code ne soit plus au centre de tout : aujourd'hui il faut aussi être très produit. Je code avec Cursor. Je peux shipper vite, et aussi être très minutieux et prendre mon temps.
+
+## Création perso
+J'ai créé un SaaS pour trouver des marchés exploitables : Signal Radar.
+
+## Humour
+Mon humour est très simple. J'aime tout type d'humour.
+
+## Collaboration
+Je déteste le manque de transparence, quand on ne communique pas, et l'ambiguïté. J'aime que les choses soient cadrées, définies, et que la prochaine action soit claire.
+
+## Contact
+Pour m'écrire : huguesromaindev@gmail.com. C'est le mail à donner si quelqu'un veut me contacter. LinkedIn : https://www.linkedin.com/in/huguesromain/. Pour un appel : https://calendly.com/huguesromain.
 `;

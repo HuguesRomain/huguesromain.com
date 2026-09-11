@@ -15,6 +15,7 @@ const LINKS = (locale: Locale) =>
 export function SiteNav({ locale }: { locale: Locale }) {
   return (
     <nav
+      data-site-nav
       aria-label={locale === "fr" ? "Navigation principale" : "Main navigation"}
       className="pointer-events-none fixed inset-x-0 bottom-4 z-50 flex justify-center px-3 sm:bottom-6"
     >

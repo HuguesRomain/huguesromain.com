@@ -1,13 +1,11 @@
+import { CALENDLY_URL, CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/site";
 import type { Profile } from "./types";
-
-export const TODO_LINKEDIN_URL = "TODO_LINKEDIN_URL";
-export const TODO_BOOKING_URL = "TODO_BOOKING_URL";
 
 export const profileFr: Profile = {
   locale: "fr",
   name: "Hugues Romain",
   tagline:
-    "Ingénieur full-stack, architecte IA — freelance · workflows et agents IA, produits web & mobile de bout en bout · Nice",
+    "Ingénieur logiciel, architecte IA — freelance · workflows et agents IA, produits web & mobile de bout en bout · Nice",
   heroFirstName: "Hugues",
   heroLastName: "Romain",
   sections: {
@@ -192,7 +190,7 @@ export const profileFr: Profile = {
   ],
   about: {
     paragraphs: [
-      "Ingénieur full-stack et architecte IA indépendant depuis 2024 sous ma société Axiome, je conçois et construis des produits web et mobiles de bout en bout. Je crée et mets en production des workflows et des agents IA. Diplômé d'HETIC, formé en alternance chez Ouihelp, Alobees puis Microdoing, je co-fonde aujourd'hui aiOrigin, une plateforme d'agents IA autonomes pour l'entreprise.",
+      "Ingénieur logiciel et architecte IA freelance à Nice depuis 2024 sous ma société Axiome, je conçois et construis des produits web et mobiles de bout en bout. Je crée et mets en production des workflows et des agents IA. Diplômé d'HETIC, formé en alternance chez Ouihelp, Alobees puis Microdoing, je co-fonde aujourd'hui aiOrigin, une plateforme d'agents IA autonomes pour l'entreprise.",
       "Mon terrain : les systèmes où l'IA rencontre la vraie ingénierie — boucles d'agents multi-providers, streaming temps réel, workflows durables, apps mobiles publiées en solo. Basé à Nice, je travaille en français comme en anglais.",
     ],
     portrait: "/images/portrait.webp",
@@ -202,13 +200,14 @@ export const profileFr: Profile = {
   contact: {
     intro:
       "Un doute sur une archi, un agent à mettre en prod, un produit à construire de bout en bout — écrivez-moi, je réponds vite.",
-    email: "huguesromainpro@gmail.com",
-    github: "https://github.com/huguesromain",
-    linkedin: TODO_LINKEDIN_URL,
-    booking: TODO_BOOKING_URL,
-    bookingLabel: "Book a call",
+    email: CONTACT_EMAIL,
+    github: GITHUB_URL,
+    linkedin: LINKEDIN_URL,
+    booking: CALENDLY_URL,
+    bookingLabel: "Réserver un appel",
   },
   chat: {
+    promptHeading: "Je suis dispo pour discuter, ici ! 😁",
     placeholders: [
       "Tu es dispo en ce moment ?",
       "C'est quoi ton parcours ?",

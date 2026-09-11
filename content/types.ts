@@ -17,6 +17,7 @@ export interface StackGroup {
 }
 
 export interface ChatStrings {
+  promptHeading: string;
   placeholders: readonly string[];
   chips: readonly [string, string, string];
   panelTitle: string;

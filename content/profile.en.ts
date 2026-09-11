@@ -1,11 +1,11 @@
+import { CALENDLY_URL, CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL } from "@/lib/site";
 import type { Profile } from "./types";
-import { TODO_BOOKING_URL, TODO_LINKEDIN_URL } from "./profile.fr";
 
 export const profileEn: Profile = {
   locale: "en",
   name: "Hugues Romain",
   tagline:
-    "Freelance full-stack engineer & AI architect · AI workflows and agents, end-to-end web & mobile products · Nice",
+    "Freelance software engineer & AI architect · AI workflows and agents, end-to-end web & mobile products · Nice",
   heroFirstName: "Hugues",
   heroLastName: "Romain",
   sections: {
@@ -189,7 +189,7 @@ export const profileEn: Profile = {
   ],
   about: {
     paragraphs: [
-      "Independent full-stack engineer and AI architect since 2024 through my company Axiome, I design and build web and mobile products end to end. I design and ship AI workflows and agents. A HETIC graduate trained through work-study at Ouihelp, Alobees and Microdoing, I now co-found aiOrigin, a platform for autonomous AI agents in the enterprise.",
+      "Software engineer and AI architect, freelance in Nice since 2024 through my company Axiome. I design and build web and mobile products end to end, and I ship AI workflows and agents. A HETIC graduate trained through work-study at Ouihelp, Alobees and Microdoing, I now co-found aiOrigin, a platform for autonomous AI agents in the enterprise.",
       "My ground: systems where AI meets real engineering — multi-provider agent loops, real-time streaming, durable workflows, mobile apps shipped solo. Based in Nice, working in French and English.",
     ],
     portrait: "/images/portrait.webp",
@@ -199,13 +199,14 @@ export const profileEn: Profile = {
   contact: {
     intro:
       "An architecture to challenge, an agent to ship, a product to build end to end — write me, I answer fast.",
-    email: "huguesromainpro@gmail.com",
-    github: "https://github.com/huguesromain",
-    linkedin: TODO_LINKEDIN_URL,
-    booking: TODO_BOOKING_URL,
+    email: CONTACT_EMAIL,
+    github: GITHUB_URL,
+    linkedin: LINKEDIN_URL,
+    booking: CALENDLY_URL,
     bookingLabel: "Book a call",
   },
   chat: {
+    promptHeading: "I'm here if you want to chat! 😁",
     placeholders: [
       "Are you available right now?",
       "What's your background?",

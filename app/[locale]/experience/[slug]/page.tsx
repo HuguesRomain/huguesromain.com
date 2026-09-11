@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProjectIconMark } from "@/components/home/project-card";
+import { StudioAppCards } from "@/components/home/studio-app-cards";
 import {
   experienceHref,
   getExperienceExtras,
@@ -9,9 +10,11 @@ import {
   getProjectSlugs,
   isVentureSlug,
 } from "@/content/experience";
+import { JsonLd } from "@/components/seo/json-ld";
 import { isLocale, LOCALES } from "@/content/get-profile";
 import type { Locale } from "@/content/types";
-import { SITE_URL } from "@/lib/site";
+import { experienceJsonLd } from "@/lib/json-ld";
+import { localeAlternates, SITE_URL } from "@/lib/site";
 
 const STRINGS: Record<
   Locale,
@@ -44,10 +47,7 @@ export async function generateMetadata({
     description: project.context,
     alternates: {
       canonical: path,
-      languages: {
-        fr: experienceHref("fr", slug),
-        en: experienceHref("en", slug),
-      },
+      languages: localeAlternates(`experience/${slug}`),
     },
     openGraph: {
       title,
@@ -73,6 +73,7 @@ export default async function ExperiencePage({
   if (!project) notFound();
   const strings = STRINGS[locale];
   const extras = getExperienceExtras(locale, slug);
+  const path = experienceHref(locale, slug);
   const backLabel = isVentureSlug(slug)
     ? strings.ventures
     : strings.experience;
@@ -82,6 +83,7 @@ export default async function ExperiencePage({
 
   return (
     <div className="px-5 pt-24 pb-28 font-sans sm:px-6">
+      <JsonLd data={experienceJsonLd(locale, project, path)} />
       <div className="mx-auto w-full max-w-[720px]">
         <Link
           href={backHref}
@@ -106,8 +108,13 @@ export default async function ExperiencePage({
 
         <div className="mt-10 flex flex-col gap-5">
           <p className="text-[16px] leading-[1.65] text-text">
-            {project.context}
+            {locale === "fr"
+              ? `Hugues Romain — ${project.role}, ${project.period}. ${project.context}`
+              : `Hugues Romain — ${project.role}, ${project.period}. ${project.context}`}
           </p>
+          {slug === "axiome" ? (
+            <StudioAppCards locale={locale} />
+          ) : null}
           {extras.map((paragraph) => (
             <p
               key={paragraph}
