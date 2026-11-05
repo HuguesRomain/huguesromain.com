@@ -25,7 +25,8 @@ export function proxy(request: NextRequest) {
     (locale) =>
       pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
   );
-  if (hasLocale) return NextResponse.next();
+  // Chinese only exists for the Recto pages, so it is not a site-wide locale.
+  if (hasLocale || pathname.startsWith("/zh/recto/")) return NextResponse.next();
   const url = request.nextUrl.clone();
   url.pathname = `/${pickLocale(request)}${pathname === "/" ? "" : pathname}`;
   return NextResponse.redirect(url);

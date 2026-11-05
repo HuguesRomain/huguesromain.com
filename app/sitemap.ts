@@ -44,11 +44,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  for (const page of ["conditions", "confidentialite", "support"]) {
-    entries.push({
-      url: `${SITE_URL}/fr/recto/${page}`,
-      lastModified: new Date("2026-11-05"),
-    });
+  for (const locale of [...LOCALES, "zh"]) {
+    for (const page of ["conditions", "confidentialite", "support"]) {
+      entries.push({
+        url: `${SITE_URL}/${locale}/recto/${page}`,
+        lastModified: new Date("2026-11-05"),
+        alternates: {
+          languages: {
+            ...localeAlternateUrls(`recto/${page}`),
+            "zh-Hans": `${SITE_URL}/zh/recto/${page}`,
+          },
+        },
+      });
+    }
   }
 
   return entries;

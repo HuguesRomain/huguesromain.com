@@ -1,26 +1,45 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import {
   LegalPage,
   LegalSection,
   rectoMetadata,
-  requireFrench,
 } from "@/components/recto/legal-page";
+import { isLocale } from "@/content/get-profile";
 import { CONTACT_EMAIL, PERSON_NAME } from "@/lib/site";
 
-export const metadata: Metadata = rectoMetadata(
-  "confidentialite",
-  "Politique de confidentialité",
-  "Quelles données Recto AI utilise, avec qui elles sont partagées et comment les supprimer.",
-);
+export async function generateMetadata({
+  params,
+}: PageProps<"/[locale]/recto/confidentialite">): Promise<Metadata> {
+  const { locale } = await params;
+  if (!isLocale(locale)) return {};
+  return locale === "fr"
+    ? rectoMetadata(
+        locale,
+        "confidentialite",
+        "Politique de confidentialité",
+        "Quelles données Recto AI utilise, avec qui elles sont partagées et comment les supprimer.",
+      )
+    : rectoMetadata(
+        locale,
+        "confidentialite",
+        "Privacy Policy",
+        "What data Recto AI uses, who it is shared with and how to delete it.",
+      );
+}
 
 export default async function RectoPrivacy({
   params,
 }: PageProps<"/[locale]/recto/confidentialite">) {
   const { locale } = await params;
-  requireFrench(locale, "confidentialite");
+  if (!isLocale(locale)) notFound();
+  return locale === "fr" ? <PrivacyFr /> : <PrivacyEn />;
+}
 
+function PrivacyFr() {
   return (
     <LegalPage
+      locale="fr"
       title="Politique de confidentialité"
       intro="Ce que Recto AI collecte, pourquoi, avec qui c'est partagé et comment tu gardes la main."
       updated="5 novembre 2026"
@@ -163,6 +182,154 @@ export default async function RectoPrivacy({
         <p>
           En cas de changement important, notamment de prestataire d&apos;IA, nous te
           préviendrons dans l&apos;application et te redemanderons ton accord si nécessaire.
+        </p>
+      </LegalSection>
+    </LegalPage>
+  );
+}
+
+function PrivacyEn() {
+  return (
+    <LegalPage
+      locale="en"
+      title="Privacy Policy"
+      intro="What Recto AI collects, why, who it is shared with and how you stay in control."
+      updated="November 5, 2026"
+    >
+      <LegalSection title="The essentials">
+        <ul>
+          <li>The photo of a page stays on your phone: only the text that is read leaves it.</li>
+          <li>
+            The text needed for explanations is sent to DeepSeek, in China, only after
+            you consent.
+          </li>
+          <li>No advertising, no ad tracking, no sale of data.</li>
+          <li>You can withdraw your consent and delete your account in the app.</li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="Data controller">
+        <p>
+          {PERSON_NAME}, Nice, France. Contact:{" "}
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Data collected and how it is used">
+        <ul>
+          <li>
+            <strong>Account (optional):</strong> email address and sign-in identifier
+            (email, Apple or Google), so you can sign in. Without an account, an anonymous
+            session gives access to the AI and to your subscription.
+          </li>
+          <li>
+            <strong>Library:</strong> titles and authors, page numbers, passages, page
+            text, explanations, questions and answers, and cover photos, to keep your
+            reading. Without an account, it stays on your phone; with an account, it is
+            hosted so that it follows you across your devices.
+          </li>
+          <li>
+            <strong>Preferences:</strong> what makes you lose the thread, your fields of
+            interest and your reading habits, to adapt the explanations.
+          </li>
+          <li>
+            <strong>Subscription and usage:</strong> subscription status, product,
+            expiration date, purchase history and AI usage counters, to give access to the
+            service and apply its limits.
+          </li>
+          <li>
+            <strong>Technical data:</strong> Google ML Kit text recognition runs on your
+            phone, but this component declares that it collects technical data, such as a
+            device identifier, diagnostics, and performance and usage measurements.
+          </li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="What is sent to the AI">
+        <p>
+          To answer you, Recto sends <strong>DeepSeek</strong>: the passage, the text of
+          the page, the title and author, the page number, what makes you lose the thread,
+          the previous explanation, your questions, the conversation history, your other
+          passages saved in this book and, if you take one, the photo of the cover. Your
+          email is not sent.
+        </p>
+        <p>
+          So avoid writing personal information in your questions. Nothing is sent before
+          you consent, and you can withdraw your consent in Settings &gt; My data. The AI
+          stops working until you give it again.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Legal bases">
+        <p>
+          Performance of the contract for the account, the library and the subscription.
+          Consent for sending data to DeepSeek. Legitimate interest for security and abuse
+          prevention. Legal obligations for what the law requires us to keep.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Service providers and locations">
+        <ul>
+          <li>
+            <strong>Supabase</strong>: hosting of the database, covers and sign-in, in Paris
+            (European Union).
+          </li>
+          <li>
+            <strong>DeepSeek</strong>: generation of answers, in China (
+            <a href="https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html">
+              DeepSeek&apos;s policy
+            </a>
+            ).
+          </li>
+          <li>
+            <strong>RevenueCat</strong>: subscription management, in the United States.
+          </li>
+          <li>
+            <strong>Apple and Google</strong>: payment, sign-in if you choose it, and
+            technical components.
+          </li>
+        </ul>
+        <p>
+          China is not covered by an adequacy decision from the European Commission: the
+          level of protection there may be lower than in the European Union, and local
+          authorities may access the data. This transfer relies on your explicit consent.
+          These providers receive only what is necessary for their role.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Retention period">
+        <p>
+          Your data is kept for as long as your account exists and is erased when you delete
+          the account in the app, covers included. If you signed in with Apple, the Apple
+          authorization is also revoked at that point: Apple will ask you to confirm. To
+          erase purchase data held by RevenueCat, write to support. Providers apply their
+          own retention periods to what they have already received, and some purchase data
+          may be kept for legal reasons.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Your rights">
+        <p>
+          You can request access to your data, or its rectification, erasure, restriction or
+          portability, object to certain processing and withdraw your consent at any time.
+          You can also export your passages from Settings. To exercise your rights, write to{" "}
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. You can also file a
+          complaint with the <a href="https://www.cnil.fr/fr/plaintes">CNIL</a>, the French
+          data protection authority.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Minimum age">
+        <p>
+          Recto is intended for people aged 15 and over. Below that age, the consent of a
+          parent or guardian is required.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Changes">
+        <p>
+          In the event of a significant change, particularly of AI provider, we will notify
+          you in the app and ask for your consent again if necessary.
         </p>
       </LegalSection>
     </LegalPage>
