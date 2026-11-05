@@ -44,5 +44,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
+  for (const page of ["conditions", "confidentialite", "support"]) {
+    entries.push({
+      url: `${SITE_URL}/fr/recto/${page}`,
+      lastModified: new Date("2026-11-05"),
+    });
+  }
+
   return entries;
 }
