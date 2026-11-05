@@ -3,7 +3,6 @@ import { BlogList } from "@/components/home/blog-list";
 import { Contact } from "@/components/home/contact";
 import { Contributions } from "@/components/home/contributions";
 import { Entrepreneurship } from "@/components/home/entrepreneurship";
-import { Faq } from "@/components/home/faq";
 import { Intro } from "@/components/home/intro";
 import { Projects } from "@/components/home/projects";
 import { Stack } from "@/components/home/stack";
@@ -31,7 +30,6 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
       <Stack profile={profile} />
       <Contributions locale={locale} />
       <BlogList locale={locale} />
-      <Faq locale={locale} />
       <Contact profile={profile} />
       <footer className="flex items-end justify-between gap-6">
         <p className="text-[12px] text-text-muted">

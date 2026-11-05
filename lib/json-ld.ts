@@ -1,4 +1,3 @@
-import { getFaqItems } from "@/content/faq";
 import type { Project } from "@/content/types";
 import type { BlogPost } from "@/content/blog-types";
 import type { Locale } from "@/content/types";
@@ -67,25 +66,10 @@ export function websiteJsonLd(locale: Locale) {
   };
 }
 
-export function faqPageJsonLd(locale: Locale) {
-  return {
-    "@type": "FAQPage",
-    "@id": `${SITE_URL}/${locale}#faq`,
-    mainEntity: getFaqItems(locale).map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
-}
-
 export function homeJsonLd(locale: Locale) {
   return {
     "@context": "https://schema.org",
-    "@graph": [personJsonLd(), websiteJsonLd(locale), faqPageJsonLd(locale)],
+    "@graph": [personJsonLd(), websiteJsonLd(locale)],
   };
 }
 
