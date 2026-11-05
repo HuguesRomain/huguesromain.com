@@ -16,19 +16,19 @@ export const profileEn: Profile = {
   },
   projects: [
     {
-      slug: "aiorigin",
-      title: "aiOrigin",
-      role: "Co-founder & Lead Engineer",
+      slug: "stratbuy",
+      title: "StratBuy",
+      role: "Product design, engineering & strategy",
       period: "2026 — present",
       context:
-        "Multi-tenant SaaS platform for autonomous AI agents in the enterprise.",
+        "SaaS platform for managing procurement, which I build and support, from product to business strategy.",
       bullets: [
-        "Designed and built end to end: fully async FastAPI backend, React / TypeScript frontend, Docker infrastructure, PostgreSQL, Redis, Temporal Cloud",
-        "Multi-provider agent loop (Claude Agent SDK + LiteLLM): 4 interchangeable LLM providers, semantic tool selection across 850+ OAuth-connected apps",
-        "Token-by-token real-time streaming (Redis Streams → SSE → React): idempotent sequenced events, crash-resume",
+        "Product design: work on the procurement flows, from the sourcing file through tender and award to the contract",
+        "Engineering: took over and hardened the Turborepo monorepo (Next.js, Auth.js, Prisma, PostgreSQL), documented architecture decisions, GitHub Actions CI, multi-organisation isolation and integration tests replayed on every change",
+        "Business support: strategic choices alongside the team, sales demo narrative, preparation of the first beta",
       ],
-      image: "/images/work-aiorigin.webp",
-      imageAlt: "Classical marble sculpture in profile, lit against black",
+      image: "/images/projects/stratbuy-icon.png",
+      imageAlt: "StratBuy icon",
     },
     {
       slug: "sinea",
@@ -43,6 +43,36 @@ export const profileEn: Profile = {
       ],
       image: "/images/work-sinea.webp",
       imageAlt: "Steel lattice structure against a black sky",
+    },
+    {
+      slug: "aiorigin",
+      title: "aiOrigin",
+      role: "Co-founder & Lead Engineer",
+      period: "2026",
+      context:
+        "Multi-tenant SaaS platform for autonomous AI agents in the enterprise.",
+      bullets: [
+        "Designed and built end to end: fully async FastAPI backend, React / TypeScript frontend, Docker infrastructure, PostgreSQL, Redis, Temporal Cloud",
+        "Multi-provider agent loop (Claude Agent SDK + LiteLLM): 4 interchangeable LLM providers, semantic tool selection across 850+ OAuth-connected apps",
+        "Token-by-token real-time streaming (Redis Streams → SSE → React): idempotent sequenced events, crash-resume",
+      ],
+      image: "/images/work-aiorigin.webp",
+      imageAlt: "Classical marble sculpture in profile, lit against black",
+    },
+    {
+      slug: "recto",
+      title: "Recto AI",
+      role: "Founder & Product Engineer",
+      period: "2026 — present",
+      context:
+        "Mobile app that explains the hard passages of a book: photograph the page, highlight, and the AI explains and keeps the passage.",
+      bullets: [
+        "Designed and built solo: Expo / React Native, TypeScript, Supabase (PostgreSQL, Edge Functions), RevenueCat subscriptions",
+        "Core flow: page photo, on-device text recognition (ML Kit), highlighting, AI explanation, a library of passages per book",
+        "Interface in French, English and Simplified Chinese; app in preparation for the App Store",
+      ],
+      image: "/images/projects/recto-icon.png",
+      imageAlt: "Recto AI icon",
     },
     {
       slug: "axiome",
@@ -189,7 +219,7 @@ export const profileEn: Profile = {
   ],
   about: {
     paragraphs: [
-      "Software engineer and AI architect, freelance in Nice since 2024 through my company Axiome. I design and build web and mobile products end to end, and I ship AI workflows and agents. A HETIC graduate trained through work-study at Ouihelp, Alobees and Microdoing, I now co-found aiOrigin, a platform for autonomous AI agents in the enterprise.",
+      "Software engineer and AI architect, freelance in Nice since 2024 through my company Axiome. I design and build web and mobile products end to end, and I ship AI workflows and agents. A HETIC graduate trained through work-study at Ouihelp, Alobees and Microdoing, I now support StratBuy, from product design to business strategy, and I am launching Recto AI, an app that explains the hard passages of a book.",
       "My ground: systems where AI meets real engineering — multi-provider agent loops, real-time streaming, durable workflows, mobile apps shipped solo. Based in Nice, working in French and English.",
     ],
     portrait: "/images/portrait.webp",

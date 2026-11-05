@@ -87,14 +87,21 @@ export function Intro({ profile }: { profile: Profile }) {
               >
                 Axiome
               </Link>
-              , co-fondateur d&apos;
+              , je développe et accompagne{" "}
               <Link
-                href={`/${profile.locale}/experience/aiorigin`}
+                href={`/${profile.locale}/experience/stratbuy`}
                 className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
               >
-                aiOrigin
+                StratBuy
               </Link>
-              , une plateforme d&apos;agents IA autonomes pour l&apos;entreprise.
+              , du design produit à la stratégie business, et je lance{" "}
+              <Link
+                href={`/${profile.locale}/experience/recto`}
+                className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+              >
+                Recto AI
+              </Link>
+              , une app qui explique les passages difficiles d&apos;un livre.
             </>
           ) : (
             <>
@@ -107,14 +114,21 @@ export function Intro({ profile }: { profile: Profile }) {
               >
                 Axiome
               </Link>
-              , co-founder of{" "}
+              , I build and support{" "}
               <Link
-                href={`/${profile.locale}/experience/aiorigin`}
+                href={`/${profile.locale}/experience/stratbuy`}
                 className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
               >
-                aiOrigin
+                StratBuy
               </Link>
-              , a platform of autonomous AI agents for the enterprise.
+              , from product design to business strategy, and I am launching{" "}
+              <Link
+                href={`/${profile.locale}/experience/recto`}
+                className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+              >
+                Recto AI
+              </Link>
+              , an app that explains the hard passages of a book.
             </>
           )}
         </p>

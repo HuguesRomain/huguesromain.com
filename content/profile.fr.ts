@@ -16,19 +16,19 @@ export const profileFr: Profile = {
   },
   projects: [
     {
-      slug: "aiorigin",
-      title: "aiOrigin",
-      role: "Co-fondateur & Lead Engineer",
+      slug: "stratbuy",
+      title: "StratBuy",
+      role: "Design produit, engineering & stratégie",
       period: "2026 — aujourd'hui",
       context:
-        "Plateforme SaaS multi-tenant d'agents IA autonomes pour l'entreprise.",
+        "Plateforme SaaS de pilotage des achats, que je développe et accompagne, du produit à la stratégie business.",
       bullets: [
-        "Conçue et construite de bout en bout : backend FastAPI async, front React / TypeScript, infra Docker, PostgreSQL, Redis, Temporal Cloud",
-        "Boucle d'agents multi-provider (Claude Agent SDK + LiteLLM) : 4 LLM interchangeables, sélection sémantique d'outils sur 850+ apps OAuth",
-        "Streaming temps réel token par token (Redis Streams → SSE → React) : événements séquencés idempotents, reprise sur crash",
+        "Design produit : travail sur les parcours du cycle achats, du dossier à la consultation, à l'attribution et au contrat",
+        "Engineering : reprise et fiabilisation du monorepo Turborepo (Next.js, Auth.js, Prisma, PostgreSQL), décisions d'architecture documentées, CI GitHub Actions, isolation multi-organisation et tests d'intégration rejoués à chaque modification",
+        "Accompagnement business : choix stratégiques aux côtés de l'équipe, récit de démonstration commerciale, préparation de la première bêta",
       ],
-      image: "/images/work-aiorigin.webp",
-      imageAlt: "Sculpture classique en marbre, profil éclairé sur fond noir",
+      image: "/images/projects/stratbuy-icon.png",
+      imageAlt: "Icône StratBuy",
     },
     {
       slug: "sinea",
@@ -44,6 +44,36 @@ export const profileFr: Profile = {
       ],
       image: "/images/work-sinea.webp",
       imageAlt: "Structure métallique en treillis sur ciel noir",
+    },
+    {
+      slug: "aiorigin",
+      title: "aiOrigin",
+      role: "Co-fondateur & Lead Engineer",
+      period: "2026",
+      context:
+        "Plateforme SaaS multi-tenant d'agents IA autonomes pour l'entreprise.",
+      bullets: [
+        "Conçue et construite de bout en bout : backend FastAPI async, front React / TypeScript, infra Docker, PostgreSQL, Redis, Temporal Cloud",
+        "Boucle d'agents multi-provider (Claude Agent SDK + LiteLLM) : 4 LLM interchangeables, sélection sémantique d'outils sur 850+ apps OAuth",
+        "Streaming temps réel token par token (Redis Streams → SSE → React) : événements séquencés idempotents, reprise sur crash",
+      ],
+      image: "/images/work-aiorigin.webp",
+      imageAlt: "Sculpture classique en marbre, profil éclairé sur fond noir",
+    },
+    {
+      slug: "recto",
+      title: "Recto AI",
+      role: "Fondateur & Product Engineer",
+      period: "2026 — aujourd'hui",
+      context:
+        "App mobile qui explique les passages difficiles d'un livre : on photographie la page, on surligne, l'IA explique et garde le passage.",
+      bullets: [
+        "Conçue et construite en solo : Expo / React Native, TypeScript, Supabase (PostgreSQL, Edge Functions), abonnement RevenueCat",
+        "Parcours central : photo de la page, reconnaissance de texte sur l'appareil (ML Kit), surlignage, explication IA, bibliothèque de passages par livre",
+        "Interface en français, en anglais et en chinois simplifié ; app en préparation pour l'App Store",
+      ],
+      image: "/images/projects/recto-icon.png",
+      imageAlt: "Icône Recto AI",
     },
     {
       slug: "axiome",
@@ -190,7 +220,7 @@ export const profileFr: Profile = {
   ],
   about: {
     paragraphs: [
-      "Ingénieur logiciel et architecte IA freelance à Nice depuis 2024 sous ma société Axiome, je conçois et construis des produits web et mobiles de bout en bout. Je crée et mets en production des workflows et des agents IA. Diplômé d'HETIC, formé en alternance chez Ouihelp, Alobees puis Microdoing, je co-fonde aujourd'hui aiOrigin, une plateforme d'agents IA autonomes pour l'entreprise.",
+      "Ingénieur logiciel et architecte IA freelance à Nice depuis 2024 sous ma société Axiome, je conçois et construis des produits web et mobiles de bout en bout. Je crée et mets en production des workflows et des agents IA. Diplômé d'HETIC, formé en alternance chez Ouihelp, Alobees puis Microdoing, j'accompagne aujourd'hui StratBuy, du design produit à la stratégie business, et je lance Recto AI, une app qui explique les passages difficiles d'un livre.",
       "Mon terrain : les systèmes où l'IA rencontre la vraie ingénierie — boucles d'agents multi-providers, streaming temps réel, workflows durables, apps mobiles publiées en solo. Basé à Nice, je travaille en français comme en anglais.",
     ],
     portrait: "/images/portrait.webp",

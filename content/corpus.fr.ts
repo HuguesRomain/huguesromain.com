@@ -12,8 +12,15 @@ export const corpusFr = `# Hugues Romain — Corpus (v1 : CV)
 
 ## Expériences
 
-### aiOrigin — Co-fondateur & Lead Engineer (fév. 2026 – aujourd'hui)
-Plateforme SaaS multi-tenant d'agents IA autonomes pour l'entreprise.
+### StratBuy — Design produit, engineering & stratégie (sept. 2026 – aujourd'hui)
+Plateforme SaaS de pilotage des achats : dossiers, lots, consultations, contrats, fournisseurs et équipes, pour les acheteurs, les managers et les directeurs. Hugues la développe et l'accompagne, en intervenant autant sur le design produit et l'engineering que sur la stratégie business.
+- Design produit : travail sur les parcours du cycle achats, du dossier à la consultation, à l'attribution et au contrat.
+- Engineering : reprise et fiabilisation du monorepo Turborepo (Next.js, Auth.js, Prisma, PostgreSQL), décisions d'architecture documentées, CI GitHub Actions, isolation multi-organisation et tests d'intégration rejoués à chaque modification.
+- Accompagnement business : choix stratégiques aux côtés de l'équipe, récit de démonstration commerciale, préparation de la première bêta.
+- Les détails de la mission (tarifs, audits, sécurité, clients de StratBuy) ne sont pas publics : ne rien affirmer à ce sujet.
+
+### aiOrigin — Co-fondateur & Lead Engineer (fév. 2026 – 2026, terminé)
+Plateforme SaaS multi-tenant d'agents IA autonomes pour l'entreprise. Hugues n'y travaille plus.
 - Conception et construction de bout en bout : architecture, backend FastAPI entièrement async, front React 18 / TypeScript, infra Docker, couche IA — sur PostgreSQL (Supabase), Redis et Temporal Cloud.
 - Boucle d'agents multi-provider (Claude Agent SDK + LiteLLM) rendant 4 fournisseurs de LLM interchangeables sans toucher au code des agents, avec sélection sémantique d'outils sur plus de 850 applications connectées en OAuth.
 - Streaming temps réel token par token (Redis Streams → SSE → React) : événements séquencés idempotents, reprise après crash, watchdog d'inactivité — suppression de l'attente perçue sur des réponses de plusieurs minutes.
@@ -38,6 +45,11 @@ Studio d'apps mobiles grand public, conçu et opéré en solo.
 - Chaîne de release industrialisée : bump de version multi-fichiers, builds .ipa / .aab locaux, App Privacy, réponses App Review — chaque soumission réduite à une procédure automatisée.
 - Instrumentation PostHog sur tout le portfolio : plan de tracking, funnels d'onboarding, suivi activation / rétention, itérations produit pilotées par la donnée.
 - Monétisation par abonnement (paywalls Superwall) et suivi d'erreurs Sentry sur chaque app.
+
+### Recto AI — Fondateur & Product Engineer (2026 – aujourd'hui, app du studio Axiome)
+App mobile qui explique les passages difficiles d'un livre : on photographie la page, on surligne, l'IA explique et garde le passage. En préparation pour l'App Store, pas encore publiée.
+- Conçue et construite en solo : Expo / React Native, TypeScript, Supabase (PostgreSQL, Edge Functions), abonnement Recto AI+ via RevenueCat.
+- Reconnaissance de texte sur l'appareil (ML Kit), bibliothèque de passages par livre, interface en français, en anglais et en chinois simplifié.
 
 ### theTribe — Ingénieur Full-Stack freelance (oct. 2025 – 2026)
 Missions full-stack via theTribe, agence produit française, pour plusieurs de ses clients.
@@ -79,8 +91,8 @@ Portail client et géolocalisation pour les familles, les bénéficiaires et les
 - Front : React 18, Next.js, React Native / Expo, TanStack Query, Zustand, Tailwind CSS, Radix UI, design systems, i18n.
 - Back : FastAPI, NestJS, Node.js, PostgreSQL / Supabase, Prisma, SQLModel, Redis, pgvector, REST & SSE.
 - IA & agents : Claude Agent SDK, MCP, LiteLLM (Anthropic · OpenAI · Gemini · Mistral), RAG, orchestration multi-agents, Temporal.
-- Infra & tooling : Docker, Temporal Cloud, Stripe, Railway, EAS / Expo, GitHub Actions, Sentry, PostHog, Langfuse.
-- Produit : architecture logicielle, publication App Store & Play Store, conformité RGPD, lead d'équipe, méthodes agiles.
+- Infra & tooling : Docker, Temporal Cloud, Stripe, RevenueCat, Railway, Turborepo, Auth.js, EAS / Expo, GitHub Actions, Sentry, PostHog, Langfuse.
+- Produit : design produit, accompagnement stratégique, architecture logicielle, publication App Store & Play Store, conformité RGPD, lead d'équipe, méthodes agiles.
 
 ## Projets personnels
 - Astrotierra : produit web d'astrocartographie conçu et lancé en solo (Supabase Edge Functions, Swiss Ephemeris, lectures générées par LLM).

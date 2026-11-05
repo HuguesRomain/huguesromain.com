@@ -1,7 +1,7 @@
 # Hugues Romain
 
 Hugues Romain is a freelance software engineer and AI architect based in Nice, France.
-He designs and ships AI workflows and agents, and builds web and mobile products end to end under Axiome (SASU, founded September 2024). He co-founds aiOrigin.
+He designs and ships AI workflows and agents, and builds web and mobile products end to end under Axiome (SASU, founded September 2024). He builds and supports StratBuy (product design, engineering, business strategy) and is launching Recto AI.
 
 - Site: https://huguesromain.com
 - Email: huguesromaindev@gmail.com
@@ -24,6 +24,8 @@ Open to freelance: full-stack software engineering, AI workflows and agents, app
 
 - https://huguesromain.com/en
 - https://huguesromain.com/fr
-- https://huguesromain.com/en/experience/aiorigin
+- https://huguesromain.com/en/experience/stratbuy
+- https://huguesromain.com/en/experience/recto
 - https://huguesromain.com/en/experience/axiome
+- https://huguesromain.com/en/experience/aiorigin
 - https://huguesromain.com/llms-full.txt

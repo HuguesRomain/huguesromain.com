@@ -19,9 +19,11 @@ HETIC (Montreuil). Master's equivalent in computer programming, Nov 2021 – Sep
 
 ## Work
 
-- aiOrigin — Co-founder & Lead Engineer (Feb 2026 – present). Multi-tenant SaaS of autonomous AI agents for the enterprise. FastAPI, React/TypeScript, Docker, PostgreSQL, Redis, Temporal Cloud. Multi-provider agents (Claude Agent SDK + LiteLLM). https://huguesromain.com/en/experience/aiorigin
+- StratBuy — Product design, engineering & strategy (Sept 2026 – present). SaaS platform for managing procurement. Turborepo, Next.js, Auth.js, Prisma, PostgreSQL. https://huguesromain.com/en/experience/stratbuy
 - Sinea Formation — Lead Full-Stack Engineer (Sept 2025 – present). B2B soft-skills platform. Expo/React Native, NestJS, Prisma, PostgreSQL.
+- aiOrigin — Co-founder & Lead Engineer (Feb 2026 – 2026, ended). Multi-tenant SaaS of autonomous AI agents for the enterprise. FastAPI, React/TypeScript, Docker, PostgreSQL, Redis, Temporal Cloud. Multi-provider agents (Claude Agent SDK + LiteLLM). https://huguesromain.com/en/experience/aiorigin
 - Axiome App Studio — Founder & Product Engineer (2025 – present). Consumer mobile apps shipped solo: Belle (AI beauty advisor), Koji (gut health), Tanzy, KnuckleMax, Teacherz. Expo, TypeScript, Supabase, Superwall. https://huguesromain.com/en/experience/axiome
+- Recto AI — Founder & Product Engineer (2026 – present). Mobile app that explains the hard passages of a book; in preparation for the App Store. Expo, TypeScript, Supabase, RevenueCat, ML Kit. https://huguesromain.com/en/experience/recto
 - theTribe — Full-stack freelance (Oct 2025 – 2026). Teamway, HomeExchange Day, Aleteia.
 - Ida — Full-Stack freelance (Sept 2024 – Sept 2025). Fresh-produce B2B ordering. FastAPI, React.
 - Microdoing — Full-Stack work-study (2022 – 2023, Paris).
@@ -39,7 +41,7 @@ Languages: TypeScript, JavaScript, Python, SQL. Not C, not C++.
 Front: React, Next.js, React Native / Expo, TanStack Query, Zustand, Tailwind CSS, Radix UI.
 Back: FastAPI, NestJS, Node.js, PostgreSQL / Supabase, Prisma, Redis, pgvector, REST & SSE.
 AI: Claude Agent SDK, MCP, LiteLLM, RAG, multi-agent orchestration, Temporal.
-Infra: Docker, Temporal Cloud, Stripe, Railway, EAS / Expo, GitHub Actions, Sentry, PostHog, Langfuse.
+Infra: Docker, Temporal Cloud, Stripe, RevenueCat, Railway, Turborepo, Auth.js, EAS / Expo, GitHub Actions, Sentry, PostHog, Langfuse.
 
 ## How he works
 

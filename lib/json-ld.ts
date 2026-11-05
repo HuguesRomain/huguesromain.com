@@ -46,11 +46,6 @@ export function personJsonLd() {
         name: "Axiome",
         url: `${SITE_URL}/en/experience/axiome`,
       },
-      {
-        "@type": "Organization",
-        name: "aiOrigin",
-        url: `${SITE_URL}/en/experience/aiorigin`,
-      },
     ],
   };
 }

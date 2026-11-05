@@ -5,6 +5,14 @@ export type ProjectIcon = {
 };
 
 export const PROJECT_ICONS: Record<string, ProjectIcon> = {
+  stratbuy: {
+    image: "/images/projects/stratbuy-icon.png",
+    background: "#000000",
+  },
+  recto: {
+    image: "/images/projects/recto-icon.png",
+    background: "#1e1d19",
+  },
   aiorigin: {
     image: "/images/projects/aiorigin-logo.png",
     background: "#050e28",
