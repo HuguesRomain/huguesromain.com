@@ -21,7 +21,7 @@ export default function RectoTermsZh() {
       locale="zh"
       title="使用条款"
       intro="本条款规范你对 Recto AI 的使用。Recto AI 是一款为你讲解纸质书段落的应用。"
-      updated="2026年11月5日"
+      updated="2026年11月7日"
     >
       <LegalSection title="1. 发布者">
         <p>
@@ -34,7 +34,7 @@ export default function RectoTermsZh() {
           Recto 在你的手机上读取你拍摄的书页，借助人工智能讲解你选中的段落，让你就该段落提问，并在你的书架中按书籍整理这些段落。
         </p>
         <p>
-          账号并非必需：没有账号时，你的书架保存在手机上，删除应用后会消失；有账号时，书架会在你的设备之间同步。你必须年满 15 周岁，或已取得父母或监护人的同意。
+          账号并非必需：没有账号时，你的书架保存在手机上，删除应用后会消失；有账号时，书架会在你的设备之间同步。
         </p>
       </LegalSection>
 

@@ -20,7 +20,7 @@ export default function RectoPrivacyZh() {
       locale="zh"
       title="隐私政策"
       intro="Recto AI 收集什么、为什么收集、与谁共享，以及你如何掌控自己的数据。"
-      updated="2026年11月5日"
+      updated="2026年11月7日"
     >
       <LegalSection title="要点">
         <ul>
@@ -102,10 +102,6 @@ export default function RectoPrivacyZh() {
         <p>
           你可以要求访问、更正、删除、限制处理或转移你的数据，反对某些处理，并可随时撤回同意。你也可以在“设置”中导出你的段落。如需行使这些权利，请写信至 <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>。你还可以向法国数据保护机构 <a href="https://www.cnil.fr/fr/plaintes">CNIL</a> 投诉。
         </p>
-      </LegalSection>
-
-      <LegalSection title="最低年龄">
-        <p>Recto 面向 15 周岁及以上的用户。未满此年龄的，须取得父母或监护人的同意。</p>
       </LegalSection>
 
       <LegalSection title="政策变更">

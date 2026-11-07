@@ -42,7 +42,7 @@ function PrivacyFr() {
       locale="fr"
       title="Politique de confidentialité"
       intro="Ce que Recto AI collecte, pourquoi, avec qui c'est partagé et comment tu gardes la main."
-      updated="5 novembre 2026"
+      updated="7 novembre 2026"
     >
       <LegalSection title="L'essentiel">
         <ul>
@@ -171,13 +171,6 @@ function PrivacyFr() {
         </p>
       </LegalSection>
 
-      <LegalSection title="Âge minimum">
-        <p>
-          Recto s&apos;adresse aux personnes de 15 ans et plus. En dessous, l&apos;accord
-          d&apos;un parent ou tuteur est nécessaire.
-        </p>
-      </LegalSection>
-
       <LegalSection title="Modifications">
         <p>
           En cas de changement important, notamment de prestataire d&apos;IA, nous te
@@ -194,7 +187,7 @@ function PrivacyEn() {
       locale="en"
       title="Privacy Policy"
       intro="What Recto AI collects, why, who it is shared with and how you stay in control."
-      updated="November 5, 2026"
+      updated="November 7, 2026"
     >
       <LegalSection title="The essentials">
         <ul>
@@ -316,13 +309,6 @@ function PrivacyEn() {
           <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. You can also file a
           complaint with the <a href="https://www.cnil.fr/fr/plaintes">CNIL</a>, the French
           data protection authority.
-        </p>
-      </LegalSection>
-
-      <LegalSection title="Minimum age">
-        <p>
-          Recto is intended for people aged 15 and over. Below that age, the consent of a
-          parent or guardian is required.
         </p>
       </LegalSection>
 

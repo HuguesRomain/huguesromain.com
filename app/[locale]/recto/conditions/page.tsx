@@ -43,7 +43,7 @@ function TermsFr() {
       locale="fr"
       title="Conditions d'utilisation"
       intro="Ces conditions encadrent ton utilisation de Recto AI, l'application qui t'explique les passages de tes livres papier."
-      updated="5 novembre 2026"
+      updated="7 novembre 2026"
     >
       <LegalSection title="1. Éditeur">
         <p>
@@ -62,8 +62,7 @@ function TermsFr() {
         <p>
           Le compte est facultatif : sans compte, ta bibliothèque reste sur ton
           téléphone et disparaît si tu supprimes l&apos;application ; avec un compte,
-          elle te suit sur tes appareils. Tu dois avoir au moins 15 ans, ou
-          l&apos;accord d&apos;un parent ou tuteur.
+          elle te suit sur tes appareils.
         </p>
       </LegalSection>
 
@@ -171,7 +170,7 @@ function TermsEn() {
       locale="en"
       title="Terms of Use"
       intro="These terms govern your use of Recto AI, the app that explains passages from your paper books."
-      updated="November 5, 2026"
+      updated="November 7, 2026"
     >
       <LegalSection title="1. Publisher">
         <p>
@@ -189,8 +188,7 @@ function TermsEn() {
         <p>
           An account is optional: without one, your library stays on your phone and
           disappears if you delete the app; with one, it follows you across your
-          devices. You must be at least 15 years old, or have the consent of a parent
-          or guardian.
+          devices.
         </p>
       </LegalSection>
 
