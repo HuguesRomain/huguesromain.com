@@ -47,7 +47,7 @@ export const profileEn: Profile = {
     {
       slug: "aiorigin",
       title: "aiOrigin",
-      role: "Co-founder & Lead Engineer",
+      role: "Founding Engineer",
       period: "2026",
       context:
         "Multi-tenant SaaS platform for autonomous AI agents in the enterprise.",
@@ -99,7 +99,7 @@ export const profileEn: Profile = {
       bullets: [
         "Designed, built and launched solo: MCP server with in-assistant widgets, Next.js dashboard, Supabase, Stripe billing, Microsoft 365 Copilot agent",
         "Prompt coaching at the right time, XP, 5 levels and 7 mastery dimensions, skills shared in an internal marketplace, aggregated manager views",
-        "Go-to-market: reseller model for AI trainers, automated prospecting and outreach with personalised messages for each prospect",
+        "Go-to-market: reseller model for AI trainers, and an automated prospecting system to find prospects for Orbi and contact them with personalised messages",
       ],
       image: "/images/orbi/orbi-neutral.webp",
       imageAlt: "Orbi mascot",

@@ -48,7 +48,7 @@ export const profileFr: Profile = {
     {
       slug: "aiorigin",
       title: "aiOrigin",
-      role: "Co-fondateur & Lead Engineer",
+      role: "Founding Engineer",
       period: "2026",
       context:
         "Plateforme SaaS multi-tenant d'agents IA autonomes pour l'entreprise.",
@@ -100,7 +100,7 @@ export const profileFr: Profile = {
       bullets: [
         "Conçu, construit et lancé en solo : serveur MCP avec widgets dans l'assistant, dashboard Next.js, Supabase, facturation Stripe, agent Microsoft 365 Copilot",
         "Coaching de prompts au bon moment, XP, 5 niveaux et 7 dimensions de maîtrise, skills partagés dans une marketplace interne, vues managers agrégées",
-        "Go-to-market : modèle revendeur pour les formateurs IA, prospection et outreach automatisés avec des messages personnalisés pour chaque prospect",
+        "Go-to-market : modèle revendeur pour les formateurs IA, et système de prospection automatisé pour trouver des prospects pour Orbi et les contacter avec des messages personnalisés",
       ],
       image: "/images/orbi/orbi-neutral.webp",
       imageAlt: "Mascotte Orbi",

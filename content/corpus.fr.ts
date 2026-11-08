@@ -6,8 +6,8 @@ export const corpusFr = `# Hugues Romain — Corpus (v1 : CV)
 - Langues : français (natif), anglais (courant, très bon niveau).
 
 ## Formation
-- HETIC — Grande École du Web (Montreuil). Master (équivalent M.Sc.) en programmation informatique et applications spécifiques, nov. 2021 – sept. 2023.
-- Bachelor en programmation informatique, HETIC, 2018 – 2021.
+- HETIC — Grande École du Web (Montreuil). Mastère (Bac+5) en ingénierie logicielle et management de produit, nov. 2021 – sept. 2023.
+- Bachelor (Bac+3) en développement informatique, HETIC, 2018 – 2021.
 
 ## Expériences
 
@@ -18,7 +18,7 @@ Plateforme SaaS de pilotage des achats : dossiers, lots, consultations, contrats
 - Accompagnement business : choix stratégiques aux côtés de l'équipe, récit de démonstration commerciale, préparation de la première bêta.
 - Les détails de la mission (tarifs, audits, sécurité, clients de StratBuy) ne sont pas publics : ne rien affirmer à ce sujet.
 
-### aiOrigin — Co-fondateur & Lead Engineer (fév. 2026 – 2026, terminé)
+### aiOrigin — Founding Engineer (fév. 2026 – sept. 2026, terminé)
 Plateforme SaaS multi-tenant d'agents IA autonomes pour l'entreprise. Hugues n'y travaille plus.
 - Conception et construction de bout en bout : architecture, backend FastAPI entièrement async, front React 18 / TypeScript, infra Docker, couche IA — sur PostgreSQL (Supabase), Redis et Temporal Cloud.
 - Boucle d'agents multi-provider (Claude Agent SDK + LiteLLM) rendant 4 fournisseurs de LLM interchangeables sans toucher au code des agents, avec sélection sémantique d'outils sur plus de 850 applications connectées en OAuth.
@@ -50,7 +50,7 @@ Studio d'apps mobiles grand public, conçu et opéré en solo.
 - Conçu, construit et lancé en solo : serveur MCP avec widgets affichés dans l'assistant, dashboard Next.js, Supabase, facturation Stripe, agent Microsoft 365 Copilot.
 - Coaching de prompts au bon moment, XP, 5 niveaux et 7 dimensions de maîtrise, meilleurs prompts transformés en skills partagés dans une marketplace interne, vues managers agrégées.
 - Prix : 19,99 € HT par mois pour l'organisation, plus 2,99 € par membre. Les formateurs IA peuvent revendre Orbi à leurs clients au prix qu'ils veulent.
-- Prospection et outreach automatisés : méthode en 7 étapes pour écrire chaque message à partir du profil du prospect, 30 modèles par cible, e-mails personnalisés générés pour chaque formateur, en français et en anglais.
+- Système de prospection et d'outreach automatisé pour trouver des prospects pour Orbi (formateurs IA, cabinets, entreprises) et les contacter : méthode en 7 étapes pour écrire chaque message à partir du profil du prospect, 30 modèles par cible, e-mails personnalisés générés pour chaque prospect, en français et en anglais.
 
 ### Recto AI — Fondateur & Product Engineer (2026 – aujourd'hui, app du studio Axiome)
 App mobile qui explique les passages difficiles d'un livre : on photographie la page, on surligne, l'IA explique et garde le passage. En préparation pour l'App Store, pas encore publiée.
@@ -101,7 +101,6 @@ Portail client et géolocalisation pour les familles, les bénéficiaires et les
 - Produit : design produit, accompagnement stratégique, architecture logicielle, publication App Store & Play Store, conformité RGPD, lead d'équipe, méthodes agiles.
 
 ## Projets personnels
-- Astrotierra : produit web d'astrocartographie conçu et lancé en solo (Supabase Edge Functions, Swiss Ephemeris, lectures générées par LLM).
 - Signal Radar : SaaS de détection d'opportunités d'apps à partir de signaux de tendances, pour trouver des marchés exploitables.
 
 ## CV

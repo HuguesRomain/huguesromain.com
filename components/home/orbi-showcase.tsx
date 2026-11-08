@@ -78,8 +78,8 @@ const COPY: Record<
             text: "Le formateur revend Orbi à ses clients au prix qu'il veut, l'intègre à ses formations et suit la progression de ses clients. Orbi le facture chaque mois au réel, par client actif et par membre.",
           },
           {
-            title: "Prospection et outreach automatisés",
-            text: "Une méthode en 7 étapes pour écrire chaque message à partir du profil du prospect (LinkedIn, posts, site), 30 modèles classés par cible, puis des e-mails personnalisés générés pour chaque formateur, en français et en anglais, et préparés un par un dans une page d'envoi.",
+            title: "Prospection automatisée pour Orbi",
+            text: "Pour trouver les clients d'Orbi, j'ai construit un système de prospection et d'outreach automatisé qui cible les formateurs IA, les cabinets et les entreprises : une méthode en 7 étapes pour écrire chaque message à partir du profil du prospect (LinkedIn, posts, site), 30 modèles par cible, puis des e-mails personnalisés générés pour chaque prospect, en français et en anglais, et préparés un par un dans une page d'envoi.",
           },
         ],
       },
@@ -143,8 +143,8 @@ const COPY: Record<
             text: "Trainers resell Orbi to their clients at the price they choose, bundle it with their courses and follow their clients' progress. Orbi bills them monthly for actual use, per active client and per member.",
           },
           {
-            title: "Automated prospecting and outreach",
-            text: "A 7-step method to write each message from the prospect's profile (LinkedIn, posts, website), 30 templates sorted by target, then personalised emails generated for each trainer, in French and English, and lined up one by one in a sending page.",
+            title: "Automated prospecting for Orbi",
+            text: "To find Orbi's customers, I built an automated prospecting and outreach system that targets AI trainers, consulting firms and companies: a 7-step method to write each message from the prospect's profile (LinkedIn, posts, website), 30 templates by target, then personalised emails generated for each prospect, in French and English, and lined up one by one in a sending page.",
           },
         ],
       },

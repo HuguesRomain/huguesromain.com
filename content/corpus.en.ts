@@ -6,7 +6,7 @@ export const corpusEn = `# Hugues Romain — Corpus (v1: résumé)
 - Languages: French (native), English (fluent, strong level).
 
 ## Education
-- HETIC — Grande École du Web (Montreuil, France). Master's degree (M.Sc. equivalent) in Computer Programming & Specific Applications, Nov. 2021 – Sept. 2023.
+- HETIC — Grande École du Web (Montreuil, France). Master's degree (M.Sc. equivalent) in Software Engineering & Product Management, Nov. 2021 – Sept. 2023.
 - Bachelor's degree in Computer Programming, HETIC, 2018 – 2021.
 
 ## Experience
@@ -18,7 +18,7 @@ SaaS platform for managing procurement: sourcing files, lots, tenders, contracts
 - Business support: strategic choices alongside the team, sales demo narrative, preparation of the first beta.
 - Engagement details (rates, audits, security, StratBuy's customers) are not public: claim nothing about them.
 
-### aiOrigin — Co-founder & Lead Engineer (Feb. 2026 – 2026, ended)
+### aiOrigin — Founding Engineer (Feb. 2026 – Sept. 2026, ended)
 Multi-tenant SaaS platform for autonomous AI agents in the enterprise. Hugues no longer works there.
 - Designed and built the platform end to end — architecture, fully async FastAPI backend, React 18 / TypeScript frontend, Docker infrastructure and AI layer — on PostgreSQL (Supabase), Redis and Temporal Cloud.
 - Engineered a multi-provider agent loop (Claude Agent SDK + LiteLLM) making 4 LLM providers interchangeable without touching agent code, with semantic tool selection across 850+ OAuth-connected applications.
@@ -50,7 +50,7 @@ Consumer mobile app studio, designed and operated solo.
 - Designed, built and launched solo: MCP server with in-assistant widgets, Next.js dashboard, Supabase, Stripe billing, Microsoft 365 Copilot agent.
 - Prompt coaching at the right time, XP, 5 levels and 7 mastery dimensions, best prompts turned into skills shared in an internal marketplace, aggregated manager views.
 - Pricing: €19.99 excl. VAT per month for the organisation, plus €2.99 per member. AI trainers can resell Orbi to their clients at the price they choose.
-- Automated prospecting and outreach: a 7-step method to write each message from the prospect's profile, 30 templates by target, personalised emails generated for each trainer, in French and English.
+- Automated prospecting and outreach system to find prospects for Orbi (AI trainers, consulting firms, companies) and contact them: a 7-step method to write each message from the prospect's profile, 30 templates by target, personalised emails generated for each prospect, in French and English.
 
 ### Recto AI — Founder & Product Engineer (2026 – present, an Axiome studio app)
 Mobile app that explains the hard passages of a book: photograph the page, highlight, and the AI explains and keeps the passage. In preparation for the App Store, not published yet.
@@ -101,7 +101,6 @@ Client portal and location tools for families, beneficiaries and caregivers.
 - Product: product design, strategic support, software architecture, App Store & Play Store publishing, GDPR compliance, team leadership, agile methods.
 
 ## Personal projects
-- Astrotierra: astrocartography web product designed and launched solo (Supabase Edge Functions, Swiss Ephemeris, LLM-generated readings).
 - Signal Radar: SaaS detecting app opportunities from trend signals, to find exploitable markets.
 
 ## CV / résumé
