@@ -45,6 +45,13 @@ Studio d'apps mobiles grand public, conçu et opéré en solo.
 - Instrumentation PostHog sur tout le portfolio : plan de tracking, funnels d'onboarding, suivi activation / rétention, itérations produit pilotées par la donnée.
 - Monétisation par abonnement (paywalls Superwall) et suivi d'erreurs Sentry sur chaque app.
 
+### Orbi : Fondateur & Product Engineer (depuis sept. 2026, en ligne sur get-orbi.com)
+- Coach de prompting pour les entreprises, qui vit dans les assistants IA des équipes (Claude, ChatGPT, Copilot, Cursor) et fait progresser toute l'entreprise avec l'IA, sans jamais lire les conversations.
+- Conçu, construit et lancé en solo : serveur MCP avec widgets affichés dans l'assistant, dashboard Next.js, Supabase, facturation Stripe, agent Microsoft 365 Copilot.
+- Coaching de prompts au bon moment, XP, 5 niveaux et 7 dimensions de maîtrise, meilleurs prompts transformés en skills partagés dans une marketplace interne, vues managers agrégées.
+- Prix : 19,99 € HT par mois pour l'organisation, plus 2,99 € par membre. Les formateurs IA peuvent revendre Orbi à leurs clients au prix qu'ils veulent.
+- Prospection et outreach automatisés : méthode en 7 étapes pour écrire chaque message à partir du profil du prospect, 30 modèles par cible, e-mails personnalisés générés pour chaque formateur, en français et en anglais.
+
 ### Recto AI — Fondateur & Product Engineer (2026 – aujourd'hui, app du studio Axiome)
 App mobile qui explique les passages difficiles d'un livre : on photographie la page, on surligne, l'IA explique et garde le passage. En préparation pour l'App Store, pas encore publiée.
 - Conçue et construite en solo : Expo / React Native, TypeScript, Supabase (PostgreSQL, Edge Functions), abonnement Recto AI+ via RevenueCat.

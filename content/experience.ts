@@ -10,7 +10,7 @@ export const CLIENT_SLUGS = [
   "aiorigin",
 ] as const;
 export const COMPANY_SLUGS = ["microdoing", "ouihelp", "alobees"] as const;
-export const VENTURE_SLUGS = ["axiome", "belle", "recto"] as const;
+export const VENTURE_SLUGS = ["orbi", "axiome", "belle", "recto"] as const;
 
 const EXPERIENCE_EXTRAS: Record<Locale, Partial<Record<string, readonly string[]>>> =
   {

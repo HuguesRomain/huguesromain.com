@@ -91,6 +91,21 @@ export const profileFr: Profile = {
       imageAlt: "Icône Belle",
     },
     {
+      slug: "orbi",
+      title: "Orbi",
+      role: "Fondateur & Product Engineer",
+      period: "Depuis 2026",
+      context:
+        "Coach de prompting pour les entreprises, qui vit directement dans les assistants IA des équipes et fait progresser toute l'entreprise avec l'IA, sans jamais lire les conversations.",
+      bullets: [
+        "Conçu, construit et lancé en solo : serveur MCP avec widgets dans l'assistant, dashboard Next.js, Supabase, facturation Stripe, agent Microsoft 365 Copilot",
+        "Coaching de prompts au bon moment, XP, 5 niveaux et 7 dimensions de maîtrise, skills partagés dans une marketplace interne, vues managers agrégées",
+        "Go-to-market : modèle revendeur pour les formateurs IA, prospection et outreach automatisés avec des messages personnalisés pour chaque prospect",
+      ],
+      image: "/images/orbi/orbi-neutral.webp",
+      imageAlt: "Mascotte Orbi",
+    },
+    {
       slug: "axiome",
       title: "Axiome App Studio",
       role: "Fondateur & Product Engineer",

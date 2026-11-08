@@ -22,6 +22,7 @@ HETIC (Montreuil). Master's equivalent in computer programming, Nov 2021 to Sept
 - Sinea Formation: Lead Full-Stack Engineer (Sept 2025 to present). B2B soft-skills platform. Expo/React Native, NestJS, Prisma, PostgreSQL.
 - aiOrigin: Co-founder & Lead Engineer (Feb 2026 to 2026, ended). Multi-tenant SaaS of autonomous AI agents for the enterprise. FastAPI, React/TypeScript, Docker, PostgreSQL, Redis, Temporal Cloud. Multi-provider agents (Claude Agent SDK + LiteLLM). https://huguesromain.com/en/experience/aiorigin
 - Axiome App Studio: Founder & Product Engineer (2025 to present). Consumer mobile apps shipped solo: Belle (AI beauty advisor), Koji (gut health), Tanzy, KnuckleMax, Teacherz. Expo, TypeScript, Supabase, Superwall. https://huguesromain.com/en/experience/axiome
+- Orbi: Founder & Product Engineer (Sept 2026 to present). Prompting coach for companies that lives inside AI assistants (Claude, ChatGPT, Copilot, Cursor); skills marketplace, reseller model for AI trainers, automated prospecting and outreach. MCP server, Next.js, Supabase, Stripe. https://www.get-orbi.com · https://huguesromain.com/en/experience/orbi
 - Recto AI: Founder & Product Engineer (2026 to present). Mobile app that explains the hard passages of a book; in preparation for the App Store. Expo, TypeScript, Supabase, RevenueCat, ML Kit. https://huguesromain.com/en/experience/recto
 - theTribe: Full-stack freelance (Oct 2025 to 2026). Teamway, HomeExchange Day, Aleteia.
 - Ida: Full-Stack freelance (Sept 2024 to Sept 2025). Fresh-produce B2B ordering. FastAPI, React.

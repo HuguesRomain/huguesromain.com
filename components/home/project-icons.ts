@@ -22,6 +22,11 @@ export const PROJECT_ICONS: Record<string, ProjectIcon> = {
     background: "linear-gradient(160deg, #cdeef4, #f7d9ec)",
     padding: "p-1",
   },
+  orbi: {
+    image: "/images/orbi/orbi-neutral.webp",
+    background: "#0f172a",
+    padding: "p-1",
+  },
   belle: {
     image: "/images/apps/belle-icon.png",
     background: "#ffffff",

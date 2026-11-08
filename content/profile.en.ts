@@ -90,6 +90,21 @@ export const profileEn: Profile = {
       imageAlt: "Belle icon",
     },
     {
+      slug: "orbi",
+      title: "Orbi",
+      role: "Founder & Product Engineer",
+      period: "Since 2026",
+      context:
+        "Prompting coach for companies that lives right inside teams' AI assistants and helps the whole company get better with AI, without ever reading conversations.",
+      bullets: [
+        "Designed, built and launched solo: MCP server with in-assistant widgets, Next.js dashboard, Supabase, Stripe billing, Microsoft 365 Copilot agent",
+        "Prompt coaching at the right time, XP, 5 levels and 7 mastery dimensions, skills shared in an internal marketplace, aggregated manager views",
+        "Go-to-market: reseller model for AI trainers, automated prospecting and outreach with personalised messages for each prospect",
+      ],
+      image: "/images/orbi/orbi-neutral.webp",
+      imageAlt: "Orbi mascot",
+    },
+    {
       slug: "axiome",
       title: "Axiome App Studio",
       role: "Founder & Product Engineer",

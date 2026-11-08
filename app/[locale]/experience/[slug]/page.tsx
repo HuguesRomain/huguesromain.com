@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { OrbiShowcase } from "@/components/home/orbi-showcase";
 import { ProjectIconMark } from "@/components/home/project-card";
 import {
   experienceHref,
@@ -131,6 +132,8 @@ export default async function ExperiencePage({
             </p>
           ))}
         </div>
+
+        {slug === "orbi" ? <OrbiShowcase locale={locale} /> : null}
 
         <ul className="mt-10 flex flex-col gap-3.5 border-t border-surface-border pt-10">
           {project.bullets.map((bullet) => (
