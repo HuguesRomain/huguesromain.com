@@ -13,7 +13,7 @@ function renderInline(text: string, keyPrefix: string): ReactNode[] {
     if (part.startsWith("**") && part.endsWith("**")) {
       return (
         <strong key={key} className="font-semibold text-text">
-          {part.slice(2, -2)}
+          {renderInline(part.slice(2, -2), key)}
         </strong>
       );
     }
