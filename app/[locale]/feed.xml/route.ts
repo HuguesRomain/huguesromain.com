@@ -1,5 +1,5 @@
 import { isLocale } from "@/content/get-profile";
-import { getPosts } from "@/lib/blog";
+import { BLOG_ENABLED, getPosts } from "@/lib/blog";
 import { PERSON_NAME, SITE_URL } from "@/lib/site";
 
 function escapeXml(value: string) {
@@ -15,14 +15,14 @@ export async function GET(
   { params }: { params: Promise<{ locale: string }> },
 ) {
   const { locale } = await params;
-  if (!isLocale(locale)) {
+  if (!isLocale(locale) || !BLOG_ENABLED) {
     return new Response("Not found", { status: 404 });
   }
   const posts = getPosts(locale);
   const channelTitle =
     locale === "fr"
-      ? `${PERSON_NAME} — Notes d'ingénierie`
-      : `${PERSON_NAME} — Engineering notes`;
+      ? `${PERSON_NAME} · Notes d'ingénierie`
+      : `${PERSON_NAME} · Engineering notes`;
   const items = posts
     .map((post) => {
       const url = `${SITE_URL}/${locale}/blog/${post.slug}`;

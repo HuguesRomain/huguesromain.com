@@ -6,7 +6,7 @@ tags: ["LLM", "LiteLLM", "Architecture", "Claude Agent SDK"]
 published: true
 ---
 
-When you build a product on top of an LLM, the temptation is to code directly against one provider's SDK. It is fast, the docs are good, and it works. Six months later that choice becomes a wall: a customer requires a specific provider for compliance reasons, a new model ships and beats yours on your exact use case, or your main provider goes down on a Monday morning. On the aiOrigin platform, four providers — Anthropic, OpenAI, Gemini, Mistral — are interchangeable without changing a single line of agent code. Here is why, and how.
+When you build a product on top of an LLM, the temptation is to code directly against one provider's SDK. It is fast, the docs are good, and it works. Six months later that choice becomes a wall: a customer requires a specific provider for compliance reasons, a new model ships and beats yours on your exact use case, or your main provider goes down on a Monday morning. On the aiOrigin platform, four providers (Anthropic, OpenAI, Gemini, Mistral) are interchangeable without changing a single line of agent code. Here is why, and how.
 
 ## Why abstract from day one
 
@@ -20,7 +20,7 @@ Three concrete reasons, all lived through:
 
 The classic mistake is wanting a single abstraction that covers everything. In practice, two distinct needs coexist.
 
-The **call layer** normalizes the interface: message formats, tool calls, streaming, token accounting. That is LiteLLM's job — it exposes every provider behind an OpenAI-compatible API. We did not rewrite it, we configured it.
+The **call layer** normalizes the interface: message formats, tool calls, streaming, token accounting. That is LiteLLM's job: it exposes every provider behind an OpenAI-compatible API. We did not rewrite it, we configured it.
 
 The **agentic layer** runs the loop: which tool to call, how to interpret the result, when to stop. In our case the Claude Agent SDK drives that loop, and the call layer underneath decides which model actually executes each turn. Agent code only ever sees aliases:
 
@@ -53,6 +53,6 @@ The agent asks for `agent-core`, never for a specific model. The alias-to-models
 
 ## What it costs, honestly
 
-The abstraction has a price: one more layer to debug, provider quirks to learn, integration tests multiplied by four. If your product depends on the frontier capabilities of a single model, start simple — but still isolate the LLM call behind an internal interface from day one. Refactoring costs ten times less when the boundary already exists.
+The abstraction has a price: one more layer to debug, provider quirks to learn, integration tests multiplied by four. If your product depends on the frontier capabilities of a single model, start simple, but still isolate the LLM call behind an internal interface from day one. Refactoring costs ten times less when the boundary already exists.
 
-Multi-provider is not a goal in itself. It is insurance — and like all insurance, you buy it before you need it.
+Multi-provider is not a goal in itself. It is insurance, and like all insurance, you buy it before you need it.

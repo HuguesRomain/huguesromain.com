@@ -22,13 +22,13 @@ const STRINGS: Record<
     back: "Blog",
     readingTime: (minutes) => `${minutes} min de lecture`,
     fallbackNotice:
-      "Cet article n'est pas encore traduit en français — version anglaise ci-dessous.",
+      "Cet article n'est pas encore traduit en français. Version anglaise ci-dessous.",
   },
   en: {
     back: "Blog",
     readingTime: (minutes) => `${minutes} min read`,
     fallbackNotice:
-      "This post is not translated to English yet — French version below.",
+      "This post is not translated to English yet. French version below.",
   },
 };
 
@@ -45,7 +45,7 @@ export async function generateMetadata({
   if (!isLocale(locale)) return {};
   const post = getPost(locale, slug);
   if (!post) return {};
-  const title = `${post.title} — Hugues Romain`;
+  const title = `${post.title} · Hugues Romain`;
   return {
     metadataBase: new URL(SITE_URL),
     title,

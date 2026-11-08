@@ -4,6 +4,9 @@ import matter from "gray-matter";
 import type { BlogFrontmatter, BlogPost } from "@/content/blog-types";
 import type { Locale } from "@/content/types";
 
+// Blog hidden for now: flip to true to bring back the pages, nav link, home list, feed and sitemap entries.
+export const BLOG_ENABLED = false;
+
 const BLOG_DIR = path.join(process.cwd(), "content", "blog");
 const WORDS_PER_MINUTE = 200;
 
@@ -65,6 +68,7 @@ function getAllSlugs(): string[] {
 }
 
 export function getPost(locale: Locale, slug: string): BlogPost | null {
+  if (!BLOG_ENABLED) return null;
   const post =
     loadPost(slug, locale, locale) ??
     loadPost(slug, otherLocale(locale), locale);

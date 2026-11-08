@@ -16,7 +16,7 @@ That is the problem Temporal solves. Every long-running job is a durable workflo
 
 Two details made a real difference for us:
 
-- **A double heartbeat.** The Temporal activity sends its own heartbeat, but the agent also writes a liveness signal to Redis. When the two diverge, we know the activity is alive but the agent is stuck — typically an LLM call that never returns.
+- **A double heartbeat.** The Temporal activity sends its own heartbeat, but the agent also writes a liveness signal to Redis. When the two diverge, we know the activity is alive but the agent is stuck, typically an LLM call that never returns.
 - **Automatic cleanup of orphaned runs.** A scheduled job scans executions marked "running" whose heartbeat is stale, terminates them cleanly and releases their resources. Without it, orphans pile up silently.
 
 ## Streaming is a reliability feature, not a comfort feature

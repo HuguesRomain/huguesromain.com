@@ -16,7 +16,7 @@ C'est le problème que Temporal résout. Chaque job long est un workflow durable
 
 Deux détails ont fait la différence chez nous :
 
-- **Un double heartbeat.** L'activité Temporal envoie son heartbeat, mais l'agent lui-même écrit aussi un signal de vie dans Redis. Quand les deux divergent, on sait que l'activité tourne mais que l'agent est bloqué — typiquement un appel LLM qui ne rend jamais la main.
+- **Un double heartbeat.** L'activité Temporal envoie son heartbeat, mais l'agent lui-même écrit aussi un signal de vie dans Redis. Quand les deux divergent, on sait que l'activité tourne mais que l'agent est bloqué, typiquement un appel LLM qui ne rend jamais la main.
 - **Un nettoyage automatique des exécutions orphelines.** Un job planifié parcourt les exécutions marquées "en cours" dont le heartbeat est trop vieux, les termine proprement et libère les ressources associées. Sans ça, les orphelins s'accumulent silencieusement.
 
 ## Le streaming est une feature de fiabilité, pas de confort

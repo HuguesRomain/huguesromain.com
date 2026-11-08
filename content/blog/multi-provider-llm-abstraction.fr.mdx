@@ -6,7 +6,7 @@ tags: ["LLM", "LiteLLM", "Architecture", "Claude Agent SDK"]
 published: true
 ---
 
-Quand on construit un produit sur un LLM, la tentation est forte de coder directement contre le SDK d'un fournisseur. C'est rapide, la doc est bonne, et ça marche. Six mois plus tard, ce choix devient un mur : un client exige un provider précis pour des raisons de conformité, un nouveau modèle sort et surclasse le vôtre sur votre cas d'usage, ou votre provider principal tombe un lundi matin. Sur la plateforme aiOrigin, quatre fournisseurs — Anthropic, OpenAI, Gemini, Mistral — sont interchangeables sans modifier une ligne du code des agents. Voici pourquoi et comment.
+Quand on construit un produit sur un LLM, la tentation est forte de coder directement contre le SDK d'un fournisseur. C'est rapide, la doc est bonne, et ça marche. Six mois plus tard, ce choix devient un mur : un client exige un provider précis pour des raisons de conformité, un nouveau modèle sort et surclasse le vôtre sur votre cas d'usage, ou votre provider principal tombe un lundi matin. Sur la plateforme aiOrigin, quatre fournisseurs (Anthropic, OpenAI, Gemini, Mistral) sont interchangeables sans modifier une ligne du code des agents. Voici pourquoi et comment.
 
 ## Pourquoi abstraire dès le départ
 
@@ -55,4 +55,4 @@ L'agent demande `agent-core`, jamais un modèle précis. Le mapping alias → mo
 
 L'abstraction a un prix : une couche de plus à débugger, des comportements de providers à connaître, des tests d'intégration multipliés par quatre. Si votre produit repose sur les capacités de pointe d'un seul modèle, commencez simple, mais isolez quand même l'appel LLM derrière une interface interne dès le premier jour. Le refactoring coûte dix fois moins cher quand la frontière existe déjà.
 
-Le multi-provider n'est pas un objectif en soi. C'est une assurance — et comme toute assurance, on la souscrit avant d'en avoir besoin.
+Le multi-provider n'est pas un objectif en soi. C'est une assurance, et comme toute assurance, on la souscrit avant d'en avoir besoin.

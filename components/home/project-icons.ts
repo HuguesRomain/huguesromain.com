@@ -22,9 +22,13 @@ export const PROJECT_ICONS: Record<string, ProjectIcon> = {
     background: "linear-gradient(160deg, #cdeef4, #f7d9ec)",
     padding: "p-1",
   },
+  belle: {
+    image: "/images/apps/belle-icon.png",
+    background: "#ffffff",
+  },
   axiome: {
-    image: "/images/projects/axiome-icon.png",
-    background: "#1d1d1f",
+    image: "/images/projects/axiome-mark.png",
+    background: "#f3e6ea",
   },
   ida: {
     image: "/images/projects/ida-icon.png",

@@ -1,10 +1,11 @@
 import { notFound } from "next/navigation";
 import { BlogList } from "@/components/home/blog-list";
+import { Clients } from "@/components/home/clients";
+import { CompanyExperience } from "@/components/home/company-experience";
 import { Contact } from "@/components/home/contact";
 import { Contributions } from "@/components/home/contributions";
 import { Entrepreneurship } from "@/components/home/entrepreneurship";
 import { Intro } from "@/components/home/intro";
-import { Projects } from "@/components/home/projects";
 import { Stack } from "@/components/home/stack";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getProfile, isLocale } from "@/content/get-profile";
@@ -25,7 +26,8 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
     <div className="mx-auto flex w-full max-w-[760px] flex-col gap-14 px-5 pb-40 pt-16 sm:gap-16 sm:px-6 sm:pt-24">
       <JsonLd data={homeJsonLd(locale)} />
       <Intro profile={profile} />
-      <Projects profile={profile} />
+      <Clients profile={profile} />
+      <CompanyExperience profile={profile} />
       <Entrepreneurship profile={profile} />
       <Stack profile={profile} />
       <Contributions locale={locale} />

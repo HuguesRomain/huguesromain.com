@@ -30,7 +30,7 @@ export function rectoMetadata(
 ): Metadata {
   return {
     metadataBase: new URL(SITE_URL),
-    title: `${title} — Recto AI`,
+    title: `${title} · Recto AI`,
     description,
     alternates: {
       canonical: `/${locale}/recto/${path}`,

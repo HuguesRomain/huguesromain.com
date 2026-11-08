@@ -2,13 +2,12 @@ export const corpusEn = `# Hugues Romain — Corpus (v1: résumé)
 
 ## Identity
 - Hugues Romain, freelance software engineer & AI architect, based in Nice, France. He designs and ships AI workflows and agents.
-- Company: Axiome (SASU), founded September 2024.
 - Email: huguesromaindev@gmail.com · GitHub: github.com/HuguesRomain · LinkedIn: linkedin.com/in/huguesromain
 - Languages: French (native), English (fluent, strong level).
 
 ## Education
-- HETIC — Grande École du Web (Montreuil, France). Master's degree (M.Sc. equivalent) in Computer Programming & Specific Applications, Nov. 2021 – Sept. 2023, work-study alongside Alobees then Microdoing.
-- Bachelor's degree in Computer Programming, HETIC, 2018 – 2021, work-study alongside Ouihelp.
+- HETIC — Grande École du Web (Montreuil, France). Master's degree (M.Sc. equivalent) in Computer Programming & Specific Applications, Nov. 2021 – Sept. 2023.
+- Bachelor's degree in Computer Programming, HETIC, 2018 – 2021.
 
 ## Experience
 
@@ -64,20 +63,20 @@ B2B ordering platform for fresh produce serving neighbourhood grocery stores.
 - Instrumented the product with PostHog to track user behaviour, prioritise the roadmap and optimise key flows.
 - Coordinated the tech team day to day (code reviews, agile rituals).
 
-### Microdoing — Full-Stack Engineer, work-study (Oct. 2022 – Oct. 2023, Paris)
+### Microdoing — Full-Stack Engineer (Oct. 2022 – Oct. 2023, Paris)
 React Native product, ported to the web with Expo for Web.
 - Designed and built a gamification feature that lifted user engagement and adoption by 20%.
 - Ported the React Native mobile app to the web with Expo for Web.
 - Reorganised the team (code reviews, sprints, daily rituals, retrospectives) to cut the production error rate.
 
-### Alobees — Full-Stack Engineer, work-study (Dec. 2021 – Sept. 2022, Paris)
+### Alobees — Full-Stack Engineer (Dec. 2021 – Sept. 2022, Paris)
 Interactive site-planning tool for construction professionals.
 - Rearchitected the web and mobile front ends and unified both around an atomic design system.
 - Built an interactive site-planning tool for construction professionals.
 - Removed UX friction from sign-up and login flows.
 - Introduced automated testing (Jest).
 
-### Ouihelp — Front-End Engineer, work-study (Jul. 2019 – Sept. 2021, Paris)
+### Ouihelp — Front-End Engineer (Jul. 2019 – Sept. 2021, Paris)
 Client portal and location tools for families, beneficiaries and caregivers.
 - Designed and built a smart location feature to quickly identify the caregivers closest to each beneficiary.
 - Reworked state management (replacing Redux with React hooks and contexts).

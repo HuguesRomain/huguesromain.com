@@ -20,7 +20,7 @@ export type ChatTransport = (
   signal: AbortSignal,
 ) => AsyncIterable<string>;
 
-const FAKE_REPLY_FR = `Réponse **simulée** pour valider l'interface — le vrai modèle est branché à l'étape suivante.
+const FAKE_REPLY_FR = `Réponse **simulée** pour valider l'interface. Le vrai modèle est branché à l'étape suivante.
 
 - Streaming token par token avec curseur bloc
 - Markdown : **gras**, \`code inline\`, [liens](https://github.com/HuguesRomain)
@@ -28,7 +28,7 @@ const FAKE_REPLY_FR = `Réponse **simulée** pour valider l'interface — le vra
 
 Posez une autre question, ou testez \`/erreur\`, \`/limite\`, \`/vide\`.`;
 
-const FAKE_REPLY_EN = `**Simulated** reply to validate the UI — the real model lands in the next step.
+const FAKE_REPLY_EN = `**Simulated** reply to validate the UI. The real model lands in the next step.
 
 - Token-by-token streaming with a block cursor
 - Markdown: **bold**, \`inline code\`, [links](https://github.com/HuguesRomain)

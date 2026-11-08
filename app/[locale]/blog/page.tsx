@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, LOCALES } from "@/content/get-profile";
 import type { Locale } from "@/content/types";
-import { formatPostDate, getPosts } from "@/lib/blog";
+import { BLOG_ENABLED, formatPostDate, getPosts } from "@/lib/blog";
 import { localeAlternates, SITE_URL } from "@/lib/site";
 
 const STRINGS: Record<
@@ -47,7 +47,7 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isLocale(locale)) return {};
   const strings = STRINGS[locale];
-  const title = `${strings.label} — Hugues Romain`;
+  const title = `${strings.label} · Hugues Romain`;
   return {
     metadataBase: new URL(SITE_URL),
     title,
@@ -70,7 +70,7 @@ export default async function BlogPage({
   params,
 }: PageProps<"/[locale]/blog">) {
   const { locale } = await params;
-  if (!isLocale(locale)) notFound();
+  if (!isLocale(locale) || !BLOG_ENABLED) notFound();
   const strings = STRINGS[locale];
   const posts = getPosts(locale);
 

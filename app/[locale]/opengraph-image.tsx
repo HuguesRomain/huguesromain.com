@@ -6,7 +6,7 @@ import { getProfile, isLocale, LOCALES } from "@/content/get-profile";
 export const runtime = "nodejs";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Hugues Romain — Full-stack engineer & AI architect";
+export const alt = "Hugues Romain, Full-stack engineer & AI architect";
 
 const CARD = { width: 1080, height: 510 };
 

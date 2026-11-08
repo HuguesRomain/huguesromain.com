@@ -10,7 +10,7 @@ export default function NotFound() {
         Page introuvable
       </h1>
       <p className="max-w-md text-[15px] leading-[1.6] text-text-muted">
-        Cette page n&apos;existe pas — this page does not exist.
+        Cette page n&apos;existe pas. This page does not exist.
       </p>
       <Link
         href="/"

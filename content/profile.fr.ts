@@ -5,7 +5,7 @@ export const profileFr: Profile = {
   locale: "fr",
   name: "Hugues Romain",
   tagline:
-    "Ingénieur logiciel, architecte IA — freelance · workflows et agents IA, produits web & mobile de bout en bout · Nice",
+    "Ingénieur logiciel, architecte IA, freelance · workflows et agents IA, produits web & mobile de bout en bout · Nice",
   heroFirstName: "Hugues",
   heroLastName: "Romain",
   sections: {
@@ -18,8 +18,8 @@ export const profileFr: Profile = {
     {
       slug: "stratbuy",
       title: "StratBuy",
-      role: "Design produit, engineering & stratégie",
-      period: "2026 — aujourd'hui",
+      role: "Design produit, engineering & stratégie (freelance)",
+      period: "2026",
       context:
         "Plateforme SaaS de pilotage des achats, que je développe et accompagne, du produit à la stratégie business.",
       bullets: [
@@ -33,8 +33,8 @@ export const profileFr: Profile = {
     {
       slug: "sinea",
       title: "Sinea Formation",
-      role: "Lead Full-Stack Engineer",
-      period: "2025 — aujourd'hui",
+      role: "Lead Full-Stack Engineer (freelance)",
+      period: "2025 à 2026",
       context:
         "Plateforme B2B qui aide les collaborateurs à développer leurs soft skills.",
       bullets: [
@@ -64,7 +64,7 @@ export const profileFr: Profile = {
       slug: "recto",
       title: "Recto AI",
       role: "Fondateur & Product Engineer",
-      period: "2026 — aujourd'hui",
+      period: "Depuis 2026",
       context:
         "App mobile qui explique les passages difficiles d'un livre : on photographie la page, on surligne, l'IA explique et garde le passage.",
       bullets: [
@@ -76,15 +76,31 @@ export const profileFr: Profile = {
       imageAlt: "Icône Recto AI",
     },
     {
+      slug: "belle",
+      title: "Belle",
+      role: "Fondateur & Product Engineer",
+      period: "Depuis 2025",
+      context:
+        "App mobile de conseil beauté par IA : une photo suffit pour lire la peau, le visage, les cheveux et le style, puis Belle compose une routine du quotidien.",
+      bullets: [
+        "Conçue, construite et publiée en solo : Expo / React Native, TypeScript strict, Supabase (auth, PostgreSQL, storage, Edge Functions), abonnement RevenueCat",
+        "IA en production : analyse photo par modèles de vision, Glow Score et palette, routine du jour calée sur la météo et l'indice UV",
+        "Disponible sur l'App Store en français, anglais, espagnol et italien ; photos chiffrées et supprimées après 30 jours",
+      ],
+      image: "/images/apps/belle-icon.png",
+      imageAlt: "Icône Belle",
+    },
+    {
       slug: "axiome",
       title: "Axiome App Studio",
       role: "Fondateur & Product Engineer",
-      period: "2025 — aujourd'hui",
-      context: "Studio d'apps mobiles grand public, conçu et opéré en solo.",
+      period: "Depuis 2025",
+      context:
+        "Axiome App Studio est mon studio d'apps mobiles grand public. Je repère un marché, je conçois l'app, je la construis et je la publie seul, puis je mesure ce qui trouve son public.",
       bullets: [
-        "5 apps conçues, construites et publiées : Belle, Koji, Tanzy, KnuckleMax, Teacherz (Expo, TypeScript strict, Supabase, Superwall)",
-        "IA en production : analyse d'image par modèles de vision, onboarding personnalisé, localisation auto FR / EN / ES / IT",
-        "Chaîne de release industrialisée et analytics PostHog sur tout le portfolio : funnels, activation, rétention",
+        "Le modèle : des apps de niche lancées vite, chacune avec un usage précis, un canal pour toucher ses utilisateurs et un abonnement",
+        "Toute la chaîne en solo : recherche de marché (Signal Radar), design produit, code Expo / React Native et Supabase, publication App Store et Play Store",
+        "Un socle commun à toutes les apps : release industrialisée, paywalls, suivi d'erreurs Sentry et analytics PostHog (funnels, activation, rétention)",
       ],
       image: "/images/work-axiome.webp",
       imageAlt: "Macro d'un circuit imprimé en lumière rasante",
@@ -93,13 +109,13 @@ export const profileFr: Profile = {
       slug: "thetribe",
       title: "theTribe",
       role: "Ingénieur Full-Stack (freelance)",
-      period: "2025 — 2026",
+      period: "2025 à 2026",
       context:
         "Missions full-stack via theTribe, agence produit française, pour plusieurs de ses clients.",
       bullets: [
-        "Teamway — app mobile Workplace 365 (React Native) : évolutions, corrections et releases iOS / Android",
-        "HomeExchange Day — plateforme événementielle (React, Express, PostgreSQL) : intégration Luma, parcours d'inscription hôtes / invités",
-        "Aleteia — média en ligne (Next.js, GraphQL) : refonte des pages d'archives et du header, recherche Algolia, i18n, migration CSS vers Tailwind",
+        "Teamway : app mobile Workplace 365 (React Native) : évolutions, corrections et releases iOS / Android",
+        "HomeExchange Day : plateforme événementielle (React, Express, PostgreSQL) : intégration Luma, parcours d'inscription hôtes / invités",
+        "Aleteia : média en ligne (Next.js, GraphQL) : refonte des pages d'archives et du header, recherche Algolia, i18n, migration CSS vers Tailwind",
       ],
       image: "/images/projects/thetribe-logo.png",
       imageAlt: "Logo theTribe",
@@ -108,7 +124,7 @@ export const profileFr: Profile = {
       slug: "ida",
       title: "Ida",
       role: "Ingénieur Full-Stack (freelance)",
-      period: "2024 — 2025",
+      period: "2024 à 2025",
       context:
         "Plateforme B2B de commande de produits frais pour les épiceries de quartier.",
       bullets: [
@@ -122,8 +138,8 @@ export const profileFr: Profile = {
     {
       slug: "microdoing",
       title: "Microdoing",
-      role: "Ingénieur Full-Stack (alternance)",
-      period: "2022 — 2023",
+      role: "Ingénieur Full-Stack",
+      period: "2022 à 2023",
       context:
         "Produit mobile React Native, porté sur le web avec Expo for Web.",
       bullets: [
@@ -137,8 +153,8 @@ export const profileFr: Profile = {
     {
       slug: "alobees",
       title: "Alobees",
-      role: "Ingénieur Full-Stack (alternance)",
-      period: "2021 — 2022",
+      role: "Ingénieur Full-Stack",
+      period: "2021 à 2022",
       context:
         "Outil interactif de planification de chantiers pour les professionnels du BTP.",
       bullets: [
@@ -152,8 +168,8 @@ export const profileFr: Profile = {
     {
       slug: "ouihelp",
       title: "Ouihelp",
-      role: "Ingénieur Front-End (alternance)",
-      period: "2019 — 2021",
+      role: "Ingénieur Front-End",
+      period: "2019 à 2021",
       context:
         "Portail client et géolocalisation pour les familles, les bénéficiaires et les auxiliaires de vie.",
       bullets: [
@@ -220,8 +236,8 @@ export const profileFr: Profile = {
   ],
   about: {
     paragraphs: [
-      "Ingénieur logiciel et architecte IA freelance à Nice depuis 2024 sous ma société Axiome, je conçois et construis des produits web et mobiles de bout en bout. Je crée et mets en production des workflows et des agents IA. Diplômé d'HETIC, formé en alternance chez Ouihelp, Alobees puis Microdoing, j'accompagne aujourd'hui StratBuy, du design produit à la stratégie business, et je lance Recto AI, une app qui explique les passages difficiles d'un livre.",
-      "Mon terrain : les systèmes où l'IA rencontre la vraie ingénierie — boucles d'agents multi-providers, streaming temps réel, workflows durables, apps mobiles publiées en solo. Basé à Nice, je travaille en français comme en anglais.",
+      "Ingénieur logiciel et architecte IA freelance à Nice depuis 2024, je conçois et construis des produits web et mobiles de bout en bout. Je crée et mets en production des workflows et des agents IA. Diplômé d'HETIC, passé par Ouihelp, Alobees puis Microdoing, j'accompagne aujourd'hui StratBuy, du design produit à la stratégie business, et je lance Recto AI, une app qui explique les passages difficiles d'un livre.",
+      "Je prends un projet du cadrage à la mise en production : design produit, architecture, code, publication sur les stores et suivi après le lancement. Je travaille en remote, en français comme en anglais.",
     ],
     portrait: "/images/portrait.webp",
     portraitAlt: "Portrait de Hugues Romain",
@@ -229,7 +245,7 @@ export const profileFr: Profile = {
   },
   contact: {
     intro:
-      "Un doute sur une archi, un agent à mettre en prod, un produit à construire de bout en bout — écrivez-moi, je réponds vite.",
+      "Un doute sur une archi, un agent à mettre en prod, un produit à construire de bout en bout ? Écrivez-moi, je réponds vite.",
     email: CONTACT_EMAIL,
     github: GITHUB_URL,
     linkedin: LINKEDIN_URL,
@@ -262,7 +278,7 @@ export const profileFr: Profile = {
     errorEmpty: "Réponse vide reçue. Relancez la question.",
     closeHint: "Esc pour fermer",
     close: "Fermer la conversation",
-    inputAriaLabel: "Parlez avec Hugues — posez-lui votre question",
+    inputAriaLabel: "Parlez avec Hugues, posez-lui votre question",
     sendAriaLabel: "Envoyer la question",
     panelAriaLabel: "Discussion avec Hugues (version IA)",
   },

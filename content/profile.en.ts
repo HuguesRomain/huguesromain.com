@@ -18,8 +18,8 @@ export const profileEn: Profile = {
     {
       slug: "stratbuy",
       title: "StratBuy",
-      role: "Product design, engineering & strategy",
-      period: "2026 — present",
+      role: "Product design, engineering & strategy (freelance)",
+      period: "2026",
       context:
         "SaaS platform for managing procurement, which I build and support, from product to business strategy.",
       bullets: [
@@ -33,8 +33,8 @@ export const profileEn: Profile = {
     {
       slug: "sinea",
       title: "Sinea Formation",
-      role: "Lead Full-Stack Engineer",
-      period: "2025 — present",
+      role: "Lead Full-Stack Engineer (freelance)",
+      period: "2025 to 2026",
       context: "B2B platform helping employees develop their soft skills.",
       bullets: [
         "Built and led three codebases: Expo / React Native mobile app, NestJS + Prisma + PostgreSQL API, React back office",
@@ -63,7 +63,7 @@ export const profileEn: Profile = {
       slug: "recto",
       title: "Recto AI",
       role: "Founder & Product Engineer",
-      period: "2026 — present",
+      period: "Since 2026",
       context:
         "Mobile app that explains the hard passages of a book: photograph the page, highlight, and the AI explains and keeps the passage.",
       bullets: [
@@ -75,15 +75,31 @@ export const profileEn: Profile = {
       imageAlt: "Recto AI icon",
     },
     {
+      slug: "belle",
+      title: "Belle",
+      role: "Founder & Product Engineer",
+      period: "Since 2025",
+      context:
+        "AI beauty advisor mobile app: one photo is enough to read skin, face, hair and style, then Belle builds an everyday routine.",
+      bullets: [
+        "Designed, built and shipped solo: Expo / React Native, strict TypeScript, Supabase (auth, PostgreSQL, storage, Edge Functions), RevenueCat subscriptions",
+        "AI in production: vision-model photo analysis, Glow Score and palette, a daily routine tuned to weather and UV index",
+        "Live on the App Store in French, English, Spanish and Italian; photos encrypted and deleted after 30 days",
+      ],
+      image: "/images/apps/belle-icon.png",
+      imageAlt: "Belle icon",
+    },
+    {
       slug: "axiome",
       title: "Axiome App Studio",
       role: "Founder & Product Engineer",
-      period: "2025 — present",
-      context: "Consumer mobile app studio, designed and operated solo.",
+      period: "Since 2025",
+      context:
+        "Axiome App Studio is my consumer mobile app studio. I spot a market, design the app, build and ship it solo, then measure what finds its audience.",
       bullets: [
-        "5 apps designed, built and shipped: Belle, Koji, Tanzy, KnuckleMax, Teacherz (Expo, strict TypeScript, Supabase, Superwall)",
-        "AI in production: vision-model image analysis, personalised onboarding, auto-detected FR / EN / ES / IT localisation",
-        "Industrialised release chain and PostHog analytics across the portfolio: funnels, activation, retention",
+        "The model: niche apps launched fast, each with a clear use, a channel to reach its users and a subscription",
+        "The whole chain, solo: market research (Signal Radar), product design, Expo / React Native and Supabase code, App Store and Play Store publishing",
+        "A shared foundation across every app: industrialised releases, paywalls, Sentry error tracking and PostHog analytics (funnels, activation, retention)",
       ],
       image: "/images/work-axiome.webp",
       imageAlt: "Macro shot of a printed circuit board in raking light",
@@ -92,13 +108,13 @@ export const profileEn: Profile = {
       slug: "thetribe",
       title: "theTribe",
       role: "Full-Stack Engineer (freelance)",
-      period: "2025 — 2026",
+      period: "2025 to 2026",
       context:
         "Full-stack missions through theTribe, a French product agency, for several of its clients.",
       bullets: [
-        "Teamway — Workplace 365 mobile app (React Native): features, fixes and iOS / Android releases",
-        "HomeExchange Day — event platform (React, Express, PostgreSQL): Luma integration, host / guest registration flows",
-        "Aleteia — online media (Next.js, GraphQL): rebuilt archive pages and header, Algolia search, i18n, CSS migration to Tailwind",
+        "Teamway: Workplace 365 mobile app (React Native): features, fixes and iOS / Android releases",
+        "HomeExchange Day: event platform (React, Express, PostgreSQL): Luma integration, host / guest registration flows",
+        "Aleteia: online media (Next.js, GraphQL): rebuilt archive pages and header, Algolia search, i18n, CSS migration to Tailwind",
       ],
       image: "/images/projects/thetribe-logo.png",
       imageAlt: "theTribe logo",
@@ -107,7 +123,7 @@ export const profileEn: Profile = {
       slug: "ida",
       title: "Ida",
       role: "Full-Stack Engineer (freelance)",
-      period: "2024 — 2025",
+      period: "2024 to 2025",
       context:
         "B2B ordering platform for fresh produce serving neighbourhood grocery stores.",
       bullets: [
@@ -121,8 +137,8 @@ export const profileEn: Profile = {
     {
       slug: "microdoing",
       title: "Microdoing",
-      role: "Full-Stack Engineer (work-study)",
-      period: "2022 — 2023",
+      role: "Full-Stack Engineer",
+      period: "2022 to 2023",
       context:
         "React Native product, ported to the web with Expo for Web.",
       bullets: [
@@ -136,8 +152,8 @@ export const profileEn: Profile = {
     {
       slug: "alobees",
       title: "Alobees",
-      role: "Full-Stack Engineer (work-study)",
-      period: "2021 — 2022",
+      role: "Full-Stack Engineer",
+      period: "2021 to 2022",
       context:
         "Interactive site-planning tool for construction professionals.",
       bullets: [
@@ -151,8 +167,8 @@ export const profileEn: Profile = {
     {
       slug: "ouihelp",
       title: "Ouihelp",
-      role: "Front-End Engineer (work-study)",
-      period: "2019 — 2021",
+      role: "Front-End Engineer",
+      period: "2019 to 2021",
       context:
         "Client portal and location tools for families, beneficiaries and caregivers.",
       bullets: [
@@ -219,8 +235,8 @@ export const profileEn: Profile = {
   ],
   about: {
     paragraphs: [
-      "Software engineer and AI architect, freelance in Nice since 2024 through my company Axiome. I design and build web and mobile products end to end, and I ship AI workflows and agents. A HETIC graduate trained through work-study at Ouihelp, Alobees and Microdoing, I now support StratBuy, from product design to business strategy, and I am launching Recto AI, an app that explains the hard passages of a book.",
-      "My ground: systems where AI meets real engineering — multi-provider agent loops, real-time streaming, durable workflows, mobile apps shipped solo. Based in Nice, working in French and English.",
+      "Software engineer and AI architect, freelance in Nice since 2024. I design and build web and mobile products end to end, and I ship AI workflows and agents. A HETIC graduate who worked at Ouihelp, Alobees and Microdoing, I now support StratBuy, from product design to business strategy, and I am launching Recto AI, an app that explains the hard passages of a book.",
+      "I take a project from scoping to production: product design, architecture, code, store publishing and follow-up after launch. I work remotely, in French and English.",
     ],
     portrait: "/images/portrait.webp",
     portraitAlt: "Portrait of Hugues Romain",
@@ -228,7 +244,7 @@ export const profileEn: Profile = {
   },
   contact: {
     intro:
-      "An architecture to challenge, an agent to ship, a product to build end to end — write me, I answer fast.",
+      "An architecture to challenge, an agent to ship, a product to build end to end? Write me, I answer fast.",
     email: CONTACT_EMAIL,
     github: GITHUB_URL,
     linkedin: LINKEDIN_URL,
@@ -260,7 +276,7 @@ export const profileEn: Profile = {
     errorEmpty: "Empty response received. Ask again.",
     closeHint: "Esc to close",
     close: "Close the conversation",
-    inputAriaLabel: "Talk with Hugues — ask him your question",
+    inputAriaLabel: "Talk with Hugues, ask him your question",
     sendAriaLabel: "Send the question",
     panelAriaLabel: "Chat with Hugues (AI version)",
   },

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getProjectSlugs } from "@/content/experience";
 import { LOCALES } from "@/content/get-profile";
-import { getPosts } from "@/lib/blog";
+import { BLOG_ENABLED, getPosts } from "@/lib/blog";
 import { CONTENT_UPDATED, localeAlternateUrls, SITE_URL } from "@/lib/site";
 
 const SITE_MODIFIED = new Date(CONTENT_UPDATED);
@@ -13,11 +13,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: SITE_MODIFIED,
       alternates: { languages: localeAlternateUrls("") },
     },
-    {
-      url: `${SITE_URL}/${locale}/blog`,
-      lastModified: SITE_MODIFIED,
-      alternates: { languages: localeAlternateUrls("blog") },
-    },
+    ...(BLOG_ENABLED
+      ? [
+          {
+            url: `${SITE_URL}/${locale}/blog`,
+            lastModified: SITE_MODIFIED,
+            alternates: { languages: localeAlternateUrls("blog") },
+          },
+        ]
+      : []),
   ]);
 
   for (const locale of LOCALES) {

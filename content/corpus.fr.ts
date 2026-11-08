@@ -2,13 +2,12 @@ export const corpusFr = `# Hugues Romain — Corpus (v1 : CV)
 
 ## Identité
 - Hugues Romain, ingénieur logiciel et architecte IA freelance, basé à Nice. Il crée et met en production des workflows et des agents IA.
-- Société : Axiome (SASU), fondée en septembre 2024.
 - Email : huguesromaindev@gmail.com · GitHub : github.com/HuguesRomain · LinkedIn : linkedin.com/in/huguesromain
 - Langues : français (natif), anglais (courant, très bon niveau).
 
 ## Formation
-- HETIC — Grande École du Web (Montreuil). Master (équivalent M.Sc.) en programmation informatique et applications spécifiques, nov. 2021 – sept. 2023, en alternance chez Alobees puis Microdoing.
-- Bachelor en programmation informatique, HETIC, 2018 – 2021, en alternance chez Ouihelp.
+- HETIC — Grande École du Web (Montreuil). Master (équivalent M.Sc.) en programmation informatique et applications spécifiques, nov. 2021 – sept. 2023.
+- Bachelor en programmation informatique, HETIC, 2018 – 2021.
 
 ## Expériences
 
@@ -64,20 +63,20 @@ Plateforme B2B de commande de produits frais pour les épiceries de quartier.
 - Instrumentation PostHog : suivi des comportements, priorisation de la roadmap, optimisation des parcours clés.
 - Coordination quotidienne de l'équipe tech (code reviews, rituels agiles).
 
-### Microdoing — Ingénieur Full-Stack, alternance (oct. 2022 – oct. 2023, Paris)
+### Microdoing — Ingénieur Full-Stack (oct. 2022 – oct. 2023, Paris)
 Produit mobile React Native, porté sur le web avec Expo for Web.
 - Feature de gamification qui a augmenté l'engagement et l'adoption de 20 %.
 - Portage de l'app React Native vers le web avec Expo for Web.
 - Réorganisation de l'équipe (code reviews, sprints, daily, rétrospectives) pour réduire le taux d'erreurs en production.
 
-### Alobees — Ingénieur Full-Stack, alternance (déc. 2021 – sept. 2022, Paris)
+### Alobees — Ingénieur Full-Stack (déc. 2021 – sept. 2022, Paris)
 Outil interactif de planification de chantiers pour les professionnels du BTP.
 - Réarchitecture des fronts web et mobile, unifiés autour d'un design system atomique.
 - Outil interactif de planification de chantiers pour les professionnels du BTP.
 - Suppression des frictions UX sur l'inscription et la connexion.
 - Introduction des tests automatisés (Jest).
 
-### Ouihelp — Ingénieur Front-End, alternance (juil. 2019 – sept. 2021, Paris)
+### Ouihelp — Ingénieur Front-End (juil. 2019 – sept. 2021, Paris)
 Portail client et géolocalisation pour les familles, les bénéficiaires et les auxiliaires de vie.
 - Feature de géolocalisation intelligente pour identifier les auxiliaires de vie les plus proches de chaque bénéficiaire.
 - Refonte du state management (Redux remplacé par hooks et contexts React).

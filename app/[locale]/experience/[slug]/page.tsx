@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProjectIconMark } from "@/components/home/project-card";
-import { StudioAppCards } from "@/components/home/studio-app-cards";
 import {
   experienceHref,
   getExperienceExtras,
   getProject,
   getProjectSlugs,
+  isClientSlug,
   isVentureSlug,
 } from "@/content/experience";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -18,10 +18,18 @@ import { localeAlternates, SITE_URL } from "@/lib/site";
 
 const STRINGS: Record<
   Locale,
-  { experience: string; ventures: string }
+  { clients: string; experience: string; ventures: string }
 > = {
-  fr: { experience: "Expérience", ventures: "Entrepreneuriat" },
-  en: { experience: "Experience", ventures: "Entrepreneurship" },
+  fr: {
+    clients: "Clients",
+    experience: "Expérience en entreprise",
+    ventures: "Entrepreneuriat",
+  },
+  en: {
+    clients: "Clients",
+    experience: "Company experience",
+    ventures: "Entrepreneurship",
+  },
 };
 
 export const dynamicParams = false;
@@ -39,7 +47,7 @@ export async function generateMetadata({
   if (!isLocale(locale)) return {};
   const project = getProject(locale, slug);
   if (!project) return {};
-  const title = `${project.title} — Hugues Romain`;
+  const title = `${project.title} · Hugues Romain`;
   const path = experienceHref(locale, slug);
   return {
     metadataBase: new URL(SITE_URL),
@@ -76,10 +84,14 @@ export default async function ExperiencePage({
   const path = experienceHref(locale, slug);
   const backLabel = isVentureSlug(slug)
     ? strings.ventures
-    : strings.experience;
+    : isClientSlug(slug)
+      ? strings.clients
+      : strings.experience;
   const backHref = isVentureSlug(slug)
     ? `/${locale}#entrepreneuriat`
-    : `/${locale}#experience`;
+    : isClientSlug(slug)
+      ? `/${locale}#clients`
+      : `/${locale}#experience`;
 
   return (
     <div className="px-5 pt-24 pb-28 font-sans sm:px-6">
@@ -108,13 +120,8 @@ export default async function ExperiencePage({
 
         <div className="mt-10 flex flex-col gap-5">
           <p className="text-[16px] leading-[1.65] text-text">
-            {locale === "fr"
-              ? `Hugues Romain — ${project.role}, ${project.period}. ${project.context}`
-              : `Hugues Romain — ${project.role}, ${project.period}. ${project.context}`}
+            {project.context}
           </p>
-          {slug === "axiome" ? (
-            <StudioAppCards locale={locale} />
-          ) : null}
           {extras.map((paragraph) => (
             <p
               key={paragraph}

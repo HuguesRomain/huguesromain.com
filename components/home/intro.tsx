@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import type { Profile } from "@/content/types";
 import { ProfileChat } from "./profile-chat";
 
@@ -75,62 +74,9 @@ export function Intro({ profile }: { profile: Profile }) {
       </div>
       <div className="flex flex-col gap-4">
         <p className="text-[16px] leading-[1.65] text-text">
-          {fr ? (
-            <>
-              Ingénieur logiciel et architecte IA freelance à Nice. Je conçois
-              et construis des produits web et mobiles de bout en bout, et je
-              crée et mets en production des workflows et des agents IA.
-              Freelance sous ma société{" "}
-              <Link
-                href={`/${profile.locale}/experience/axiome`}
-                className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-              >
-                Axiome
-              </Link>
-              , je développe et accompagne{" "}
-              <Link
-                href={`/${profile.locale}/experience/stratbuy`}
-                className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-              >
-                StratBuy
-              </Link>
-              , du design produit à la stratégie business, et je lance{" "}
-              <Link
-                href={`/${profile.locale}/experience/recto`}
-                className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-              >
-                Recto AI
-              </Link>
-              , une app qui explique les passages difficiles d&apos;un livre.
-            </>
-          ) : (
-            <>
-              Software engineer and AI architect, freelance in Nice. I build
-              web and mobile products end to end, and I design and ship AI
-              workflows and agents. Freelance under my company{" "}
-              <Link
-                href={`/${profile.locale}/experience/axiome`}
-                className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-              >
-                Axiome
-              </Link>
-              , I build and support{" "}
-              <Link
-                href={`/${profile.locale}/experience/stratbuy`}
-                className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-              >
-                StratBuy
-              </Link>
-              , from product design to business strategy, and I am launching{" "}
-              <Link
-                href={`/${profile.locale}/experience/recto`}
-                className="underline decoration-surface-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-              >
-                Recto AI
-              </Link>
-              , an app that explains the hard passages of a book.
-            </>
-          )}
+          {fr
+            ? "Ingénieur logiciel et architecte IA freelance à Nice. Je conçois et construis des produits web et mobiles de bout en bout, avec des agents IA qui tournent en production."
+            : "Freelance software engineer and AI architect in Nice. I design and build web and mobile products end to end, with AI agents running in production."}
         </p>
         <p className="text-[15px] leading-[1.65] text-text-muted">
           {profile.about.paragraphs[1]}

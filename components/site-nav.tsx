@@ -1,15 +1,19 @@
 import type { Locale } from "@/content/types";
+import { BLOG_ENABLED } from "@/lib/blog";
 import { LiquidGlass } from "./ui/liquid-glass";
 import { LocaleSwitch } from "./locale-switch";
 import { ThemeToggle } from "./theme-toggle";
 
 const LINKS = (locale: Locale) =>
   [
-    { href: `/${locale}#experience`, label: locale === "fr" ? "Expérience" : "Experience" },
-    { href: `/${locale}#entrepreneuriat`, label: "Studio" },
-    { href: `/${locale}#stack`, label: "Stack" },
-    { href: `/${locale}/blog`, label: "Blog" },
-    { href: `/${locale}#contact`, label: "Contact" },
+    { href: `/${locale}#clients`, label: "Clients", desktopOnly: false },
+    { href: `/${locale}#experience`, label: locale === "fr" ? "Expérience" : "Experience", desktopOnly: true },
+    { href: `/${locale}#entrepreneuriat`, label: "Studio", desktopOnly: false },
+    { href: `/${locale}#stack`, label: "Stack", desktopOnly: true },
+    ...(BLOG_ENABLED
+      ? [{ href: `/${locale}/blog`, label: "Blog", desktopOnly: false }]
+      : []),
+    { href: `/${locale}#contact`, label: "Contact", desktopOnly: false },
   ] as const;
 
 export function SiteNav({ locale }: { locale: Locale }) {
@@ -36,7 +40,10 @@ export function SiteNav({ locale }: { locale: Locale }) {
         />
         <ul className="flex items-center gap-3 sm:gap-4">
           {LINKS(locale).map((link) => (
-            <li key={link.href}>
+            <li
+              key={link.href}
+              className={link.desktopOnly ? "hidden sm:list-item" : undefined}
+            >
               <a
                 href={link.href}
                 className="text-[13px] font-medium text-text-muted transition-colors hover:text-text"

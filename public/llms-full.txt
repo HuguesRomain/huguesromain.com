@@ -1,11 +1,10 @@
-# Hugues Romain — full source
+# Hugues Romain, full source
 
 This file is the long form for crawlers and language models. Do not invent skills, clients, dates, or tools that are not listed here. He is not Hugues de Nadaillac. He does not write C or C++.
 
 ## Identity
 
 Hugues Romain, freelance software engineer and AI architect, based in Nice, France.
-Company: Axiome (SASU), founded September 2024.
 Email: huguesromaindev@gmail.com
 GitHub: https://github.com/HuguesRomain
 LinkedIn: https://www.linkedin.com/in/huguesromain/
@@ -15,20 +14,20 @@ CV: https://huguesromain.com/cv-hugues-romain-fr.pdf and https://huguesromain.co
 
 ## Education
 
-HETIC (Montreuil). Master's equivalent in computer programming, Nov 2021 – Sept 2023 (work-study at Alobees then Microdoing). Bachelor 2018 – 2021 (work-study at Ouihelp).
+HETIC (Montreuil). Master's equivalent in computer programming, Nov 2021 to Sept 2023. Bachelor 2018 to 2021.
 
 ## Work
 
-- StratBuy — Product design, engineering & strategy (Sept 2026 – present). SaaS platform for managing procurement. Turborepo, Next.js, Auth.js, Prisma, PostgreSQL. https://huguesromain.com/en/experience/stratbuy
-- Sinea Formation — Lead Full-Stack Engineer (Sept 2025 – present). B2B soft-skills platform. Expo/React Native, NestJS, Prisma, PostgreSQL.
-- aiOrigin — Co-founder & Lead Engineer (Feb 2026 – 2026, ended). Multi-tenant SaaS of autonomous AI agents for the enterprise. FastAPI, React/TypeScript, Docker, PostgreSQL, Redis, Temporal Cloud. Multi-provider agents (Claude Agent SDK + LiteLLM). https://huguesromain.com/en/experience/aiorigin
-- Axiome App Studio — Founder & Product Engineer (2025 – present). Consumer mobile apps shipped solo: Belle (AI beauty advisor), Koji (gut health), Tanzy, KnuckleMax, Teacherz. Expo, TypeScript, Supabase, Superwall. https://huguesromain.com/en/experience/axiome
-- Recto AI — Founder & Product Engineer (2026 – present). Mobile app that explains the hard passages of a book; in preparation for the App Store. Expo, TypeScript, Supabase, RevenueCat, ML Kit. https://huguesromain.com/en/experience/recto
-- theTribe — Full-stack freelance (Oct 2025 – 2026). Teamway, HomeExchange Day, Aleteia.
-- Ida — Full-Stack freelance (Sept 2024 – Sept 2025). Fresh-produce B2B ordering. FastAPI, React.
-- Microdoing — Full-Stack work-study (2022 – 2023, Paris).
-- Alobees — Full-Stack work-study (2021 – 2022, Paris).
-- Ouihelp — Front-End work-study (2019 – 2021, Paris).
+- StratBuy: Product design, engineering & strategy (Sept 2026 to present). SaaS platform for managing procurement. Turborepo, Next.js, Auth.js, Prisma, PostgreSQL. https://huguesromain.com/en/experience/stratbuy
+- Sinea Formation: Lead Full-Stack Engineer (Sept 2025 to present). B2B soft-skills platform. Expo/React Native, NestJS, Prisma, PostgreSQL.
+- aiOrigin: Co-founder & Lead Engineer (Feb 2026 to 2026, ended). Multi-tenant SaaS of autonomous AI agents for the enterprise. FastAPI, React/TypeScript, Docker, PostgreSQL, Redis, Temporal Cloud. Multi-provider agents (Claude Agent SDK + LiteLLM). https://huguesromain.com/en/experience/aiorigin
+- Axiome App Studio: Founder & Product Engineer (2025 to present). Consumer mobile apps shipped solo: Belle (AI beauty advisor), Koji (gut health), Tanzy, KnuckleMax, Teacherz. Expo, TypeScript, Supabase, Superwall. https://huguesromain.com/en/experience/axiome
+- Recto AI: Founder & Product Engineer (2026 to present). Mobile app that explains the hard passages of a book; in preparation for the App Store. Expo, TypeScript, Supabase, RevenueCat, ML Kit. https://huguesromain.com/en/experience/recto
+- theTribe: Full-stack freelance (Oct 2025 to 2026). Teamway, HomeExchange Day, Aleteia.
+- Ida: Full-Stack freelance (Sept 2024 to Sept 2025). Fresh-produce B2B ordering. FastAPI, React.
+- Microdoing: Full-Stack engineer (2022 to 2023, Paris).
+- Alobees: Full-Stack engineer (2021 to 2022, Paris).
+- Ouihelp: Front-End engineer (2019 to 2021, Paris).
 
 ## Personal products
 
@@ -53,5 +52,4 @@ Codes with Cursor; ships fast or goes slow and precise depending on the problem.
 
 https://huguesromain.com/en
 https://huguesromain.com/fr
-https://huguesromain.com/en/blog
 https://huguesromain.com/llms.txt
