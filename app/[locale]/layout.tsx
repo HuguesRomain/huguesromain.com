@@ -38,12 +38,12 @@ export async function generateMetadata({
   const profile = getProfile(locale);
   const description =
     locale === "fr"
-      ? "Hugues Romain, ingénieur logiciel et architecte IA freelance à Nice. Workflows et agents IA, produits web et mobile de bout en bout."
-      : "Hugues Romain, freelance software engineer and AI architect in Nice. I design and ship AI workflows and agents, and build web and mobile products end to end.";
+      ? "Hugues Romain, ingénieur logiciel et spécialiste IA freelance à Nice. Workflows et agents IA, produits web et mobile de bout en bout."
+      : "Hugues Romain, freelance software engineer and AI specialist in Nice. I design and ship AI workflows and agents, and build web and mobile products end to end.";
   const title = `${profile.name} · ${
     locale === "fr"
-      ? "Ingénieur logiciel, architecte IA"
-      : "Software engineer & AI architect"
+      ? "Senior Software Engineer · AI Specialist"
+      : "Senior Software Engineer · AI Specialist"
   }`;
   return {
     metadataBase: new URL(SITE_URL),

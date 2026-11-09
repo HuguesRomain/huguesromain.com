@@ -5,7 +5,7 @@ export const profileFr: Profile = {
   locale: "fr",
   name: "Hugues Romain",
   tagline:
-    "Ingénieur logiciel, architecte IA, freelance · workflows et agents IA, produits web & mobile de bout en bout · Nice",
+    "Ingénieur logiciel, spécialiste IA, freelance · workflows et agents IA, produits web & mobile de bout en bout · Nice",
   heroFirstName: "Hugues",
   heroLastName: "Romain",
   sections: {
@@ -251,7 +251,7 @@ export const profileFr: Profile = {
   ],
   about: {
     paragraphs: [
-      "Ingénieur logiciel et architecte IA freelance à Nice depuis 2024, je conçois et construis des produits web et mobiles de bout en bout. Je crée et mets en production des workflows et des agents IA. Diplômé d'HETIC, passé par Ouihelp, Alobees puis Microdoing, j'accompagne aujourd'hui StratBuy, du design produit à la stratégie business, et je lance Recto AI, une app qui explique les passages difficiles d'un livre.",
+      "Ingénieur logiciel et spécialiste IA freelance à Nice depuis 2024, je conçois et construis des produits web et mobiles de bout en bout. Je crée et mets en production des workflows et des agents IA. Diplômé d'HETIC, passé par Ouihelp, Alobees puis Microdoing, j'accompagne aujourd'hui StratBuy, du design produit à la stratégie business, et je lance Recto AI, une app qui explique les passages difficiles d'un livre.",
       "Je prends un projet du cadrage à la mise en production : design produit, architecture, code, publication sur les stores et suivi après le lancement. Je travaille en remote, en français comme en anglais.",
     ],
     portrait: "/images/portrait.webp",

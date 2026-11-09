@@ -21,9 +21,9 @@ export function personJsonLd() {
     url: SITE_URL,
     image: PORTRAIT,
     email: CONTACT_EMAIL,
-    jobTitle: "Software engineer & AI architect",
+    jobTitle: "Senior Software Engineer · AI Specialist",
     description:
-      "Freelance software engineer and AI architect based in Nice, France. Designs and ships AI workflows and agents, and builds web and mobile products end to end.",
+      "Freelance software engineer and AI specialist based in Nice, France. Designs and ships AI workflows and agents, and builds web and mobile products end to end.",
     knowsLanguage: ["fr", "en"],
     knowsAbout: [
       "TypeScript",

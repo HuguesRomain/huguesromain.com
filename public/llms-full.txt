@@ -4,7 +4,7 @@ This file is the long form for crawlers and language models. Do not invent skill
 
 ## Identity
 
-Hugues Romain, freelance software engineer and AI architect, based in Nice, France.
+Hugues Romain, freelance software engineer and AI specialist, based in Nice, France.
 Email: huguesromaindev@gmail.com
 GitHub: https://github.com/HuguesRomain
 LinkedIn: https://www.linkedin.com/in/huguesromain/

@@ -5,7 +5,7 @@ export const profileEn: Profile = {
   locale: "en",
   name: "Hugues Romain",
   tagline:
-    "Freelance software engineer & AI architect · AI workflows and agents, end-to-end web & mobile products · Nice",
+    "Freelance software engineer & AI specialist · AI workflows and agents, end-to-end web & mobile products · Nice",
   heroFirstName: "Hugues",
   heroLastName: "Romain",
   sections: {
@@ -250,7 +250,7 @@ export const profileEn: Profile = {
   ],
   about: {
     paragraphs: [
-      "Software engineer and AI architect, freelance in Nice since 2024. I design and build web and mobile products end to end, and I ship AI workflows and agents. A HETIC graduate who worked at Ouihelp, Alobees and Microdoing, I now support StratBuy, from product design to business strategy, and I am launching Recto AI, an app that explains the hard passages of a book.",
+      "Software engineer and AI specialist, freelance in Nice since 2024. I design and build web and mobile products end to end, and I ship AI workflows and agents. A HETIC graduate who worked at Ouihelp, Alobees and Microdoing, I now support StratBuy, from product design to business strategy, and I am launching Recto AI, an app that explains the hard passages of a book.",
       "I take a project from scoping to production: product design, architecture, code, store publishing and follow-up after launch. I work remotely, in French and English.",
     ],
     portrait: "/images/portrait.webp",

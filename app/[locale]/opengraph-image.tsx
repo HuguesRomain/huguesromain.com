@@ -6,7 +6,7 @@ import { getProfile, isLocale, LOCALES } from "@/content/get-profile";
 export const runtime = "nodejs";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
-export const alt = "Hugues Romain, Full-stack engineer & AI architect";
+export const alt = "Hugues Romain, Senior Software Engineer · AI Specialist";
 
 const CARD = { width: 1080, height: 510 };
 
@@ -48,8 +48,8 @@ export default async function OpengraphImage({
   const cardTop = (size.height - CARD.height) / 2;
   const role =
     resolved === "fr"
-      ? "Ingénieur full-stack, architecte IA"
-      : "Full-stack engineer & AI architect";
+      ? "Senior Software Engineer · AI Specialist"
+      : "Senior Software Engineer · AI Specialist";
   const tagline =
     resolved === "fr"
       ? "Je crée et mets en production des workflows et des agents IA."

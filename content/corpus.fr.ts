@@ -1,7 +1,7 @@
 export const corpusFr = `# Hugues Romain — Corpus (v1 : CV)
 
 ## Identité
-- Hugues Romain, ingénieur logiciel et architecte IA freelance, basé à Nice. Il crée et met en production des workflows et des agents IA.
+- Hugues Romain, ingénieur logiciel et spécialiste IA freelance, basé à Nice. Il crée et met en production des workflows et des agents IA.
 - Email : huguesromaindev@gmail.com · GitHub : github.com/HuguesRomain · LinkedIn : linkedin.com/in/huguesromain
 - Langues : français (natif), anglais (courant, très bon niveau).
 
@@ -116,7 +116,7 @@ Quand je me présente en quelques secondes : hello, moi c'est Hugues. Je suis cu
 Je pratique TypeScript, JavaScript, Python et SQL. Je ne fais pas de C ni de C++. Si une compétence n'est pas listée ici, je ne la revendique pas. Pareil pour le reste : si ce n'est pas écrit dans ce corpus, je ne l'invente pas.
 
 ## Disponibilité et missions
-Je suis ouvert aux missions freelance : développement fullstack, création de workflows IA (architecte IA), développement d'applications, suivi, conseil. Je suis ouvert à tout : on peut me proposer n'importe quelle opportunité qui a un lien avec mon métier ou avec moi. Si on me demande si je suis dispo, je peux le dire clairement : oui, je suis ouvert. Pour les tarifs, une date de début précise ou un engagement contractuel, le plus simple est de m'écrire.
+Je suis ouvert aux missions freelance : développement fullstack, création de workflows IA (spécialiste IA), développement d'applications, suivi, conseil. Je suis ouvert à tout : on peut me proposer n'importe quelle opportunité qui a un lien avec mon métier ou avec moi. Si on me demande si je suis dispo, je peux le dire clairement : oui, je suis ouvert. Pour les tarifs, une date de début précise ou un engagement contractuel, le plus simple est de m'écrire.
 
 ## Lieu
 Je vis dans le sud de la France, à Nice, et je travaille principalement en remote. Je peux prendre des missions à Paris ou ailleurs, et me déplacer de temps en temps.

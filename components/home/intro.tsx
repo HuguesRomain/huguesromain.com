@@ -23,8 +23,8 @@ export function Intro({ profile }: { profile: Profile }) {
           </h1>
           <p className="text-[15px] text-text-muted">
             {fr
-              ? "Ingénieur logiciel, architecte IA"
-              : "Software engineer & AI architect"}
+              ? "Senior Software Engineer · AI Specialist"
+              : "Senior Software Engineer · AI Specialist"}
           </p>
         </div>
       </div>
@@ -75,8 +75,8 @@ export function Intro({ profile }: { profile: Profile }) {
       <div className="flex flex-col gap-4">
         <p className="text-[16px] leading-[1.65] text-text">
           {fr
-            ? "Ingénieur logiciel et architecte IA freelance à Nice. Je conçois et construis des produits web et mobiles de bout en bout, avec des agents IA qui tournent en production."
-            : "Freelance software engineer and AI architect in Nice. I design and build web and mobile products end to end, with AI agents running in production."}
+            ? "Ingénieur logiciel senior et spécialiste IA freelance à Nice. Je conçois et construis des produits web et mobiles de bout en bout, avec des agents IA qui tournent en production."
+            : "Freelance senior software engineer and AI specialist in Nice. I design and build web and mobile products end to end, with AI agents running in production."}
         </p>
         <p className="text-[15px] leading-[1.65] text-text-muted">
           {profile.about.paragraphs[1]}

@@ -1,7 +1,7 @@
 export const corpusEn = `# Hugues Romain — Corpus (v1: résumé)
 
 ## Identity
-- Hugues Romain, freelance software engineer & AI architect, based in Nice, France. He designs and ships AI workflows and agents.
+- Hugues Romain, freelance software engineer & AI specialist, based in Nice, France. He designs and ships AI workflows and agents.
 - Email: huguesromaindev@gmail.com · GitHub: github.com/HuguesRomain · LinkedIn: linkedin.com/in/huguesromain
 - Languages: French (native), English (fluent, strong level).
 
@@ -116,7 +116,7 @@ When I introduce myself in a few seconds: hello, I'm Hugues. I'm curious about p
 I work with TypeScript, JavaScript, Python and SQL. I don't do C or C++. If a skill is not listed here, I don't claim it. Same for everything else: if it isn't written in this corpus, I don't invent it.
 
 ## Availability and missions
-I'm open to freelance work: full-stack development, building AI workflows (AI architect), app development, ongoing support, consulting. I'm open to anything: anyone can reach out about an opportunity that relates to my work or to me. If someone asks whether I'm available, I can say it plainly: yes, I'm open. For rates, a precise start date, or a contractual commitment, the easiest is to email me.
+I'm open to freelance work: full-stack development, building AI workflows (AI specialist), app development, ongoing support, consulting. I'm open to anything: anyone can reach out about an opportunity that relates to my work or to me. If someone asks whether I'm available, I can say it plainly: yes, I'm open. For rates, a precise start date, or a contractual commitment, the easiest is to email me.
 
 ## Place
 I live in the south of France, in Nice, and I mostly work remotely. I can take on missions in Paris or elsewhere, and travel from time to time.

@@ -1,6 +1,6 @@
 # Hugues Romain
 
-Hugues Romain is a freelance software engineer and AI architect based in Nice, France.
+Hugues Romain is a freelance software engineer and AI specialist based in Nice, France.
 He designs and ships AI workflows and agents, and builds web and mobile products end to end. He builds and supports StratBuy (product design, engineering, business strategy), runs Orbi (a prompting coach that lives inside AI assistants, get-orbi.com) and is launching Recto AI.
 
 - Site: https://huguesromain.com
