@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { createRenderer, FLASH } from "@/lib/ascii-black-hole";
 
-// The opening plays the model twice as fast: the flash lands at 4.5 s.
-const SPEED = 2;
+// The opening plays the model 3.5x as fast: the flash lands at about 2.6 s.
+const SPEED = 3.5;
 const FADE_MS = 650;
 
 type Phase = "play" | "flash" | "done";
