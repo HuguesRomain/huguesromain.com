@@ -179,9 +179,9 @@ export function PromptBar({
               {animatePlaceholder ? (
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute inset-0 flex items-center py-2.5 text-[16px] leading-[1.6] text-text-muted sm:text-[14px]"
+                  className="pointer-events-none absolute inset-0 flex min-w-0 items-center overflow-hidden whitespace-nowrap py-2.5 text-[16px] leading-[1.6] text-text-muted sm:text-[14px]"
                 >
-                  {placeholder}
+                  <span className="min-w-0 truncate">{placeholder}</span>
                   <span className="prompt-ph-caret" />
                 </span>
               ) : null}
@@ -206,7 +206,7 @@ export function PromptBar({
                   autoGrow();
                 }}
                 onKeyDown={onKeyDown}
-                className="prompt-input min-h-[42px] w-full resize-none bg-transparent py-2.5 text-[16px] leading-[1.6] text-text sm:text-[15px]"
+                className="prompt-input block min-h-[42px] w-full resize-none bg-transparent py-[9px] text-[16px] leading-6 text-text sm:text-[15px]"
               />
             </div>
             <AskButton
