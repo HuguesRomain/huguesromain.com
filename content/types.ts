@@ -16,6 +16,22 @@ export interface StackGroup {
   items: readonly string[];
 }
 
+export interface Offer {
+  tag: string;
+  highlight?: boolean;
+  title: string;
+  audience: string;
+  bullets: readonly string[];
+  format: string;
+}
+
+export interface Offers {
+  title: string;
+  intro: string;
+  items: readonly Offer[];
+  cta: { label: string };
+}
+
 export interface ChatStrings {
   promptHeading: string;
   placeholders: readonly string[];
@@ -48,6 +64,7 @@ export interface Profile {
     about: { label: string; title: string };
     contact: { label: string; title: string };
   };
+  offers: Offers;
   projects: readonly Project[];
   stack: readonly StackGroup[];
   about: {

@@ -13,6 +13,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: SITE_MODIFIED,
       alternates: { languages: localeAlternateUrls("") },
     },
+    {
+      url: `${SITE_URL}/${locale}/services`,
+      lastModified: SITE_MODIFIED,
+      alternates: { languages: localeAlternateUrls("services") },
+    },
     ...(BLOG_ENABLED
       ? [
           {

@@ -14,6 +14,54 @@ export const profileFr: Profile = {
     about: { label: "003 / ABOUT", title: "About" },
     contact: { label: "004 / CONTACT", title: "Contact" },
   },
+  offers: {
+    title: "Mes offres",
+    intro:
+      "Trois façons de travailler ensemble, du renfort dans votre équipe produit à l'automatisation des tâches répétitives de votre PME.",
+    items: [
+      {
+        tag: "Startups & scale-ups",
+        title: "Product engineer en renfort",
+        audience:
+          "Pour les équipes tech réduites qui ont besoin de livrer vite, sans relais entre produit, design et dev.",
+        bullets: [
+          "Une feature prise du besoin flou jusqu'à la prod, web et mobile",
+          "Cadrage, design produit, développement et mise en production, jusqu'à la publication sur les stores",
+          "Opérationnel en quelques jours, à l'aise dans les petites équipes",
+        ],
+        format: "Régie au TJM · 3 à 6 mois · remote",
+      },
+      {
+        tag: "Produits avec IA",
+        title: "Agents IA en production",
+        audience:
+          "Pour faire passer un POC IA à une feature fiable, qui tourne en prod et dont on maîtrise les coûts.",
+        bullets: [
+          "Agents et orchestration multi-agents, plusieurs LLM interchangeables",
+          "RAG sur vos données, streaming temps réel, MCP",
+          "Observabilité et coûts suivis : Langfuse, Temporal, Sentry",
+        ],
+        format: "Mission ou régie · selon le périmètre",
+      },
+      {
+        tag: "Nouveau · TPE & PME",
+        highlight: true,
+        title: "Automatisation IA de vos process",
+        audience:
+          "Pour les dirigeants qui perdent des heures sur des tâches répétitives : emails, documents, relances, reporting.",
+        bullets: [
+          "Workflows IA branchés sur vos outils : tri des emails, extraction de documents, relances, rapports",
+          "Agents IA pré-configurés (Hermes Agent, OpenClaw) installés sur votre serveur, joignables sur Slack, Telegram ou WhatsApp",
+          "Assistant qui répond à partir de vos documents internes",
+          "Sécurisé : droits minimaux, validation humaine des actions sensibles, données chez vous",
+        ],
+        format: "Projet au forfait · de quelques jours à quelques semaines",
+      },
+    ],
+    cta: {
+      label: "Parler de votre projet",
+    },
+  },
   projects: [
     {
       slug: "stratbuy",
@@ -270,6 +318,7 @@ export const profileFr: Profile = {
   chat: {
     promptHeading: "Je suis dispo pour discuter, ici ! 😁",
     placeholders: [
+      "Tu peux automatiser des tâches dans ma PME ?",
       "Tu es dispo en ce moment ?",
       "C'est quoi ton parcours ?",
       "T'habites où, tu travailles comment ?",
@@ -277,8 +326,8 @@ export const profileFr: Profile = {
     ],
     chips: [
       "Tu es dispo en ce moment ?",
-      "C'est quoi ton parcours ?",
-      "T'habites où, tu travailles comment ?",
+      "Qu'est-ce que tu proposes ?",
+      "Tu peux automatiser des tâches dans ma PME ?",
     ],
     panelTitle: "Discussion avec Hugues",
     youLabel: "Vous",

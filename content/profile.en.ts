@@ -14,6 +14,54 @@ export const profileEn: Profile = {
     about: { label: "003 / ABOUT", title: "About" },
     contact: { label: "004 / CONTACT", title: "Contact" },
   },
+  offers: {
+    title: "Services",
+    intro:
+      "Three ways to work together, from joining your product team to automating the repetitive work of a small business.",
+    items: [
+      {
+        tag: "Startups & scale-ups",
+        title: "Embedded product engineer",
+        audience:
+          "For small tech teams that need to ship fast, with no hand-offs between product, design and dev.",
+        bullets: [
+          "A feature taken from a fuzzy need all the way to production, web and mobile",
+          "Scoping, product design, development and release, all the way to app store publishing",
+          "Productive within days, used to small teams",
+        ],
+        format: "Day rate · 3 to 6 months · remote",
+      },
+      {
+        tag: "AI products",
+        title: "AI agents in production",
+        audience:
+          "To turn an AI proof of concept into a reliable feature that runs in production with controlled costs.",
+        bullets: [
+          "Agents and multi-agent orchestration, interchangeable LLMs",
+          "RAG on your data, real-time streaming, MCP",
+          "Observability and cost tracking: Langfuse, Temporal, Sentry",
+        ],
+        format: "Project or day rate · depending on scope",
+      },
+      {
+        tag: "New · Small businesses",
+        highlight: true,
+        title: "AI automation of your processes",
+        audience:
+          "For business owners losing hours on repetitive work: emails, documents, follow-ups, reporting.",
+        bullets: [
+          "AI workflows connected to your tools: email triage, document extraction, follow-ups, reports",
+          "Pre-configured AI agents (Hermes Agent, OpenClaw) installed on your own server, reachable on Slack, Telegram or WhatsApp",
+          "An assistant that answers from your internal documents",
+          "Secure: minimal permissions, human approval for sensitive actions, your data stays with you",
+        ],
+        format: "Fixed-price project · a few days to a few weeks",
+      },
+    ],
+    cta: {
+      label: "Talk about your project",
+    },
+  },
   projects: [
     {
       slug: "stratbuy",
@@ -269,6 +317,7 @@ export const profileEn: Profile = {
   chat: {
     promptHeading: "I'm here if you want to chat! 😁",
     placeholders: [
+      "Can you automate tasks in my business?",
       "Are you available right now?",
       "What's your background?",
       "Where are you based, how do you work?",
@@ -276,8 +325,8 @@ export const profileEn: Profile = {
     ],
     chips: [
       "Are you available right now?",
-      "What's your background?",
-      "Where are you based, how do you work?",
+      "What services do you offer?",
+      "Can you automate tasks in my business?",
     ],
     panelTitle: "Chat with Hugues",
     youLabel: "You",
