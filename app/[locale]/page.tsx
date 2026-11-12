@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { BlackHole } from "@/components/home/black-hole";
 import { BlogList } from "@/components/home/blog-list";
 import { Clients } from "@/components/home/clients";
 import { CompanyExperience } from "@/components/home/company-experience";
@@ -10,12 +11,6 @@ import { Stack } from "@/components/home/stack";
 import { JsonLd } from "@/components/seo/json-ld";
 import { getProfile, isLocale } from "@/content/get-profile";
 import { homeJsonLd } from "@/lib/json-ld";
-
-const FOOTER_ASCII = `    .:.
-   :=+=:
-  :#   #:
- :#     #:
-:#=======#:`;
 
 export default async function Home({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
@@ -37,12 +32,7 @@ export default async function Home({ params }: PageProps<"/[locale]">) {
         <p className="text-[12px] text-text-muted">
           © {new Date().getFullYear()} Hugues Romain
         </p>
-        <pre
-          aria-hidden="true"
-          className="select-none font-mono text-[10px] leading-[1.05] text-text-muted opacity-70"
-        >
-          {FOOTER_ASCII}
-        </pre>
+        <BlackHole />
       </footer>
     </div>
   );

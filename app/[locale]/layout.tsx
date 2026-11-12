@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import "../globals.css";
 import { GlassFilter } from "@/components/ui/glass-filter";
 import { SiteNav } from "@/components/site-nav";
+import { SplashIntro } from "@/components/splash-intro";
 import { getProfile, isLocale, LOCALES } from "@/content/get-profile";
 import { localeAlternates, SITE_URL } from "@/lib/site";
 
@@ -89,11 +90,14 @@ export default async function LocaleLayout({
         <script
           dangerouslySetInnerHTML={{
             __html:
-              'try{if(localStorage.getItem("preferred-theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}',
+              'try{if(localStorage.getItem("preferred-theme")==="dark")document.documentElement.dataset.theme="dark"}catch(e){}' +
+              // opening black hole: once per session, never with reduced motion; failsafe after 8 s
+              'try{var d=document.documentElement;if(!sessionStorage.getItem("intro-seen")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){d.dataset.intro="1";setTimeout(function(){if(d.dataset.intro==="1"&&!window.__introStarted)delete d.dataset.intro},8000)}}catch(e){}',
           }}
         />
       </head>
       <body className="flex min-h-full flex-col bg-bg font-sans text-text">
+        <SplashIntro />
         <GlassFilter />
         <SiteNav locale={locale} />
         <main className="relative z-10 flex-1">{children}</main>

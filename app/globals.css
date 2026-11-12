@@ -612,3 +612,11 @@ html[data-theme="dark"] .sofia-chat {
     display: none;
   }
 }
+
+/* Opening black hole: shown only when the <head> script flags this visit */
+html:not([data-intro]) .splash-intro {
+  display: none;
+}
+html[data-intro="1"] body {
+  overflow: hidden;
+}
